@@ -1,0 +1,14 @@
+{
+  "name": "babel-plugin-espower",
+  "version": "1.0.0",
+  "description": "Babel plugin for power-assert",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Takuto Wada <takuto.wada@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^5.0.12"
+  }
+}
