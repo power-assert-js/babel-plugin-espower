@@ -9,11 +9,13 @@
   "author": "Takuto Wada <takuto.wada@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^5.0.12",
-    "escallmatch": "^1.1.0"
+    "escallmatch": "^1.2.0",
+    "espower": "file:../espower"
   },
   "devDependencies": {
-    "espurify": "^1.1.0",
     "mocha": "^2.2.4"
+  },
+  "peerDependencies": {
+    "babel-core": "^5.0.12"
   }
 }
