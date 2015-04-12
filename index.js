@@ -66,6 +66,16 @@ function exitTraversalPath (traversalPath, currentNode, parentNode, scope, file)
 
 function collectPath (stack, traversalPath) {
     stack.push(traversalPath.key);
+    if (Array.isArray(traversalPath.container)) { // traversing array via TraversalContext#visitMultiple
+        var parentNode = traversalPath.parent;
+        var candidateKeys = t.VISITOR_KEYS[parentNode.type].filter(function (key) {
+            return parentNode[key] === traversalPath.container;
+        });
+        if (candidateKeys.length === 1) {
+            var currentTraversingKey = candidateKeys[0];
+            stack.push(currentTraversingKey);
+        }
+    }
     if (traversalPath.parentPath !== traversalPath) { // root node
         collectPath(stack, traversalPath.parentPath);
     }
