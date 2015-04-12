@@ -1,5 +1,6 @@
 var Transformer = require('babel-core').Transformer;
 var t = require('babel-core').types;
+var escallmatch = require('escallmatch');
 
 function collectPath (stack, traversalPath) {
     stack.push(traversalPath.key);
@@ -15,18 +16,20 @@ function esPath (traversalPath) {
     return stack;
 }
 
-module.exports = new Transformer('babel-plugin-espower', {
-    MemberExpression: function (node, parent, scope, file) {
-        var paths = esPath(this);
-        console.log(paths.join('/'));
-    },
-    FunctionDeclaration: function (node, parent, scope, file) {
-        var id = node.id;
-        node.type = 'FunctionExpression';
-        node.id   = null;
+var options = {};
 
-        return t.variableDeclaration('var', [
-            t.variableDeclarator(id, node)
-        ]);
+module.exports = new Transformer('babel-plugin-espower', {
+    CallExpression: function (node, parent, scope, file) {
+        // if (this.matchesPattern('assert.equal', true)) {
+        //     console.log('########## match');
+        // } else {
+        //     console.log('########## doesnt match');
+        // }
+        var matcher = escallmatch('assert(actual, [message])');
+        // var matcher = escallmatch('assert.equal(actual, expected, [message])');
+        if (matcher.test(node)) {
+            var paths = esPath(this);
+            console.log('########## match ' + paths.join('/'));
+        }
     }
-});
+}, options);

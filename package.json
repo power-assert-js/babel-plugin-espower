@@ -4,11 +4,16 @@
   "description": "Babel plugin for power-assert",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Takuto Wada <takuto.wada@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^5.0.12"
+    "babel-core": "^5.0.12",
+    "escallmatch": "^1.1.0"
+  },
+  "devDependencies": {
+    "espurify": "^1.1.0",
+    "mocha": "^2.2.4"
   }
 }
