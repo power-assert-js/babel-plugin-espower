@@ -16,7 +16,7 @@ function testTransform (fixtureName, extraOptions) {
         var actual = babel.transform(fixture, extend({}, {
             plugins: ['../index']
         }, extraOptions)).code;
-        // fs.writeFileSync(path.resolve(__dirname, 'output.js'), actual);
+        // fs.writeFileSync(path.resolve(__dirname, '..', 'output.js'), actual);
         assert.equal(actual + '\n', expected);
     });
 }
@@ -27,4 +27,6 @@ describe('as a babel plugin', function () {
     testTransform('filepath', {
         filename: '/path/to/test/some_test.js'
     });
+
+    testTransform('inputSourceMap');
 });

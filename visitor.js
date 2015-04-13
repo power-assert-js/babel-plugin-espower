@@ -24,7 +24,8 @@ function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file
             // console.log('########## entering assertion ' + path.join('/'));
             var espowerOptions = {};
             espowerOptions.path = file.opts.filename; // or opts.sourceFileName?
-            assertionVisitor = new espower.AssertionVisitor(candidates[0], path, null, espowerOptions);
+            espowerOptions.sourceMap = file.opts.inputSourceMap;
+            assertionVisitor = new espower.AssertionVisitor(candidates[0], path, espowerOptions);
             assertionVisitor.enter(currentNode, parentNode);
             traversalPath.state.data['espowerAssertionVisitor'] = assertionVisitor;
         }
