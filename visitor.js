@@ -22,7 +22,9 @@ function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file
         var candidates = matchers.filter(function (matcher) { return matcher.test(currentNode); });
         if (candidates.length === 1) {
             // console.log('########## entering assertion ' + path.join('/'));
-            assertionVisitor = new espower.AssertionVisitor(candidates[0], path);
+            var espowerOptions = {};
+            espowerOptions.path = file.opts.filename; // or opts.sourceFileName?
+            assertionVisitor = new espower.AssertionVisitor(candidates[0], path, null, espowerOptions);
             assertionVisitor.enter(currentNode, parentNode);
             traversalPath.state.data['espowerAssertionVisitor'] = assertionVisitor;
         }

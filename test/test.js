@@ -8,9 +8,12 @@ var babel = require('babel-core');
 
 function testTransform (fixtureName) {
     it(fixtureName, function () {
-        var fixture = fs.readFileSync(path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js')).toString();
+        var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
+        var fixture = fs.readFileSync(fixtureFilepath).toString();
         var expected = fs.readFileSync(path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js')).toString();
+        // var actual = babel.transformFileSync(fixtureFilepath, {
         var actual = babel.transform(fixture, {
+            filename: '/path/to/test/some_test.js',
             plugins: ['../index']
         }).code;
         assert.equal(actual + '\n', expected);
