@@ -3,7 +3,6 @@
 var espower = require('espower');
 var escallmatch = require('escallmatch');
 var matchers = espower.defaultOptions().patterns.map(escallmatch);
-var t = require('babel-core').types;
 var esPath = require('./lib/babel-estree-path');
 
 function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file) {
