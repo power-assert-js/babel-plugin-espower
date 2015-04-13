@@ -1,20 +1,13 @@
 {
   "name": "babel-plugin-espower",
-  "version": "1.0.0",
   "description": "Babel plugin for power-assert",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
+  "version": "0.0.1",
+  "author": {
+    "name": "Takuto Wada",
+    "email": "takuto.wada@gmail.com",
+    "url": "http://github.com/twada"
   },
-  "files": [
-    "index.js",
-    "visitor.js",
-    "lib",
-    "package.json",
-    "test"
-  ],
-  "author": "Takuto Wada <takuto.wada@gmail.com>",
-  "license": "MIT",
+  "bugs": "https://github.com/twada/babel-plugin-espower/issues",
   "dependencies": {
     "escallmatch": "^1.2.0",
     "espower": "file:../espower"
@@ -22,7 +15,38 @@
   "devDependencies": {
     "mocha": "^2.2.4"
   },
+  "files": [
+    "README.md",
+    "index.js",
+    "visitor.js",
+    "lib",
+    "package.json",
+    "test"
+  ],
+  "homepage": "http://github.com/twada/babel-plugin-espower",
+  "keywords": [
+    "assert",
+    "assertion",
+    "babel",
+    "babel-plugin",
+    "power-assert",
+    "test",
+    "testing",
+    "transform"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "http://twada.mit-license.org/"
+  },
+  "main": "index.js",
   "peerDependencies": {
     "babel-core": "^5.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/twada/babel-plugin-espower.git"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
