@@ -2,6 +2,6 @@
 
 assert(assert._expr(assert._capt(truthy, 'arguments/0'), {
   content: 'assert(truthy)',
-  filepath: 'unknown',
+  filepath: '/path/to/test/some_test.js',
   line: 3
 }));
