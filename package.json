@@ -9,6 +9,7 @@
   "files": [
     "index.js",
     "visitor.js",
+    "lib",
     "package.json",
     "test"
   ],

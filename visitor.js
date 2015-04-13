@@ -2,6 +2,7 @@ var espower = require('espower');
 var escallmatch = require('escallmatch');
 var matchers = espower.defaultOptions().patterns.map(escallmatch);
 var t = require('babel-core').types;
+var esPath = require('./lib/babel-estree-path');
 
 function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file) {
     var path = esPath(traversalPath);
@@ -58,30 +59,6 @@ function exitTraversalPath (traversalPath, currentNode, parentNode, scope, file)
             resultTree = assertionVisitor.leaveArgument(resultTree);
         }
         traversalPath.replaceWith(resultTree);
-    }
-}
-
-function esPath (traversalPath) {
-    var ancestors = [];
-    traverseUp(ancestors, traversalPath);
-    ancestors.reverse();
-    return ancestors;
-}
-
-function traverseUp (ancestors, traversalPath) {
-    ancestors.push(traversalPath.key);
-    if (Array.isArray(traversalPath.container)) { // traversing array via TraversalContext#visitMultiple
-        var parentNode = traversalPath.parent;
-        var candidateKeys = t.VISITOR_KEYS[parentNode.type].filter(function (key) {
-            return parentNode[key] === traversalPath.container; // searching for current key in parentNode
-        });
-        if (candidateKeys.length === 1) {
-            var currentTraversingKey = candidateKeys[0]; // ex. 'arguments' in CallExpression
-            ancestors.push(currentTraversingKey);
-        }
-    }
-    if (traversalPath.parentPath !== traversalPath) { // root node
-        traverseUp(ancestors, traversalPath.parentPath);
     }
 }
 
