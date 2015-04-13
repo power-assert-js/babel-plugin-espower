@@ -3,10 +3,10 @@
 var espower = require('espower');
 var escallmatch = require('escallmatch');
 var matchers = espower.defaultOptions().patterns.map(escallmatch);
-var esPath = require('./lib/babel-estree-path');
+var esTreePath = require('./lib/babel-estree-path');
 
 function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file) {
-    var path = esPath(traversalPath);
+    var path = esTreePath(traversalPath);
     var currentPath = path ? path[path.length - 1] : null;
     var assertionVisitor = traversalPath.state.data['espowerAssertionVisitor'];
     if (assertionVisitor) {
@@ -30,7 +30,7 @@ function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file
 }
 
 function exitTraversalPath (traversalPath, currentNode, parentNode, scope, file) {
-    var path = esPath(traversalPath);
+    var path = esTreePath(traversalPath);
     var resultTree = currentNode;
     var assertionVisitor = traversalPath.state.data['espowerAssertionVisitor'];
     if (!assertionVisitor) {
