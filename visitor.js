@@ -7,11 +7,11 @@ var esTreePath = require('./lib/babel-estree-path');
 
 function enterTraversalPath (traversalPath, currentNode, parentNode, scope, file) {
     var path = esTreePath(traversalPath);
-    var currentPath = path ? path[path.length - 1] : null;
+    var currentKey = traversalPath.key;
     var assertionVisitor = traversalPath.state.data['espowerAssertionVisitor'];
     if (assertionVisitor) {
         // console.log('########## found assertionVisitor ' + path.join('/'));
-        if (espower.rules.toBeSkipped(currentNode, parentNode, currentPath)) {
+        if (espower.rules.toBeSkipped(currentNode, parentNode, currentKey)) {
             traversalPath.state.data['espowerSkipping'] = true;
         }
         if (!assertionVisitor.isCapturingArgument()) {
