@@ -1,3 +1,5 @@
+'use strict';
+
 var espower = require('espower');
 var escallmatch = require('escallmatch');
 var matchers = espower.defaultOptions().patterns.map(escallmatch);
