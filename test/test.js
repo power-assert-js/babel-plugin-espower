@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var babel = require('babel-core');
 var extend = require('xtend');
+var espurify = require('espurify');
 
 //var it = it || function (name, func) { func(); };
 //var describe = describe || function (name, func) { func(); };
@@ -12,16 +13,18 @@ function testTransform (fixtureName, extraOptions) {
         var fixtureFilepath = path.resolve(__dirname, '..', 'fixtures', fixtureName, 'fixture.js');
         var fixture = fs.readFileSync(fixtureFilepath).toString();
         var expected = fs.readFileSync(path.resolve(__dirname, '..', 'fixtures', fixtureName, 'expected.js')).toString();
-        // var actual = babel.transformFileSync(fixtureFilepath, {
-        var actual = babel.transform(fixture, extend({}, {
+        var result = babel.transform(fixture, extend({}, {
+            ast: true,
             plugins: ['../index']
-        }, extraOptions)).code;
-        // fs.writeFileSync(path.resolve(__dirname, '..', 'output.js'), actual);
+        }, extraOptions));
+        // console.log(JSON.stringify(espurify(result.ast.program), null, 2));
+        var actual = result.code;
+        fs.writeFileSync(path.resolve(__dirname, '..', 'actual.js'), actual);
         assert.equal(actual + '\n', expected);
     });
 }
 
-describe('as a babel plugin', function () {
+describe('babel-plugin-espower', function () {
     testTransform('identifier');
 
     testTransform('filepath', {
@@ -29,4 +32,6 @@ describe('as a babel plugin', function () {
     });
 
     testTransform('inputSourceMap');
+
+    testTransform('arrow');
 });
