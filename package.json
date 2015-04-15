@@ -10,9 +10,10 @@
   "bugs": "https://github.com/twada/babel-plugin-espower/issues",
   "dependencies": {
     "escallmatch": "^1.2.0",
-    "espower": "twada/espower"
+    "espower": "git://github.com/twada/espower.git#es6"
   },
   "devDependencies": {
+    "espurify": "^1.1.0",
     "mocha": "^2.2.4",
     "xtend": "^4.0.0"
   },
