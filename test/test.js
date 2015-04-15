@@ -5,33 +5,41 @@ var babel = require('babel-core');
 var extend = require('xtend');
 var espurify = require('espurify');
 
-//var it = it || function (name, func) { func(); };
-//var describe = describe || function (name, func) { func(); };
-
 function testTransform (fixtureName, extraOptions) {
     it(fixtureName, function () {
-        var fixtureFilepath = path.resolve(__dirname, '..', 'fixtures', fixtureName, 'fixture.js');
-        var fixture = fs.readFileSync(fixtureFilepath).toString();
-        var expected = fs.readFileSync(path.resolve(__dirname, '..', 'fixtures', fixtureName, 'expected.js')).toString();
-        var result = babel.transform(fixture, extend({}, {
-            ast: true,
+        var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
+        var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
+        var result = babel.transform(fs.readFileSync(fixtureFilepath), extend({}, {
+            filename: path.relative(__dirname, fixtureFilepath),
             plugins: ['../index']
         }, extraOptions));
-        // console.log(JSON.stringify(espurify(result.ast.program), null, 2));
         var actual = result.code;
-        fs.writeFileSync(path.resolve(__dirname, '..', 'actual.js'), actual);
+        var expected = fs.readFileSync(expectedFilepath).toString();
         assert.equal(actual + '\n', expected);
     });
 }
 
 describe('babel-plugin-espower', function () {
-    testTransform('identifier');
-
-    testTransform('filepath', {
-        filename: '/path/to/test/some_test.js'
-    });
-
+    testTransform('NonTarget');
+    testTransform('Literal');
+    testTransform('Identifier');
+    testTransform('BinaryExpression');
+    testTransform('UnaryExpression');
+    testTransform('LogicalExpression');
+    testTransform('MemberExpression');
+    testTransform('CallExpression');
+    testTransform('AssignmentExpression');
+    testTransform('ArrayExpression');
+    testTransform('UpdateExpression');
+    testTransform('ConditionalExpression');
+    testTransform('ObjectExpression');
+    testTransform('NewExpression');
+    testTransform('FunctionExpression');
+    testTransform('TemplateLiteral');
+    testTransform('TaggedTemplateExpression');
+    testTransform('ArrowFunctionExpression');
+    testTransform('ClassExpression');
+    testTransform('SpreadElement');
+    testTransform('Property');
     testTransform('inputSourceMap');
-
-    testTransform('arrow');
 });
