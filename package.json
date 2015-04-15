@@ -9,7 +9,7 @@
   },
   "bugs": "https://github.com/twada/babel-plugin-espower/issues",
   "dependencies": {
-    "escallmatch": "^1.2.0",
+    "escallmatch": "^1.3.0",
     "espower": "git://github.com/twada/espower.git#es6"
   },
   "devDependencies": {
