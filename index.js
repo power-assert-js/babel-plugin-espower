@@ -1,14 +1,15 @@
+/**
+ * babel-plugin-espower:
+ *   Babel plugin for power-assert
+ * 
+ * https://github.com/twada/babel-plugin-espower
+ *
+ * Copyright (c) 2015 Takuto Wada
+ * Licensed under the MIT license.
+ *   http://twada.mit-license.org/
+ */
+'use strict';
+
 var Transformer = require('babel-core').Transformer;
-var t = require('babel-core').types;
-
-module.exports = new Transformer('plugin-example', {
-    FunctionDeclaration: function (node, parent) {
-        var id = node.id;
-        node.type = 'FunctionExpression';
-        node.id   = null;
-
-        return t.variableDeclaration('var', [
-            t.variableDeclarator(id, node)
-        ]);
-    }
-});
+var createEspowerVisitor = require('./lib/create-espower-visitor');
+module.exports = new Transformer('babel-plugin-espower', createEspowerVisitor());
