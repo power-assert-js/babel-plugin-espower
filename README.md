@@ -13,7 +13,27 @@ DESCRIPTION
 ---------------------------------------
 `babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/twada/power-assert).
 
-`power-assert` provides descriptive assertion messages through standard [assert](http://nodejs.org/api/assert.html) interface.
+`power-assert` provides descriptive assertion messages for your tests, like this.
+
+```
+  1) ES6 demo Destructuring and TemplateLiteral:
+
+      AssertionError:   # test/demo_test.js:7
+
+  assert(`${ alice.name } and ${ bob.name }` === `bob and alice`)
+         |   |     |             |   |       |   |
+         |   |     |             |   |       |   "bob and alice"
+         |   |     |             |   "bob"   false
+         |   |     "alice"       Object{name:"bob"}
+         |   Object{name:"alice"}
+         "alice and bob"
+
+  --- [string] `bob and alice`
+  +++ [string] `${ alice.name } and ${ bob.name }`
+  @@ -1,13 +1,13 @@
+  -bob and alice
+  +alice and bob
+```
 
 Please note that `babel-plugin-espower` is an alpha version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
 
