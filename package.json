@@ -24,6 +24,7 @@
   },
   "files": [
     "README.md",
+    "CHANGELOG.md",
     "index.js",
     "visitor.js",
     "lib",

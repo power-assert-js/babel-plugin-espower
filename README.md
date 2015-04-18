@@ -175,6 +175,11 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
 ```
 
 
+CHANGELOG
+---------------------------------------
+See [CHANGELOG](https://github.com/twada/babel-plugin-espower/blob/master/CHANGELOG.md)
+
+
 AUTHOR
 ---------------------------------------
 * [Takuto Wada](http://github.com/twada)
