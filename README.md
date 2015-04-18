@@ -24,24 +24,46 @@ $ npm install --save-dev babel-core babel-plugin-espower
 HOW TO USE
 ---------------------------------------
 
+
+### via Babel CLI
+
+[CLI · Babel](http://babeljs.io/docs/usage/cli/)
+
 ```
-$ babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ ./node_modules/.bin/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 or shortly,
 
 ```
-$ babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ ./node_modules/.bin/babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
-or programmatically,
+
+### via Babel API
+
+[API · Babel](http://babeljs.io/docs/usage/api/)
 
 ```javascript
+var babel = require('babel-core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
-var transformed = require('babel').transform(jsCode, {
+var transformed = babel.transform(jsCode, {
     plugins: ['babel-plugin-espower']
 });
 console.log(transformed.code);
+```
+
+
+### via Babel Require Hook
+
+[Require Hook · Babel](http://babeljs.io/docs/usage/require/)
+
+```
+require('babel-core/register')({
+    only: /test\/tobe_instrumented/,
+    plugins: ['babel-plugin-espower'],
+    extensions: ['.es6', '.js']
+});
 ```
 
 
@@ -80,7 +102,7 @@ describe('ES6 demo', () => {
 Run `babel` with `--plugins espower` to transform tests.
 
 ```
-$ babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
+$ ./node_modules/.bin/babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
 ```
 
 Then run. You will see the power-assert output appears.
