@@ -58,7 +58,7 @@ console.log(transformed.code);
 
 [Require Hook · Babel](http://babeljs.io/docs/usage/require/)
 
-```
+```javascript
 require('babel-core/register')({
     only: /test\/tobe_instrumented/,
     plugins: ['babel-plugin-espower'],
@@ -137,7 +137,7 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
   -bob and alice
   +alice and bob
 
-      at Context.<anonymous> (test-es5/demo_test.js:19:28)
+      at Context.<anonymous> (build/demo_test.js:19:28)
 
   2) ES6 demo ArrowFunctionExpression and SpreadElement:
 
@@ -154,7 +154,7 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
   [number] seven
   => 7
 
-      at Context.<anonymous> (test-es5/demo_test.js:29:28)
+      at Context.<anonymous> (build/demo_test.js:29:28)
 
   3) ES6 demo Enhanced Object Literals:
      AssertionError:   # test/demo_test.js:17
@@ -166,7 +166,7 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
                    |      "bobby's greet"
                    Object{name:"bobby","bobby's greet":"Hello, I'm bobby"}
 
-      at Context.<anonymous> (test-es5/demo_test.js:40:29)
+      at Context.<anonymous> (build/demo_test.js:40:29)
 ```
 
 
