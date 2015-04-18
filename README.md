@@ -3,6 +3,11 @@ babel-plugin-espower
 
 Babel plugin for power-assert.
 
+[![Build Status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][depstat-image]][depstat-url]
+[![License][license-image]][license-url]
+
 
 DESCRIPTION
 ---------------------------------------
@@ -178,3 +183,16 @@ AUTHOR
 LICENSE
 ---------------------------------------
 Licensed under the [MIT](http://twada.mit-license.org/) license.
+
+
+[npm-url]: https://npmjs.org/package/babel-plugin-espower
+[npm-image]: https://badge.fury.io/js/babel-plugin-espower.svg
+
+[travis-url]: http://travis-ci.org/twada/babel-plugin-espower
+[travis-image]: https://secure.travis-ci.org/twada/babel-plugin-espower.svg?branch=master
+
+[depstat-url]: https://gemnasium.com/twada/babel-plugin-espower
+[depstat-image]: https://gemnasium.com/twada/babel-plugin-espower.svg
+
+[license-url]: http://twada.mit-license.org/2014-2015
+[license-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg
