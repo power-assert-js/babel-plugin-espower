@@ -45,7 +45,7 @@
   },
   "main": "index.js",
   "peerDependencies": {
-    "babel-core": "^5.1.9"
+    "babel-core": "^5.1.10"
   },
   "repository": {
     "type": "git",
