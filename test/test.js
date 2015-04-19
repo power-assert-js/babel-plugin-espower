@@ -4,6 +4,7 @@ var path = require('path');
 var babel = require('babel-core');
 var extend = require('xtend');
 var espurify = require('espurify');
+var createEspowerPlugin = require('../create');
 
 function testTransform (fixtureName, extraOptions) {
     it(fixtureName, function () {
@@ -42,4 +43,15 @@ describe('babel-plugin-espower', function () {
     testTransform('SpreadElement');
     testTransform('Property');
     testTransform('inputSourceMap');
+    testTransform('customPatterns', {
+        plugins: [
+            createEspowerPlugin({
+                patterns: [
+                    'assert.isNull(object, [message])',
+                    'assert.same(actual, expected, [message])',
+                    'assert.near(actual, expected, delta, [message])'
+                ]
+            })
+        ]
+    });
 });

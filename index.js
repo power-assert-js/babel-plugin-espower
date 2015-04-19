@@ -10,6 +10,5 @@
  */
 'use strict';
 
-var Transformer = require('babel-core').Transformer;
-var createEspowerVisitor = require('./lib/create-espower-visitor');
-module.exports = new Transformer('babel-plugin-espower', createEspowerVisitor());
+var createEspowerPlugin = require('./create');
+module.exports = createEspowerPlugin();
