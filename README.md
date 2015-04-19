@@ -96,6 +96,12 @@ require('babel-core/register')({
 });
 ```
 
+For example, with `babel_hook.js` above, you can run mocha without code generation steps.
+
+```
+$ ./node_modules/.bin/mocha --require ./babel_hook /path/to/test/demo_test.js
+```
+
 
 EXAMPLE
 ---------------------------------------
