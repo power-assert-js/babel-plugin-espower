@@ -206,6 +206,30 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
 ```
 
 
+CUSTOMIZE
+---------------------------------------
+
+You can customize assertion patterns via [Babel API](http://babeljs.io/docs/usage/api/)
+
+```javascript
+var babel = require('babel-core');
+var createEspowerPlugin = require('babel-plugin-espower/create');
+var jsCode = fs.readFileSync('/path/to/test/some_test.js');
+var transformed = babel.transform(jsCode, {
+    plugins: [
+        createEspowerPlugin({
+            patterns: [
+                'assert.isNull(object, [message])',
+                'assert.same(actual, expected, [message])',
+                'assert.near(actual, expected, delta, [message])'
+            ]
+        })
+    ]
+});
+console.log(transformed.code);
+```
+
+
 CHANGELOG
 ---------------------------------------
 See [CHANGELOG](https://github.com/twada/babel-plugin-espower/blob/master/CHANGELOG.md)
