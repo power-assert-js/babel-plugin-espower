@@ -10,6 +10,6 @@ assert.same(foo, bar, message);
 
 assert.near(actualVal, expectedVal);
 
-assert.near(actualVal, expectedVal, message);
+assert.near(actualVal, expectedVal, delta);
 
 assert.near(actualVal, expectedVal, delta, message);

@@ -35,15 +35,15 @@ assert.same(assert._expr(assert._capt(foo, 'arguments/0'), {
 assert.near(actualVal, expectedVal);
 
 assert.near(assert._expr(assert._capt(actualVal, 'arguments/0'), {
-  content: 'assert.near(actualVal, expectedVal, message)',
+  content: 'assert.near(actualVal, expectedVal, delta)',
   filepath: 'fixtures/customPatterns/fixture.js',
   line: 13
 }), assert._expr(assert._capt(expectedVal, 'arguments/1'), {
-  content: 'assert.near(actualVal, expectedVal, message)',
+  content: 'assert.near(actualVal, expectedVal, delta)',
   filepath: 'fixtures/customPatterns/fixture.js',
   line: 13
-}), assert._expr(assert._capt(message, 'arguments/2'), {
-  content: 'assert.near(actualVal, expectedVal, message)',
+}), assert._expr(assert._capt(delta, 'arguments/2'), {
+  content: 'assert.near(actualVal, expectedVal, delta)',
   filepath: 'fixtures/customPatterns/fixture.js',
   line: 13
 }));
