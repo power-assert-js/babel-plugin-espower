@@ -230,6 +230,19 @@ console.log(transformed.code);
 ```
 
 
+TROUBLE SHOOTING
+---------------------------------------
+
+#### causes TypeError, what's happend?
+
+Sometimes you'll see TypeError such as...
+
+`TypeError: Transformer babel-plugin-espower is resolving to a different Babel version to what is doing the actual transformation...`
+
+This error is caused by [Babel plugin system that requires babel-core at the top level](https://github.com/twada/babel-plugin-espower/issues/1#issuecomment-94231938). To solve this problem, run `npm dedupe`. If dedupe does not solve the problem, it's time to clean-install by `rm -rf node_modules && npm install`. Sorry for the inconvenience.
+
+
+
 CHANGELOG
 ---------------------------------------
 See [CHANGELOG](https://github.com/twada/babel-plugin-espower/blob/master/CHANGELOG.md)
