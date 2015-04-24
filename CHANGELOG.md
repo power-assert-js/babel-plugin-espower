@@ -1,3 +1,9 @@
+### [0.2.2](https://github.com/twada/babel-plugin-espower/releases/tag/v0.2.2) (2015-04-24)
+
+
+* update escallmatch to 1.3.2 ([941c75c2](https://github.com/twada/babel-plugin-espower/commit/941c75c29504284fee7fa916752e4096fd65011f))
+
+
 ### [0.2.1](https://github.com/twada/babel-plugin-espower/releases/tag/v0.2.1) (2015-04-21)
 
 
