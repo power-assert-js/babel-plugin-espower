@@ -1,3 +1,11 @@
+## [0.3.0](https://github.com/twada/babel-plugin-espower/releases/tag/v0.3.0) (2015-05-01)
+
+
+#### Bug Fixes
+
+* deal with babel 5.2.x internal changes. ([17698583](https://github.com/twada/babel-plugin-espower/commit/17698583a871e59c0af660cd888c2e98f85aea38), closes [#3](https://github.com/twada/babel-plugin-espower/issues/3))
+
+
 ### [0.2.2](https://github.com/twada/babel-plugin-espower/releases/tag/v0.2.2) (2015-04-24)
 
 
