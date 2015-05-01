@@ -1,6 +1,6 @@
 'use strict';
 
-var _defineProperty = function (obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: key == null || typeof Symbol == 'undefined' || key.constructor !== Symbol, configurable: true, writable: true }); };
+var _defineProperty = function (obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); };
 
 assert(assert._expr(assert._capt(_defineProperty({}, assert._capt(num, 'arguments/0/properties/0/key'), assert._capt(foo, 'arguments/0/properties/0/value')), 'arguments/0'), {
   content: 'assert({ [num]: foo })',
