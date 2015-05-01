@@ -209,7 +209,7 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
 CUSTOMIZE
 ---------------------------------------
 
-You can customize assertion patterns via [Babel API](http://babeljs.io/docs/usage/api/)
+You can customize assertion patterns via [Babel API](http://babeljs.io/docs/usage/api/),
 
 ```javascript
 var babel = require('babel-core');
@@ -227,6 +227,25 @@ var transformed = babel.transform(jsCode, {
     ]
 });
 console.log(transformed.code);
+```
+
+or via [Require Hook · Babel](http://babeljs.io/docs/usage/require/).
+
+```javascript
+var createEspowerPlugin = require('babel-plugin-espower/create');
+require('babel-core/register')({
+    only: /test\/tobe_instrumented/,
+    plugins: [
+        createEspowerPlugin({
+            patterns: [
+                'assert.isNull(object, [message])',
+                'assert.same(actual, expected, [message])',
+                'assert.near(actual, expected, delta, [message])'
+            ]
+        })
+    ],
+    extensions: ['.es6', '.js']
+});
 ```
 
 
