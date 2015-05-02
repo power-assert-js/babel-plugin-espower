@@ -55,9 +55,7 @@ HOW TO USE
 ---------------------------------------
 
 
-### via Babel CLI
-
-[CLI · Babel](http://babeljs.io/docs/usage/cli/)
+### via [Babel CLI](http://babeljs.io/docs/usage/cli/)
 
 ```
 $ ./node_modules/.bin/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
@@ -70,9 +68,7 @@ $ ./node_modules/.bin/babel --plugins espower /path/to/test/some_test.js > /path
 ```
 
 
-### via Babel API
-
-[API · Babel](http://babeljs.io/docs/usage/api/)
+### via [Babel API](http://babeljs.io/docs/usage/api/)
 
 ```javascript
 var babel = require('babel-core');
@@ -84,9 +80,7 @@ console.log(transformed.code);
 ```
 
 
-### via Babel Require Hook
-
-[Require Hook · Babel](http://babeljs.io/docs/usage/require/)
+### via [Babel Require Hook](http://babeljs.io/docs/usage/require/)
 
 ```javascript
 require('babel-core/register')({
@@ -229,7 +223,7 @@ var transformed = babel.transform(jsCode, {
 console.log(transformed.code);
 ```
 
-or via [Require Hook · Babel](http://babeljs.io/docs/usage/require/).
+or via [Require Hook](http://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
