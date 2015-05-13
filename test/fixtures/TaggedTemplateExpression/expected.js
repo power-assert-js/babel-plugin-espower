@@ -1,6 +1,6 @@
 'use strict';
 
-var _taggedTemplateLiteral = function (strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); };
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 assert(assert._expr(assert._capt(fn(_taggedTemplateLiteral(['a', ''], ['a', '']), 1), 'arguments/0'), {
   content: 'assert(fn`a${ 1 }`)',

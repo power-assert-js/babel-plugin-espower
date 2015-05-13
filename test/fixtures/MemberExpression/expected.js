@@ -12,7 +12,7 @@ assert(assert._expr(assert._capt(assert._capt(assert._capt(foo, 'arguments/0/obj
   line: 5
 }));
 
-assert(assert._expr(assert._capt(assert._capt(foo, 'arguments/0/object').bar, 'arguments/0'), {
+assert(assert._expr(assert._capt(assert._capt(foo, 'arguments/0/object')['bar'], 'arguments/0'), {
   content: 'assert(foo[\'bar\'])',
   filepath: 'fixtures/MemberExpression/fixture.js',
   line: 7
@@ -36,13 +36,13 @@ assert(assert._expr(assert._capt(assert._capt(foo, 'arguments/0/object')[assert.
   line: 13
 }));
 
-assert(assert._expr(assert._capt(assert._capt(assert._capt(assert._capt(foo, 'arguments/0/object/object/object')[assert._capt(propName, 'arguments/0/object/object/property')], 'arguments/0/object/object').key, 'arguments/0/object')[assert._capt(assert._capt(keys(), 'arguments/0/property/object').name, 'arguments/0/property')], 'arguments/0'), {
+assert(assert._expr(assert._capt(assert._capt(assert._capt(assert._capt(foo, 'arguments/0/object/object/object')[assert._capt(propName, 'arguments/0/object/object/property')], 'arguments/0/object/object')['key'], 'arguments/0/object')[assert._capt(assert._capt(keys(), 'arguments/0/property/object')['name'], 'arguments/0/property')], 'arguments/0'), {
   content: 'assert(foo[propName][\'key\'][keys()[\'name\']])',
   filepath: 'fixtures/MemberExpression/fixture.js',
   line: 15
 }));
 
-assert(assert._expr(assert._capt(assert._capt(assert._capt(assert._capt(foo, 'arguments/0/object/object/object')[assert._capt(propName, 'arguments/0/object/object/property')], 'arguments/0/object/object').key, 'arguments/0/object')[assert._capt(assert._capt(keys(), 'arguments/0/property/object').name, 'arguments/0/property')], 'arguments/0'), {
+assert(assert._expr(assert._capt(assert._capt(assert._capt(assert._capt(foo, 'arguments/0/object/object/object')[assert._capt(propName, 'arguments/0/object/object/property')], 'arguments/0/object/object')['key'], 'arguments/0/object')[assert._capt(assert._capt(keys(), 'arguments/0/property/object')['name'], 'arguments/0/property')], 'arguments/0'), {
   content: 'assert(foo[propName][\'key\'][keys()[\'name\']])',
   filepath: 'fixtures/MemberExpression/fixture.js',
   line: 17
