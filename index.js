@@ -2,7 +2,7 @@
  * babel-plugin-espower:
  *   Babel plugin for power-assert
  * 
- * https://github.com/twada/babel-plugin-espower
+ * https://github.com/power-assert-js/babel-plugin-espower
  *
  * Copyright (c) 2015 Takuto Wada
  * Licensed under the MIT license.

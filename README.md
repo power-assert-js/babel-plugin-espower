@@ -11,7 +11,7 @@ Babel plugin for power-assert.
 
 DESCRIPTION
 ---------------------------------------
-`babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/twada/power-assert).
+`babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/power-assert-js/power-assert).
 
 `power-assert` provides descriptive assertion messages for your tests, like this.
 
@@ -35,7 +35,7 @@ DESCRIPTION
   +alice and bob
 ```
 
-Please note that `babel-plugin-espower` is an alpha version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/twada/power-assert) project for more documentation.
+Please note that `babel-plugin-espower` is an alpha version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/power-assert-js/power-assert) project for more documentation.
 
 
 INSTALL
@@ -48,7 +48,7 @@ $ npm dedupe
 
 #### FAQ: why peerDependencies? why npm dedupe?
 
-Because [Babel plugin system requires babel-core at the top level](https://github.com/twada/babel-plugin-espower/issues/1#issuecomment-94231938). Sorry for the inconvenience.
+Because [Babel plugin system requires babel-core at the top level](https://github.com/power-assert-js/babel-plugin-espower/issues/1#issuecomment-94231938). Sorry for the inconvenience.
 
 
 HOW TO USE
@@ -252,13 +252,13 @@ Sometimes you'll see TypeError such as...
 
 `TypeError: Transformer babel-plugin-espower is resolving to a different Babel version to what is doing the actual transformation...`
 
-This error is caused by [Babel plugin system that requires babel-core at the top level](https://github.com/twada/babel-plugin-espower/issues/1#issuecomment-94231938). To solve this problem, run `npm dedupe`. If dedupe does not solve the problem, it's time to clean-install by `rm -rf node_modules && npm install`. Sorry for the inconvenience.
+This error is caused by [Babel plugin system that requires babel-core at the top level](https://github.com/power-assert-js/babel-plugin-espower/issues/1#issuecomment-94231938). To solve this problem, run `npm dedupe`. If dedupe does not solve the problem, it's time to clean-install by `rm -rf node_modules && npm install`. Sorry for the inconvenience.
 
 
 
 CHANGELOG
 ---------------------------------------
-See [CHANGELOG](https://github.com/twada/babel-plugin-espower/blob/master/CHANGELOG.md)
+See [CHANGELOG](https://github.com/power-assert-js/babel-plugin-espower/blob/master/CHANGELOG.md)
 
 
 AUTHOR
@@ -274,11 +274,11 @@ Licensed under the [MIT](http://twada.mit-license.org/) license.
 [npm-url]: https://npmjs.org/package/babel-plugin-espower
 [npm-image]: https://badge.fury.io/js/babel-plugin-espower.svg
 
-[travis-url]: http://travis-ci.org/twada/babel-plugin-espower
-[travis-image]: https://secure.travis-ci.org/twada/babel-plugin-espower.svg?branch=master
+[travis-url]: http://travis-ci.org/power-assert-js/babel-plugin-espower
+[travis-image]: https://secure.travis-ci.org/power-assert-js/babel-plugin-espower.svg?branch=master
 
-[depstat-url]: https://gemnasium.com/twada/babel-plugin-espower
-[depstat-image]: https://gemnasium.com/twada/babel-plugin-espower.svg
+[depstat-url]: https://gemnasium.com/power-assert-js/babel-plugin-espower
+[depstat-image]: https://gemnasium.com/power-assert-js/babel-plugin-espower.svg
 
 [license-url]: http://twada.mit-license.org/2014-2015
 [license-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg
