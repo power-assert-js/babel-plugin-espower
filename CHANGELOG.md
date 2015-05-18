@@ -1,3 +1,11 @@
+### [0.3.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.3.1) (2015-05-18)
+
+
+#### Bug Fixes
+
+* use version range since babel-core 5.4.3 does not work. ([3b586fa9](https://github.com/power-assert-js/babel-plugin-espower/commit/3b586fa9c20650871f7420c70d6e9c189be7412c)
+
+
 ## [0.3.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.3.0) (2015-05-01)
 
 
