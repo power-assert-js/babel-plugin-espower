@@ -42,8 +42,7 @@ INSTALL
 ---------------------------------------
 
 ```
-$ npm install --save-dev babel-core babel-plugin-espower
-$ npm dedupe
+$ npm install --save-dev babel-plugin-espower
 ```
 
 
