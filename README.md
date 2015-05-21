@@ -46,10 +46,6 @@ $ npm install --save-dev babel-core babel-plugin-espower
 $ npm dedupe
 ```
 
-#### FAQ: why peerDependencies? why npm dedupe?
-
-Because [Babel plugin system requires babel-core at the top level](https://github.com/power-assert-js/babel-plugin-espower/issues/1#issuecomment-94231938). Sorry for the inconvenience.
-
 
 HOW TO USE
 ---------------------------------------

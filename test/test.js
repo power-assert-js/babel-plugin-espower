@@ -45,7 +45,7 @@ describe('babel-plugin-espower', function () {
     testTransform('inputSourceMap');
     testTransform('customPatterns', {
         plugins: [
-            createEspowerPlugin({
+            createEspowerPlugin(babel, {
                 patterns: [
                     'assert.isNull(object, [message])',
                     'assert.same(actual, expected, [message])',

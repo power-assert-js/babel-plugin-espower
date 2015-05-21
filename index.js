@@ -11,4 +11,7 @@
 'use strict';
 
 var createEspowerPlugin = require('./create');
-module.exports = createEspowerPlugin();
+
+module.exports = function (babel) {
+    return createEspowerPlugin(babel);
+};
