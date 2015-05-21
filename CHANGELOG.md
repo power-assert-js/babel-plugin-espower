@@ -1,3 +1,16 @@
+## [0.4.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.4.0) (2015-05-21)
+
+
+#### Bug Fixes
+
+* avoid visiting replacement node ([c4da8f8f](https://github.com/power-assert-js/babel-plugin-espower/commit/c4da8f8f8d3a56ccfe64812ef4f2c839ebec892c))
+
+
+#### Features
+
+* use new 5.2.0+ API with shared babel-core. No more peerDependencies. ([39eb684b](https://github.com/power-assert-js/babel-plugin-espower/commit/39eb684b733729a0b0d6752bd52a008c5b08159b))
+
+
 ### [0.3.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.3.1) (2015-05-18)
 
 
