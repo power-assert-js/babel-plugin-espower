@@ -1,3 +1,11 @@
+### [0.4.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.4.1) (2015-05-21)
+
+
+#### Bug Fixes
+
+* eliminate remaining babel-core dependencies ([7735ed5f](https://github.com/power-assert-js/babel-plugin-espower/commit/7735ed5f8e6c38660c0328404057c6497370ebd7))
+
+
 ## [0.4.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.4.0) (2015-05-21)
 
 
