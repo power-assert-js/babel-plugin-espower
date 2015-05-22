@@ -3,7 +3,6 @@ var fs = require('fs');
 var path = require('path');
 var babel = require('babel');
 var extend = require('xtend');
-var espurify = require('espurify');
 var createEspowerPlugin = require('../create');
 
 function testTransform (fixtureName, extraOptions) {

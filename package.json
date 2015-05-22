@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "babel": "^5.2.0",
-    "espurify": "^1.2.0",
     "mocha": "^2.2.4"
   },
   "directories": {
