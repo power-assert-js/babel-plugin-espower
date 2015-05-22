@@ -19,6 +19,51 @@
 * use new 5.2.0+ API with shared babel-core. No more peerDependencies. ([39eb684b](https://github.com/power-assert-js/babel-plugin-espower/commit/39eb684b733729a0b0d6752bd52a008c5b08159b))
 
 
+#### Breaking Changes
+
+* function returned by `babel-plugin-espower/create` takes babel instance as a first argument.
+
+If you are customizing babel-plugin-espower using `babel-plugin-espower/create`, you may have to migrate.
+
+To migrate, change your code from the following:
+
+```
+var babel = require('babel-core');
+var createEspowerPlugin = require('babel-plugin-espower/create');
+var transformed = babel.transform(jsCode, {
+    plugins: [
+        createEspowerPlugin({
+            patterns: [
+                'assert.isNull(object, [message])',
+                'assert.same(actual, expected, [message])',
+                'assert.near(actual, expected, delta, [message])'
+            ]
+        })
+    ]
+});
+```
+
+To:
+
+```
+var babel = require('babel-core');
+var createEspowerPlugin = require('babel-plugin-espower/create');
+var transformed = babel.transform(jsCode, {
+    plugins: [
+        createEspowerPlugin(babel, {
+            patterns: [
+                'assert.isNull(object, [message])',
+                'assert.same(actual, expected, [message])',
+                'assert.near(actual, expected, delta, [message])'
+            ]
+        })
+    ]
+});
+```
+
+([39eb684b](https://github.com/power-assert-js/babel-plugin-espower/commit/39eb684b733729a0b0d6752bd52a008c5b08159b))
+
+
 ### [0.3.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.3.1) (2015-05-18)
 
 

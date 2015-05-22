@@ -206,7 +206,7 @@ var createEspowerPlugin = require('babel-plugin-espower/create');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
     plugins: [
-        createEspowerPlugin({
+        createEspowerPlugin(babel, {
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -225,7 +225,7 @@ var createEspowerPlugin = require('babel-plugin-espower/create');
 require('babel-core/register')({
     only: /test\/tobe_instrumented/,
     plugins: [
-        createEspowerPlugin({
+        createEspowerPlugin(babel, {
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
