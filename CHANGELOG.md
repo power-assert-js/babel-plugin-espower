@@ -1,3 +1,12 @@
+## [1.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.0.0) (2015-05-25)
+
+
+#### Features
+
+* use `process.cwd()` for `sourceRoot` option value ([71016432](https://github.com/power-assert-js/babel-plugin-espower/commit/71016432565568e2b7325b11cf07ae90d029c45b))
+* update espower to 1.0.0 ([337cdfd2](https://github.com/power-assert-js/babel-plugin-espower/commit/337cdfd26a2868addd1aabdd7787733a79eab11a))
+
+
 ### [0.4.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v0.4.1) (2015-05-21)
 
 
