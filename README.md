@@ -53,13 +53,13 @@ HOW TO USE
 ### via [Babel CLI](http://babeljs.io/docs/usage/cli/)
 
 ```
-$ ./node_modules/.bin/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ $(npm bin)/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 or shortly,
 
 ```
-$ ./node_modules/.bin/babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ $(npm bin)/babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 
@@ -88,7 +88,7 @@ require('babel-core/register')({
 For example, with `babel_hook.js` above, you can run mocha without code generation steps.
 
 ```
-$ ./node_modules/.bin/mocha --require ./babel_hook /path/to/test/demo_test.js
+$ $(npm bin)/mocha --require ./babel_hook /path/to/test/demo_test.js
 ```
 
 
@@ -127,13 +127,13 @@ describe('ES6 demo', () => {
 Run `babel` with `--plugins espower` to transform tests.
 
 ```
-$ ./node_modules/.bin/babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
+$ $(npm bin)/babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
 ```
 
 Then run. You will see the power-assert output appears.
 
 ```
-$ ./node_modules/.bin/mocha /path/to/build/demo_test.js
+$ $(npm bin)/mocha /path/to/build/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
@@ -243,9 +243,9 @@ require('babel-core/register')({
 
 | type     | default value |
 |:---------|:--------------|
-| `object` | (return value of `espower.defaultOptions()` with default `path`, `sourceRoot` and `sourceMap`) |
+| `object` | (return value of `espower.defaultOptions()` with default `visitorKeys`, `path`, `sourceRoot` and `sourceMap`) |
 
-Configuration options for internal `espower` module. If not passed, default options will be used (return value of `espower.defaultOptions()` with default `path`, `sourceRoot` and `sourceMap`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
+Configuration options for internal `espower` module. If not passed, default options will be used (return value of `espower.defaultOptions()` with default `visitorKeys`, `path`, `sourceRoot` and `sourceMap`. `visitorKeys` is value of `babel.types.VISITOR_KEYS`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
 
 
 CHANGELOG
