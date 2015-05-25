@@ -35,7 +35,7 @@ DESCRIPTION
   +alice and bob
 ```
 
-Please note that `babel-plugin-espower` is a beta version product. Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/power-assert-js/power-assert) project for more documentation.
+Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/power-assert-js/power-assert) project for more documentation.
 
 
 INSTALL
