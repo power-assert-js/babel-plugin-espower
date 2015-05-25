@@ -6,40 +6,40 @@ function _slicedToArray(arr, i) { if (Array.isArray(arr)) { return arr; } else i
 
 assert(assert._expr(assert._capt(counter += 1, 'arguments/0'), {
   content: 'assert(counter += 1)',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 3
 }));
 
 assert(assert._expr(assert._capt(dog.age += 1, 'arguments/0'), {
   content: 'assert(dog.age += 1)',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 5
 }));
 
 assert(assert._expr(assert._capt(dog.age += 1, 'arguments/0'), {
   content: 'assert(dog.age += 1)',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 7
 }));
 
 assert.strictEqual(assert._expr(assert._capt(dog.age += 1, 'arguments/0'), {
   content: 'assert.strictEqual(dog.age += 1, three)',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 9
 }), assert._expr(assert._capt(three, 'arguments/1'), {
   content: 'assert.strictEqual(dog.age += 1, three)',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 9
 }));
 
 assert(assert._expr(assert._capt((_temp = assert._capt([3], 'arguments/0/right'), _temp2 = _slicedToArray(_temp, 1), x = _temp2[0], _temp), 'arguments/0'), {
   content: 'assert([x] = [3])',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 11
 }));
 
 assert(assert._expr(assert._capt((_temp3 = assert._capt([assert._capt(foo, 'arguments/0/right/elements/0')], 'arguments/0/right'), _temp32 = _slicedToArray(_temp3, 1), x = _temp32[0], _temp3), 'arguments/0'), {
   content: 'assert([x] = [foo])',
-  filepath: 'fixtures/AssignmentExpression/fixture.js',
+  filepath: 'test/fixtures/AssignmentExpression/fixture.js',
   line: 13
 }));

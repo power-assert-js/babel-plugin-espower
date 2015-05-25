@@ -25,7 +25,7 @@ describe("various types", function () {
     bob = new Person("bob", 5);
     return assert(assert._expr(assert._capt(assert._capt(assert._capt(assert._capt(this.types, "arguments/0/left/object/object")[assert._capt(index, "arguments/0/left/object/property")], "arguments/0/left/object").name, "arguments/0/left") === assert._capt(assert._capt(bob, "arguments/0/right/object").name, "arguments/0/right"), "arguments/0"), {
       content: "assert(this.types[index].name === bob.name)",
-      filepath: "/absolute/path/to/coffee_script_test.coffee",
+      filepath: "path/to/coffee_script_test.coffee",
       line: 33
     }));
   });

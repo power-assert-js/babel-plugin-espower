@@ -9,8 +9,7 @@ function testTransform (fixtureName, extraOptions) {
     it(fixtureName, function () {
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
-        var result = babel.transform(fs.readFileSync(fixtureFilepath), extend({}, {
-            filename: path.relative(__dirname, fixtureFilepath),
+        var result = babel.transformFileSync(fixtureFilepath, extend({
             plugins: ['../index']
         }, extraOptions));
         var actual = result.code;
@@ -41,7 +40,13 @@ describe('babel-plugin-espower', function () {
     testTransform('ClassExpression');
     testTransform('SpreadElement');
     testTransform('Property');
-    testTransform('inputSourceMap');
+    testTransform('inputSourceMap', {
+        plugins: [
+            createEspowerPlugin(babel, {
+                sourceRoot: "/absolute/"
+            })
+        ]
+    });
     testTransform('customPatterns', {
         plugins: [
             createEspowerPlugin(babel, {

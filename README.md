@@ -198,6 +198,8 @@ $ ./node_modules/.bin/mocha /path/to/build/demo_test.js
 CUSTOMIZE
 ---------------------------------------
 
+### var plugin = createEspowerPlugin(babel, [options])
+
 You can customize assertion patterns via [Babel API](http://babeljs.io/docs/usage/api/),
 
 ```javascript
@@ -236,6 +238,14 @@ require('babel-core/register')({
     extensions: ['.es6', '.js']
 });
 ```
+
+#### options
+
+| type     | default value |
+|:---------|:--------------|
+| `object` | (return value of `espower.defaultOptions()` with default `path`, `sourceRoot` and `sourceMap`) |
+
+Configuration options for internal `espower` module. If not passed, default options will be used (return value of `espower.defaultOptions()` with default `path`, `sourceRoot` and `sourceMap`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
 
 
 CHANGELOG
