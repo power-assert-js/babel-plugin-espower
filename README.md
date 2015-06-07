@@ -92,6 +92,66 @@ $ $(npm bin)/mocha --require ./babel_hook /path/to/test/demo_test.js
 ```
 
 
+### with [babelify](https://github.com/babel/babelify)
+
+```javascript
+var fs = require('fs');
+var browserify = require('browserify');
+var babelify = require('babelify');
+var glob = require('glob'),
+browserify({ entries: glob.sync('./test/*_test.js'), debug: true })
+  .transform(babelify.configure({ plugins: ['babel-plugin-espower'] }))
+  .bundle()
+  .on('error', function (err) { console.log('Error : ' + err.message); })
+  .pipe(fs.createWriteStream('all_test.js'));
+```
+
+```
+$ $(npm bin)/browserify -d -e ./test/*_test.js -t [ babelify --plugins babel-plugin-espower ]
+```
+
+
+### with [babelify](https://github.com/babel/babelify) and [gulp](http://gulpjs.com/)
+
+```javascript
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
+var glob = require('glob'),
+gulp.task('build_test', function() {
+    var files = glob.sync('./test/*_test.js');
+    var b = browserify({entries: files, debug: true});
+    b.transform(babelify.configure({
+        plugins: ['babel-plugin-espower']
+    }));
+    return b.bundle()
+        .pipe(source('all_test.js'))
+        .pipe(gulp.dest('./build'));
+});
+```
+
+
+### with [babelify](https://github.com/babel/babelify) and [Karma](http://karma-runner.github.io)
+
+```javascript
+module.exports = function(config) {
+  config.set({
+    frameworks: ['mocha', 'browserify'],
+    files: [
+      "test/**/*.js"
+    ],
+    preprocessors: {
+      "test/**/*.js": "browserify"
+    },
+    browserify: {
+      debug: true,
+      transform: [
+        ['babelify', {plugins: ['babel-plugin-espower']}]
+      ]
+    },
+    // ...
+```
+
+
 EXAMPLE
 ---------------------------------------
 
