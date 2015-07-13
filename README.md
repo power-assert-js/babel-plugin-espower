@@ -78,7 +78,7 @@ console.log(transformed.code);
 ### via [Babel Require Hook](http://babeljs.io/docs/usage/require/)
 
 ```javascript
-require('babel-core/register')({
+require('babel/register')({
     only: /test\/tobe_instrumented/,
     plugins: ['babel-plugin-espower'],
     extensions: ['.es6', '.js']
@@ -284,7 +284,7 @@ or via [Require Hook](http://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
-require('babel-core/register')({
+require('babel/register')({
     only: /test\/tobe_instrumented/,
     plugins: [
         createEspowerPlugin(babel, {
