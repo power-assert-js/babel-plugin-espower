@@ -2,7 +2,7 @@
 
 var Person, assert;
 
-assert = require("power-assert");
+assert = require('power-assert');
 
 Person = (function () {
   function Person(name, age) {
