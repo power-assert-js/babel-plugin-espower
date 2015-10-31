@@ -10,7 +10,6 @@ function testTransform (fixtureName, extraOptions) {
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
-            presets: ['es2015'],
             plugins: ['../index']
         }, extraOptions));
         var actual = result.code;
