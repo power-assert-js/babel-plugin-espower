@@ -1,5 +1,3 @@
-"use strict";
-
 var Person, assert;
 
 assert = require('power-assert');
