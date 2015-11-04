@@ -4,15 +4,11 @@ var path = require('path');
 var babel = require('babel-core');
 var extend = require('xtend');
 
-function testTransform (fixtureName, suffix, extraOptions) {
+function testTransform (fixtureName, extraSuffix, extraOptions) {
     it(fixtureName, function () {
+        var suffix = extraSuffix ? '-' + extraSuffix : '';
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
-        var expectedFilepath;
-        if (suffix) {
-            expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected-' + suffix + '.js');
-        } else {
-            expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
-        }
+        var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
             plugins: [
                 'babel-plugin-transform-es2015-template-literals',
@@ -45,6 +41,26 @@ function testTransform (fixtureName, suffix, extraOptions) {
 }
 
 describe('babel-plugin-espower with presets', function () {
-    testTransform('pd');
-    // testTransform('Property', 'presets-es2015');
+    // testTransform('pd');
+    testTransform('NonTarget');
+    testTransform('Literal', 'presets-es2015');
+    testTransform('Identifier');
+    testTransform('BinaryExpression');
+    // testTransform('UnaryExpression');
+    testTransform('LogicalExpression');
+    testTransform('MemberExpression');
+    testTransform('CallExpression');
+    // testTransform('AssignmentExpression');
+    testTransform('ArrayExpression');
+    testTransform('UpdateExpression');
+    testTransform('ConditionalExpression', 'presets-es2015');
+    testTransform('ObjectExpression');
+    testTransform('NewExpression');
+    testTransform('FunctionExpression');
+    testTransform('TemplateLiteral', 'presets-es2015');
+    // testTransform('TaggedTemplateExpression');
+    testTransform('ArrowFunctionExpression', 'presets-es2015');
+    testTransform('ClassExpression', 'presets-es2015');
+    testTransform('SpreadElement', 'presets-es2015');
+    testTransform('Property', 'presets-es2015');
 });
