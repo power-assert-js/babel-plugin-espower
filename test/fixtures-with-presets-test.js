@@ -58,7 +58,7 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('NewExpression');
     testTransform('FunctionExpression');
     testTransform('TemplateLiteral', 'presets-es2015');
-    // testTransform('TaggedTemplateExpression');
+    testTransform('TaggedTemplateExpression', 'presets-es2015');
     testTransform('ArrowFunctionExpression', 'presets-es2015');
     testTransform('ClassExpression', 'presets-es2015');
     testTransform('SpreadElement', 'presets-es2015');
