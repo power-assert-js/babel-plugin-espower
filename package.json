@@ -8,6 +8,12 @@
     "url": "http://github.com/twada"
   },
   "bugs": "https://github.com/power-assert-js/babel-plugin-espower/issues",
+  "contributors": [
+    {
+      "name": "James Talmage",
+      "url": "https://github.com/jamestalmage"
+    }
+  ],
   "dependencies": {
     "array-find": "^1.0.0",
     "escallmatch": "^1.4.2",
