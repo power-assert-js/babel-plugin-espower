@@ -6,6 +6,14 @@
 * [async/await support](https://github.com/power-assert-js/babel-plugin-espower/pull/7) (by [@jamestalmage](https://github.com/jamestalmage))
 
 
+### [1.0.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.0.1) (2015-11-07)
+
+
+#### Bug Fixes
+
+* pin espower dependency to >=1.0.0 <=1.2.0 since there was a little breaking change ([6420b3dc](https://github.com/power-assert-js/babel-plugin-espower/commit/6420b3dc49a00f731eebbee695c90be8f13d5e73), closes [#8](https://github.com/power-assert-js/babel-plugin-espower/issues/8))
+
+
 ## [1.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.0.0) (2015-05-25)
 
 
