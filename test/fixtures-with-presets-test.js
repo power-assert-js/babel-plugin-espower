@@ -9,6 +9,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var suffix = extraSuffix ? '-' + extraSuffix : '';
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected' + suffix + '.js');
+        var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
             plugins: [
                 'babel-plugin-transform-es2015-template-literals',
@@ -31,12 +32,16 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
                 'babel-plugin-transform-es2015-typeof-symbol',
                 'babel-plugin-transform-es2015-modules-commonjs',
                 'babel-plugin-transform-regenerator',
+                'babel-plugin-transform-async-to-generator',
                 '../index'
             ]
         }, extraOptions));
-        var actual = result.code;
-        var expected = fs.readFileSync(expectedFilepath).toString();
-        assert.equal(actual + '\n', expected);
+        var actual = result.code + '\n';
+        var expected = fs.readFileSync(expectedFilepath, 'utf8');
+        if (actual != expected) {
+            fs.writeFileSync(actualFilepath, actual);
+        }
+        assert.equal(actual, expected);
     });
 }
 
@@ -63,4 +68,5 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('ClassExpression', 'presets-es2015');
     testTransform('SpreadElement', 'presets-es2015');
     testTransform('Property', 'presets-es2015');
+    testTransform('AwaitExpression');
 });

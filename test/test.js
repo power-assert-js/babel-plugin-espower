@@ -9,12 +9,16 @@ function testTransform (fixtureName, extraOptions) {
     it(fixtureName, function () {
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
+        var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
             plugins: ['../index']
         }, extraOptions));
-        var actual = result.code;
-        var expected = fs.readFileSync(expectedFilepath).toString();
-        assert.equal(actual + '\n', expected);
+        var actual = result.code + '\n';
+        var expected = fs.readFileSync(expectedFilepath, 'utf8');
+        if (actual != expected) {
+            fs.writeFileSync(actualFilepath, actual);
+        }
+        assert.equal(actual, expected);
     });
 }
 
@@ -40,6 +44,7 @@ describe('babel-plugin-espower', function () {
     testTransform('ClassExpression');
     testTransform('SpreadElement');
     testTransform('Property');
+    testTransform('YieldExpression');
     testTransform('inputSourceMap', {
         plugins: [
             createEspowerPlugin(babel, {

@@ -318,6 +318,11 @@ AUTHOR
 * [Takuto Wada](http://github.com/twada)
 
 
+CONTRIBUTORS
+---------------------------------------
+* [James Talmage (jamestalmage)](https://github.com/jamestalmage)
+
+
 LICENSE
 ---------------------------------------
 Licensed under the [MIT](http://twada.mit-license.org/) license.
