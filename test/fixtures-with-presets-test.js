@@ -11,29 +11,14 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected' + suffix + '.js');
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
-            plugins: [
-                'babel-plugin-transform-es2015-template-literals',
-                'babel-plugin-transform-es2015-literals',
-                'babel-plugin-transform-es2015-function-name',
-                'babel-plugin-transform-es2015-arrow-functions',
-                'babel-plugin-transform-es2015-block-scoped-functions',
-                'babel-plugin-transform-es2015-classes',
-                'babel-plugin-transform-es2015-object-super',
-                'babel-plugin-transform-es2015-shorthand-properties',
-                'babel-plugin-transform-es2015-computed-properties',
-                'babel-plugin-transform-es2015-for-of',
-                'babel-plugin-transform-es2015-sticky-regex',
-                'babel-plugin-transform-es2015-unicode-regex',
-                'babel-plugin-transform-es2015-constants',
-                'babel-plugin-transform-es2015-spread',
-                'babel-plugin-transform-es2015-parameters',
-                'babel-plugin-transform-es2015-destructuring',
-                'babel-plugin-transform-es2015-block-scoping',
-                'babel-plugin-transform-es2015-typeof-symbol',
-                'babel-plugin-transform-es2015-modules-commonjs',
-                'babel-plugin-transform-regenerator',
-                'babel-plugin-transform-async-to-generator',
-                '../index'
+            presets: [
+                {
+                    plugins: [
+                        '../index'
+                    ]
+                },
+                'es2015',
+                'stage-3'
             ]
         }, extraOptions));
         var actual = result.code + '\n';
@@ -51,11 +36,11 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('Literal', 'presets-es2015');
     testTransform('Identifier');
     testTransform('BinaryExpression');
-    // testTransform('UnaryExpression');
+    // testTransform('UnaryExpression', 'presets-es2015');
     testTransform('LogicalExpression');
     testTransform('MemberExpression');
     testTransform('CallExpression');
-    // testTransform('AssignmentExpression');
+    // testTransform('AssignmentExpression', 'presets-es2015');
     testTransform('ArrayExpression');
     testTransform('UpdateExpression');
     testTransform('ConditionalExpression', 'presets-es2015');
@@ -68,5 +53,6 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('ClassExpression', 'presets-es2015');
     testTransform('SpreadElement', 'presets-es2015');
     testTransform('Property', 'presets-es2015');
-    testTransform('AwaitExpression');
+    testTransform('YieldExpression', 'presets-es2015');
+    testTransform('AwaitExpression', 'presets-stage-3');
 });

@@ -31,10 +31,6 @@ function myAsync(a) {
   }, null, this);
 }
 
-function notAsync(a) {
-  assert(assert._expr(assert._capt(assert._capt(await(assert._capt(a, 'arguments/0/left/arguments/0')), 'arguments/0/left') === 3, 'arguments/0'), {
-    content: 'assert(await(a) === 3)',
-    filepath: 'test/fixtures/AwaitExpression/fixture.js',
-    line: 8
-  }));
-}
+// function notAsync(a){
+//   assert((await (a)) === 3);
+// }
