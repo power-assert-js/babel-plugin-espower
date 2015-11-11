@@ -12,13 +12,11 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
             presets: [
-                {
-                    plugins: [
-                        '../index'
-                    ]
-                },
                 'es2015',
                 'stage-3'
+            ],
+            plugins: [
+                '../index'
             ]
         }, extraOptions));
         var actual = result.code + '\n';
@@ -31,17 +29,16 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
 }
 
 describe('babel-plugin-espower with presets', function () {
-    // testTransform('pd');
     testTransform('NonTarget');
     testTransform('Literal', 'presets-es2015');
     testTransform('Identifier');
     testTransform('BinaryExpression');
-    // testTransform('UnaryExpression', 'presets-es2015');
+    testTransform('UnaryExpression', 'presets-es2015');
     testTransform('LogicalExpression');
     testTransform('MemberExpression');
     testTransform('CallExpression');
-    // testTransform('AssignmentExpression', 'presets-es2015');
-    testTransform('ArrayExpression');
+    testTransform('AssignmentExpression', 'presets-es2015');
+    testTransform('ArrayExpression', 'presets-es2015');
     testTransform('UpdateExpression');
     testTransform('ConditionalExpression', 'presets-es2015');
     testTransform('ObjectExpression');

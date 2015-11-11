@@ -14,7 +14,7 @@ assert(assert._expr(assert._capt(falsy, 'arguments/0/test') ? assert._capt(truth
   line: 5
 }));
 
-assert(assert._expr(assert._capt(foo(), 'arguments/0/test') ? assert._capt(assert._capt(bar, 'arguments/0/consequent/object').baz, 'arguments/0/consequent') : typeof goo === 'undefined' ? 'undefined' : _typeof(assert._capt(goo, 'arguments/0/alternate/argument')), {
+assert(assert._expr(assert._capt(foo(), 'arguments/0/test') ? assert._capt(assert._capt(bar, 'arguments/0/consequent/object').baz, 'arguments/0/consequent') : assert._capt(typeof goo === 'undefined' ? 'undefined' : _typeof(goo), 'arguments/0/alternate'), {
   content: 'assert(foo() ? bar.baz : typeof goo)',
   filepath: 'test/fixtures/ConditionalExpression/fixture.js',
   line: 7

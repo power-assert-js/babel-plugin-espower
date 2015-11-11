@@ -62,6 +62,6 @@
     "url": "http://github.com/power-assert-js/babel-plugin-espower.git"
   },
   "scripts": {
-    "test": "mocha --timeout 7000"
+    "test": "mocha --timeout 0"
   }
 }
