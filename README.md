@@ -11,6 +11,7 @@ Babel plugin for power-assert.
 
 DESCRIPTION
 ---------------------------------------
+
 `babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/power-assert-js/power-assert).
 
 `power-assert` provides descriptive assertion messages for your tests, like this.
@@ -46,6 +47,16 @@ $ npm install --save-dev babel-plugin-espower
 ```
 
 
+CAUTION
+---------------------------------------
+
+Babel6 is incompatible with Babel5. For Babel 5 or lower, you need to use the 1.x release of babel-plugin-espower.
+
+```
+$ npm install --save-dev babel-plugin-espower@1.1.0
+```
+
+
 HOW TO USE
 ---------------------------------------
 
@@ -53,13 +64,13 @@ HOW TO USE
 ### via [Babel CLI](http://babeljs.io/docs/usage/cli/)
 
 ```
-$ $(npm bin)/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 or shortly,
 
 ```
-$ $(npm bin)/babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 
@@ -78,10 +89,8 @@ console.log(transformed.code);
 ### via [Babel Require Hook](http://babeljs.io/docs/usage/require/)
 
 ```javascript
-require('babel/register')({
-    only: /test\/tobe_instrumented/,
-    plugins: ['babel-plugin-espower'],
-    extensions: ['.es6', '.js']
+require('babel-register')({
+    plugins: ['babel-plugin-espower']
 });
 ```
 
@@ -187,7 +196,7 @@ describe('ES6 demo', () => {
 Run `babel` with `--plugins espower` to transform tests.
 
 ```
-$ $(npm bin)/babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
+$ babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
 ```
 
 Then run. You will see the power-assert output appears.
@@ -284,8 +293,7 @@ or via [Require Hook](http://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
-require('babel/register')({
-    only: /test\/tobe_instrumented/,
+require('babel-register')({
     plugins: [
         createEspowerPlugin(babel, {
             patterns: [
@@ -294,8 +302,7 @@ require('babel/register')({
                 'assert.near(actual, expected, delta, [message])'
             ]
         })
-    ],
-    extensions: ['.es6', '.js']
+    ]
 });
 ```
 
