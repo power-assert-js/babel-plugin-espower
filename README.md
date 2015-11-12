@@ -61,16 +61,21 @@ HOW TO USE
 ---------------------------------------
 
 
-### via [Babel CLI](http://babeljs.io/docs/usage/cli/)
+### via [.babelrc](http://babeljs.io/docs/usage/babelrc/)
+
+```javascript
+{
+  "presets": [
+    ...
+  ],
+  "plugins": [
+    "babel-plugin-espower"
+  ]
+}
+```
 
 ```
-$ babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
-```
-
-or shortly,
-
-```
-$ babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ babel /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 
@@ -80,6 +85,7 @@ $ babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.
 var babel = require('babel-core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
+    presets: [...],
     plugins: ['babel-plugin-espower']
 });
 console.log(transformed.code);
@@ -90,6 +96,7 @@ console.log(transformed.code);
 
 ```javascript
 require('babel-register')({
+    presets: [...],
     plugins: ['babel-plugin-espower']
 });
 ```
@@ -109,7 +116,10 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var glob = require('glob'),
 browserify({ entries: glob.sync('./test/*_test.js'), debug: true })
-  .transform(babelify.configure({ plugins: ['babel-plugin-espower'] }))
+  .transform(babelify.configure({
+      presets: [...],
+      plugins: ['babel-plugin-espower']
+  }))
   .bundle()
   .on('error', function (err) { console.log('Error : ' + err.message); })
   .pipe(fs.createWriteStream('all_test.js'));
@@ -130,6 +140,7 @@ gulp.task('build_test', function() {
     var files = glob.sync('./test/*_test.js');
     var b = browserify({entries: files, debug: true});
     b.transform(babelify.configure({
+        presets: [...],
         plugins: ['babel-plugin-espower']
     }));
     return b.bundle()
@@ -154,7 +165,12 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [
-        ['babelify', {plugins: ['babel-plugin-espower']}]
+        [
+          'babelify', {
+            presets: [...],
+            plugins: ['babel-plugin-espower']
+          }
+        ]
       ]
     },
     // ...
@@ -276,6 +292,7 @@ var babel = require('babel-core');
 var createEspowerPlugin = require('babel-plugin-espower/create');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
+    presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
             patterns: [
@@ -294,6 +311,7 @@ or via [Require Hook](http://babeljs.io/docs/usage/require/).
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
 require('babel-register')({
+    presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
             patterns: [
