@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.0.0) (2015-11-12)
+
+
+#### Features
+
+* [Babel 6.x support](https://github.com/power-assert-js/babel-plugin-espower/pull/5)
+
+
+#### Breaking Changes
+
+Babel6 is incompatible with Babel5. For Babel 5 or lower, you need to use the 1.x release of babel-plugin-espower.
+
+```
+$ npm install --save-dev babel-plugin-espower@1.1.0
+```
+
+
 ## [1.1.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.1.0) (2015-11-06)
 
 
