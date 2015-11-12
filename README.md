@@ -181,7 +181,7 @@ EXAMPLE
 ---------------------------------------
 
 
-For given test file `demo_test.js` below,
+For given test file `test/demo_test.js` below,
 
 ```javascript
 import assert from 'power-assert';
@@ -209,16 +209,19 @@ describe('ES6 demo', () => {
 });
 ```
 
-Run `babel` with `--plugins espower` to transform tests.
+prepare `babel_hook.js` to transform tests.
+
+```javascript
+require('babel-register')({
+    presets: [...],  // presets of your choice
+    plugins: ['babel-plugin-espower']
+});
+```
+
+Run `mocha` with `--require` option. You will see the power-assert output appears.
 
 ```
-$ babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
-```
-
-Then run. You will see the power-assert output appears.
-
-```
-$ $(npm bin)/mocha /path/to/build/demo_test.js
+$ $(npm bin)/mocha --require ./babel_hook test/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
@@ -247,7 +250,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
   -bob and alice
   +alice and bob
 
-      at Context.<anonymous> (build/demo_test.js:19:28)
+      at Context.<anonymous> (test/demo_test.js:19:28)
 
   2) ES6 demo ArrowFunctionExpression and SpreadElement:
 
@@ -264,7 +267,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
   [number] seven
   => 7
 
-      at Context.<anonymous> (build/demo_test.js:29:28)
+      at Context.<anonymous> (test/demo_test.js:29:28)
 
   3) ES6 demo Enhanced Object Literals:
      AssertionError:   # test/demo_test.js:17
@@ -276,7 +279,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
                    |      "bobby's greet"
                    Object{name:"bobby","bobby's greet":"Hello, I'm bobby"}
 
-      at Context.<anonymous> (build/demo_test.js:40:29)
+      at Context.<anonymous> (test/demo_test.js:40:29)
 ```
 
 
