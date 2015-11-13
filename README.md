@@ -126,7 +126,7 @@ browserify({ entries: glob.sync('./test/*_test.js'), debug: true })
 ```
 
 ```
-$ $(npm bin)/browserify -d -e ./test/*_test.js -t [ babelify --plugins babel-plugin-espower ]
+$ $(npm bin)/browserify -d -e ./test/*_test.js -t [ babelify --presets ... --plugins babel-plugin-espower ]
 ```
 
 
