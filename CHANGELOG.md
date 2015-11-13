@@ -1,4 +1,4 @@
-## [2.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.0.0) (2015-11-12)
+## [2.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.0.0) (2015-11-13)
 
 
 #### Features
