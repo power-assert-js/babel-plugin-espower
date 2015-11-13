@@ -34,6 +34,6 @@ assert(assert._expr(assert._capt('ほげ' !== 'ふが', 'arguments/0'), {
   line: 19
 }));
 
-assert(0b111110111);
+assert(503);
 
-assert(0o767);
+assert(503);

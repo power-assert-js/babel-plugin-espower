@@ -11,6 +11,7 @@ Babel plugin for power-assert.
 
 DESCRIPTION
 ---------------------------------------
+
 `babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/power-assert-js/power-assert).
 
 `power-assert` provides descriptive assertion messages for your tests, like this.
@@ -46,20 +47,35 @@ $ npm install --save-dev babel-plugin-espower
 ```
 
 
+CAUTION
+---------------------------------------
+
+Babel6 is incompatible with Babel5. For Babel 5 or lower, you need to use the 1.x release of babel-plugin-espower.
+
+```
+$ npm install --save-dev babel-plugin-espower@1.1.0
+```
+
+
 HOW TO USE
 ---------------------------------------
 
 
-### via [Babel CLI](http://babeljs.io/docs/usage/cli/)
+### via [.babelrc](http://babeljs.io/docs/usage/babelrc/)
+
+```javascript
+{
+  "presets": [
+    ...
+  ],
+  "plugins": [
+    "babel-plugin-espower"
+  ]
+}
+```
 
 ```
-$ $(npm bin)/babel --plugins babel-plugin-espower /path/to/test/some_test.js > /path/to/build/some_test.js
-```
-
-or shortly,
-
-```
-$ $(npm bin)/babel --plugins espower /path/to/test/some_test.js > /path/to/build/some_test.js
+$ babel /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
 
@@ -69,6 +85,7 @@ $ $(npm bin)/babel --plugins espower /path/to/test/some_test.js > /path/to/build
 var babel = require('babel-core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
+    presets: [...],
     plugins: ['babel-plugin-espower']
 });
 console.log(transformed.code);
@@ -78,10 +95,9 @@ console.log(transformed.code);
 ### via [Babel Require Hook](http://babeljs.io/docs/usage/require/)
 
 ```javascript
-require('babel/register')({
-    only: /test\/tobe_instrumented/,
-    plugins: ['babel-plugin-espower'],
-    extensions: ['.es6', '.js']
+require('babel-register')({
+    presets: [...],
+    plugins: ['babel-plugin-espower']
 });
 ```
 
@@ -100,14 +116,17 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var glob = require('glob'),
 browserify({ entries: glob.sync('./test/*_test.js'), debug: true })
-  .transform(babelify.configure({ plugins: ['babel-plugin-espower'] }))
+  .transform(babelify.configure({
+      presets: [...],
+      plugins: ['babel-plugin-espower']
+  }))
   .bundle()
   .on('error', function (err) { console.log('Error : ' + err.message); })
   .pipe(fs.createWriteStream('all_test.js'));
 ```
 
 ```
-$ $(npm bin)/browserify -d -e ./test/*_test.js -t [ babelify --plugins babel-plugin-espower ]
+$ $(npm bin)/browserify -d -e ./test/*_test.js -t [ babelify --presets ... --plugins babel-plugin-espower ]
 ```
 
 
@@ -121,6 +140,7 @@ gulp.task('build_test', function() {
     var files = glob.sync('./test/*_test.js');
     var b = browserify({entries: files, debug: true});
     b.transform(babelify.configure({
+        presets: [...],
         plugins: ['babel-plugin-espower']
     }));
     return b.bundle()
@@ -145,7 +165,12 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [
-        ['babelify', {plugins: ['babel-plugin-espower']}]
+        [
+          'babelify', {
+            presets: [...],
+            plugins: ['babel-plugin-espower']
+          }
+        ]
       ]
     },
     // ...
@@ -156,7 +181,7 @@ EXAMPLE
 ---------------------------------------
 
 
-For given test file `demo_test.js` below,
+For given test file `test/demo_test.js` below,
 
 ```javascript
 import assert from 'power-assert';
@@ -184,16 +209,19 @@ describe('ES6 demo', () => {
 });
 ```
 
-Run `babel` with `--plugins espower` to transform tests.
+prepare `babel_hook.js` to transform tests.
+
+```javascript
+require('babel-register')({
+    presets: [...],  // presets of your choice
+    plugins: ['babel-plugin-espower']
+});
+```
+
+Run `mocha` with `--require` option. You will see the power-assert output appears.
 
 ```
-$ $(npm bin)/babel --plugins espower /path/to/test/demo_test.js > /path/to/build/demo_test.js
-```
-
-Then run. You will see the power-assert output appears.
-
-```
-$ $(npm bin)/mocha /path/to/build/demo_test.js
+$ $(npm bin)/mocha --require ./babel_hook test/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
@@ -222,7 +250,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
   -bob and alice
   +alice and bob
 
-      at Context.<anonymous> (build/demo_test.js:19:28)
+      at Context.<anonymous> (test/demo_test.js:19:28)
 
   2) ES6 demo ArrowFunctionExpression and SpreadElement:
 
@@ -239,7 +267,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
   [number] seven
   => 7
 
-      at Context.<anonymous> (build/demo_test.js:29:28)
+      at Context.<anonymous> (test/demo_test.js:29:28)
 
   3) ES6 demo Enhanced Object Literals:
      AssertionError:   # test/demo_test.js:17
@@ -251,7 +279,7 @@ $ $(npm bin)/mocha /path/to/build/demo_test.js
                    |      "bobby's greet"
                    Object{name:"bobby","bobby's greet":"Hello, I'm bobby"}
 
-      at Context.<anonymous> (build/demo_test.js:40:29)
+      at Context.<anonymous> (test/demo_test.js:40:29)
 ```
 
 
@@ -267,6 +295,7 @@ var babel = require('babel-core');
 var createEspowerPlugin = require('babel-plugin-espower/create');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
+    presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
             patterns: [
@@ -284,8 +313,8 @@ or via [Require Hook](http://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
-require('babel/register')({
-    only: /test\/tobe_instrumented/,
+require('babel-register')({
+    presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
             patterns: [
@@ -294,8 +323,7 @@ require('babel/register')({
                 'assert.near(actual, expected, delta, [message])'
             ]
         })
-    ],
-    extensions: ['.es6', '.js']
+    ]
 });
 ```
 
