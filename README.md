@@ -78,6 +78,12 @@ HOW TO USE
 $ babel /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
+For example, with `babel-register` module and `.babelrc` above, you can run mocha without code generation steps.
+
+```
+$ $(npm bin)/mocha --require babel-register test/some_test.js
+```
+
 
 ### via [Babel API](http://babeljs.io/docs/usage/api/)
 
@@ -212,16 +218,20 @@ describe('ES6 demo', () => {
 prepare `babel_hook.js` to transform tests.
 
 ```javascript
-require('babel-register')({
-    presets: [...],  // presets of your choice
-    plugins: ['babel-plugin-espower']
-});
+{
+  "presets": [
+    ...
+  ],
+  "plugins": [
+    "babel-plugin-espower"
+  ]
+}
 ```
 
-Run `mocha` with `--require` option. You will see the power-assert output appears.
+Run `mocha` with `--require babel-register` option. You will see the power-assert output appears.
 
 ```
-$ $(npm bin)/mocha --require ./babel_hook test/demo_test.js
+$ $(npm bin)/mocha --require babel-register test/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
