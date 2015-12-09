@@ -17,9 +17,11 @@
   "dependencies": {
     "array-find": "^1.0.0",
     "babel-generator": "^6.1.0",
+    "babel-template": "^6.3.13",
     "define-properties": "^1.1.2",
     "escallmatch": "^1.4.2",
     "espower": "^1.2.1",
+    "estraverse": "^4.1.1",
     "xtend": "^4.0.0"
   },
   "devDependencies": {
