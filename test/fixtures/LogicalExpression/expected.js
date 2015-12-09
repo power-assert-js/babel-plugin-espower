@@ -1,34 +1,42 @@
 'use strict';
 
-assert(assert._expr(assert._capt(assert._capt(5 < assert._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && assert._capt(assert._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
+var _powerAssertRecorder = function () { var events = []; function _capt(value, espath) { events.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var captured = events; events = []; var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
+    _rec = _powerAssertRecorder(),
+    _rec2 = _powerAssertRecorder(),
+    _rec3 = _powerAssertRecorder(),
+    _rec4 = _powerAssertRecorder(),
+    _rec5 = _powerAssertRecorder(),
+    _rec6 = _powerAssertRecorder();
+
+assert(_rec._expr(_rec._capt(_rec._capt(5 < _rec._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && _rec._capt(_rec._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
   content: 'assert(5 < actual && actual < 13)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 3
 }));
 
-assert.ok(assert._expr(assert._capt(assert._capt(assert._capt(actual, 'arguments/0/left/left') < 5, 'arguments/0/left') || assert._capt(13 < assert._capt(actual, 'arguments/0/right/right'), 'arguments/0/right'), 'arguments/0'), {
+assert.ok(_rec2._expr(_rec2._capt(_rec2._capt(_rec2._capt(actual, 'arguments/0/left/left') < 5, 'arguments/0/left') || _rec2._capt(13 < _rec2._capt(actual, 'arguments/0/right/right'), 'arguments/0/right'), 'arguments/0'), {
   content: 'assert.ok(actual < 5 || 13 < actual)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 5
 }));
 
-assert(assert._expr(assert._capt(assert._capt(2 > assert._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && assert._capt(assert._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
+assert(_rec3._expr(_rec3._capt(_rec3._capt(2 > _rec3._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && _rec3._capt(_rec3._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
   content: 'assert(2 > actual && actual < 13)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 7
 }));
 
-assert(assert._expr(assert._capt(assert._capt(2 > assert._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && assert._capt(assert._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
+assert(_rec4._expr(_rec4._capt(_rec4._capt(2 > _rec4._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && _rec4._capt(_rec4._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
   content: 'assert(2 > actual && actual < 13)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 9
 }));
 
-assert.equal(assert._expr(assert._capt(assert._capt(5 < assert._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && assert._capt(assert._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
+assert.equal(_rec5._expr(_rec5._capt(_rec5._capt(5 < _rec5._capt(actual, 'arguments/0/left/right'), 'arguments/0/left') && _rec5._capt(_rec5._capt(actual, 'arguments/0/right/left') < 13, 'arguments/0/right'), 'arguments/0'), {
   content: 'assert.equal(5 < actual && actual < 13, falsy)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 11
-}), assert._expr(assert._capt(falsy, 'arguments/1'), {
+}), _rec6._expr(_rec6._capt(falsy, 'arguments/1'), {
   content: 'assert.equal(5 < actual && actual < 13, falsy)',
   filepath: 'test/fixtures/LogicalExpression/fixture.js',
   line: 11
