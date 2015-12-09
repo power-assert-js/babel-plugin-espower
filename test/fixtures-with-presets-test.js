@@ -30,20 +30,21 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
 
 describe('babel-plugin-espower with presets', function () {
     testTransform('NonTarget');
+    testTransform('Mocha', 'presets-es2015');
     testTransform('Literal', 'presets-es2015');
-    testTransform('Identifier');
-    testTransform('BinaryExpression');
+    testTransform('Identifier', 'presets-es2015');
+    testTransform('BinaryExpression', 'presets-es2015');
     testTransform('UnaryExpression', 'presets-es2015');
-    testTransform('LogicalExpression');
-    testTransform('MemberExpression');
-    testTransform('CallExpression');
+    testTransform('LogicalExpression', 'presets-es2015');
+    testTransform('MemberExpression', 'presets-es2015');
+    testTransform('CallExpression', 'presets-es2015');
     testTransform('AssignmentExpression', 'presets-es2015');
     testTransform('ArrayExpression', 'presets-es2015');
-    testTransform('UpdateExpression');
+    testTransform('UpdateExpression', 'presets-es2015');
     testTransform('ConditionalExpression', 'presets-es2015');
-    testTransform('ObjectExpression');
-    testTransform('NewExpression');
-    testTransform('FunctionExpression');
+    testTransform('ObjectExpression', 'presets-es2015');
+    testTransform('NewExpression', 'presets-es2015');
+    testTransform('FunctionExpression', 'presets-es2015');
     testTransform('TemplateLiteral', 'presets-es2015');
     testTransform('TaggedTemplateExpression', 'presets-es2015');
     testTransform('ArrowFunctionExpression', 'presets-es2015');

@@ -1,16 +1,20 @@
 'use strict';
 
+var _powerAssertRecorder = function _powerAssertRecorder() { var events = []; function _capt(value, espath) { events.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var captured = events; events = []; var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; };
+
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } step("next"); }); }; }
 
 var myAsync = (function () {
   var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(a) {
+    var _rec = _powerAssertRecorder();
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.t0 = assert;
-            _context.t1 = assert;
-            _context.t2 = assert;
+            _context.t0 = _rec;
+            _context.t1 = _rec;
+            _context.t2 = _rec;
             _context.next = 5;
             return a;
 
