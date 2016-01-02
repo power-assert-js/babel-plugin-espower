@@ -20,7 +20,7 @@
     "babylon": "^6.1.0",
     "call-matcher": "^0.1.0",
     "define-properties": "^1.1.2",
-    "espower": "^1.2.1",
+    "espower-location-detector": "^0.1.1",
     "estraverse": "^4.1.1",
     "xtend": "^4.0.0"
   },
