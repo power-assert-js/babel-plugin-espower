@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; function _capt(value, espath) { captured.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
     _rec = _powerAssertRecorder(),
     _rec2 = _powerAssertRecorder(),
@@ -9,8 +11,6 @@ var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; 
     _rec6 = _powerAssertRecorder(),
     _rec7 = _powerAssertRecorder(),
     _rec8 = _powerAssertRecorder();
-
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
 
 assert(_rec._expr(_rec._capt(!_rec._capt(truth, 'arguments/0/argument'), 'arguments/0'), {
   content: 'assert(!truth)',

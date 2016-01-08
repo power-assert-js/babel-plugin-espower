@@ -4,14 +4,14 @@ var Person, assert;
 
 assert = require('power-assert');
 
-Person = (function () {
+Person = function () {
   function Person(name, age) {
     this.name = name;
     this.age = age;
   }
 
   return Person;
-})();
+}();
 
 describe("various types", function () {
   beforeEach(function () {

@@ -4,7 +4,7 @@ var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } step("next"); }); }; }
 
-var myAsync = (function () {
+var myAsync = function () {
   var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(a) {
     var _rec = _powerAssertRecorder();
 
@@ -24,7 +24,7 @@ var myAsync = (function () {
             _context.t5 = _context.t4 === 3;
             _context.t6 = _context.t1._capt.call(_context.t1, _context.t5, 'arguments/0');
             _context.t7 = {
-              content: 'assert(await a === 3)',
+              content: 'assert((await a) === 3)',
               filepath: 'test/fixtures/AwaitExpression/fixture.js',
               line: 4,
               async: true
@@ -43,7 +43,7 @@ var myAsync = (function () {
   return function myAsync(_x) {
     return ref.apply(this, arguments);
   };
-})();
+}();
 
 // function notAsync(a){
 //   assert((await (a)) === 3);

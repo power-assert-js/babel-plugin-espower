@@ -15,9 +15,9 @@ assert(_rec._expr(_rec._capt(_defineProperty({}, _rec._capt(num, 'arguments/0/pr
   line: 3
 }));
 
-assert(_rec2._expr(_rec2._capt(_defineProperty({}, _rec2._capt('prop_' + _rec2._capt((function () {
+assert(_rec2._expr(_rec2._capt(_defineProperty({}, _rec2._capt('prop_' + _rec2._capt(function () {
   return bar();
-})(), 'arguments/0/properties/0/key/right'), 'arguments/0/properties/0/key'), 42), 'arguments/0'), {
+}(), 'arguments/0/properties/0/key/right'), 'arguments/0/properties/0/key'), 42), 'arguments/0'), {
   content: 'assert({ [\'prop_\' + (() => bar())()]: 42 })',
   filepath: 'test/fixtures/Property/fixture.js',
   line: 5
