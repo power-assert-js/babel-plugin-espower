@@ -12,7 +12,7 @@ Babel plugin for power-assert.
 DESCRIPTION
 ---------------------------------------
 
-`babel-plugin-espower` is a [Babel](http://babeljs.io/) plugin for [power-assert](http://github.com/power-assert-js/power-assert).
+`babel-plugin-espower` is a [Babel](https://babeljs.io/) plugin for [power-assert](https://github.com/power-assert-js/power-assert).
 
 `power-assert` provides descriptive assertion messages for your tests, like this.
 
@@ -36,7 +36,7 @@ DESCRIPTION
   +alice and bob
 ```
 
-Pull-requests, issue reports and patches are always welcomed. See [power-assert](http://github.com/power-assert-js/power-assert) project for more documentation.
+Pull-requests, issue reports and patches are always welcomed. See [power-assert](https://github.com/power-assert-js/power-assert) project for more documentation.
 
 
 INSTALL
@@ -61,7 +61,7 @@ HOW TO USE
 ---------------------------------------
 
 
-### via [.babelrc](http://babeljs.io/docs/usage/babelrc/)
+### via [.babelrc](https://babeljs.io/docs/usage/babelrc/)
 
 ```javascript
 {
@@ -85,7 +85,7 @@ $ $(npm bin)/mocha --require babel-register test/some_test.js
 ```
 
 
-### via [Babel API](http://babeljs.io/docs/usage/api/)
+### via [Babel API](https://babeljs.io/docs/usage/api/)
 
 ```javascript
 var babel = require('babel-core');
@@ -98,7 +98,7 @@ console.log(transformed.code);
 ```
 
 
-### via [Babel Require Hook](http://babeljs.io/docs/usage/require/)
+### via [Babel Require Hook](https://babeljs.io/docs/usage/require/)
 
 ```javascript
 require('babel-register')({
@@ -156,7 +156,7 @@ gulp.task('build_test', function() {
 ```
 
 
-### with [babelify](https://github.com/babel/babelify) and [Karma](http://karma-runner.github.io)
+### with [babelify](https://github.com/babel/babelify) and [Karma](https://karma-runner.github.io)
 
 ```javascript
 module.exports = function(config) {
@@ -298,7 +298,7 @@ CUSTOMIZE
 
 ### var plugin = createEspowerPlugin(babel, [options])
 
-You can customize assertion patterns via [Babel API](http://babeljs.io/docs/usage/api/),
+You can customize assertion patterns via [Babel API](https://babeljs.io/docs/usage/api/),
 
 ```javascript
 var babel = require('babel-core');
@@ -319,7 +319,7 @@ var transformed = babel.transform(jsCode, {
 console.log(transformed.code);
 ```
 
-or via [Require Hook](http://babeljs.io/docs/usage/require/).
+or via [Require Hook](https://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
@@ -375,7 +375,7 @@ See [CHANGELOG](https://github.com/power-assert-js/babel-plugin-espower/blob/mas
 
 AUTHOR
 ---------------------------------------
-* [Takuto Wada](http://github.com/twada)
+* [Takuto Wada](https://github.com/twada)
 
 
 CONTRIBUTORS
@@ -391,11 +391,11 @@ Licensed under the [MIT](http://twada.mit-license.org/) license.
 [npm-url]: https://npmjs.org/package/babel-plugin-espower
 [npm-image]: https://badge.fury.io/js/babel-plugin-espower.svg
 
-[travis-url]: http://travis-ci.org/power-assert-js/babel-plugin-espower
+[travis-url]: https://travis-ci.org/power-assert-js/babel-plugin-espower
 [travis-image]: https://secure.travis-ci.org/power-assert-js/babel-plugin-espower.svg?branch=master
 
 [depstat-url]: https://gemnasium.com/power-assert-js/babel-plugin-espower
 [depstat-image]: https://gemnasium.com/power-assert-js/babel-plugin-espower.svg
 
 [license-url]: http://twada.mit-license.org/2014-2015
-[license-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg
+[license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg

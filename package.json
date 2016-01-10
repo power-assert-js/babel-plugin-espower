@@ -5,7 +5,7 @@
   "author": {
     "name": "Takuto Wada",
     "email": "takuto.wada@gmail.com",
-    "url": "http://github.com/twada"
+    "url": "https://github.com/twada"
   },
   "bugs": "https://github.com/power-assert-js/babel-plugin-espower/issues",
   "contributors": [
@@ -42,7 +42,7 @@
     "lib",
     "package.json"
   ],
-  "homepage": "http://github.com/power-assert-js/babel-plugin-espower",
+  "homepage": "https://github.com/power-assert-js/babel-plugin-espower",
   "keywords": [
     "assert",
     "assertion",
@@ -57,7 +57,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/power-assert-js/babel-plugin-espower.git"
+    "url": "https://github.com/power-assert-js/babel-plugin-espower.git"
   },
   "scripts": {
     "test": "mocha --timeout 0"
