@@ -1,5 +1,11 @@
 'use strict';
 
+var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; function _capt(value, espath) { captured.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
+    _rec = _powerAssertRecorder(),
+    _rec2 = _powerAssertRecorder(),
+    _rec3 = _powerAssertRecorder(),
+    _rec4 = _powerAssertRecorder();
+
 assert(false);
 
 assert(0);
@@ -10,25 +16,25 @@ assert(false, 'message');
 
 assert(false, messageStr);
 
-assert.equal(assert._expr(assert._capt(foo, 'arguments/0'), {
+assert.equal(_rec._expr(_rec._capt(foo, 'arguments/0'), {
   content: 'assert.equal(foo, \'bar\', \'msg\')',
   filepath: 'test/fixtures/Literal/fixture.js',
   line: 13
 }), 'bar', 'msg');
 
-assert(assert._expr(assert._capt(/^not/.exec(assert._capt(str, 'arguments/0/arguments/0')), 'arguments/0'), {
+assert(_rec2._expr(_rec2._capt(/^not/.exec(_rec2._capt(str, 'arguments/0/arguments/0')), 'arguments/0'), {
   content: 'assert(/^not/.exec(str))',
   filepath: 'test/fixtures/Literal/fixture.js',
   line: 15
 }));
 
-assert(assert._expr(assert._capt(assert._capt(fuga, 'arguments/0/left') !== 'ふが', 'arguments/0'), {
+assert(_rec3._expr(_rec3._capt(_rec3._capt(fuga, 'arguments/0/left') !== 'ふが', 'arguments/0'), {
   content: 'assert(fuga !== \'ふが\')',
   filepath: 'test/fixtures/Literal/fixture.js',
   line: 17
 }));
 
-assert(assert._expr(assert._capt('ほげ' !== 'ふが', 'arguments/0'), {
+assert(_rec4._expr(_rec4._capt('ほげ' !== 'ふが', 'arguments/0'), {
   content: 'assert(\'ほげ\' !== \'ふが\')',
   filepath: 'test/fixtures/Literal/fixture.js',
   line: 19

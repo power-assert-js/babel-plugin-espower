@@ -23,6 +23,7 @@ function testTransform (fixtureName, extraOptions) {
 }
 
 describe('babel-plugin-espower', function () {
+    testTransform('Mocha');
     testTransform('NonTarget');
     testTransform('Literal');
     testTransform('Identifier');

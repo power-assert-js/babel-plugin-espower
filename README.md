@@ -339,11 +339,33 @@ require('babel-register')({
 
 #### options
 
-| type     | default value |
-|:---------|:--------------|
-| `object` | (return value of `espower.defaultOptions()` with default `visitorKeys`, `path`, `sourceRoot` and `sourceMap`) |
+| type     | default value       |
+|:---------|:--------------------|
+| `object` | objects shown below |
 
-Configuration options for internal `espower` module. If not passed, default options will be used (return value of `espower.defaultOptions()` with default `visitorKeys`, `path`, `sourceRoot` and `sourceMap`. `visitorKeys` is value of `babel.types.VISITOR_KEYS`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
+Configuration options for `babel-plugin-espower`. If not passed, default options will be used (return value of `defaultOptions()` with default `visitorKeys`, `astWhiteList`, `path`, `sourceRoot` and `sourceMap`. `visitorKeys` is value of `babel.types.VISITOR_KEYS`. `astWhiteList` is value of `babel.types.BUILDER_KEYS`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
+
+```javascript
+{
+    patterns: [
+        'assert(value, [message])',
+        'assert.ok(value, [message])',
+        'assert.equal(actual, expected, [message])',
+        'assert.notEqual(actual, expected, [message])',
+        'assert.strictEqual(actual, expected, [message])',
+        'assert.notStrictEqual(actual, expected, [message])',
+        'assert.deepEqual(actual, expected, [message])',
+        'assert.notDeepEqual(actual, expected, [message])',
+        'assert.deepStrictEqual(actual, expected, [message])',
+        'assert.notDeepStrictEqual(actual, expected, [message])'
+    ],
+    visitorKeys: babel.types.VISITOR_KEYS,
+    astWhiteList: babel.types.BUILDER_KEYS,
+    sourceRoot: process.cwd(),
+    path: file.opts.filename,
+    sourceMap: file.opts.inputSourceMap
+}
+```
 
 
 CHANGELOG
