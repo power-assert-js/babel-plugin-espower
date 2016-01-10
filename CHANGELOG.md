@@ -1,3 +1,11 @@
+## [2.1.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.0) (2016-01-10)
+
+
+#### Features
+
+* [Embed value capturing helper into transpiled code](https://github.com/power-assert-js/babel-plugin-espower/pull/11)
+
+
 ## [2.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.0.0) (2015-11-13)
 
 
