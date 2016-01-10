@@ -4,9 +4,9 @@
  * 
  * https://github.com/power-assert-js/babel-plugin-espower
  *
- * Copyright (c) 2015 Takuto Wada
+ * Copyright (c) 2015-2016 Takuto Wada
  * Licensed under the MIT license.
- *   http://twada.mit-license.org/
+ *   http://twada.mit-license.org/2015-2016
  */
 'use strict';
 
