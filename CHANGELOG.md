@@ -1,3 +1,11 @@
+### [2.1.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.1) (2016-01-26)
+
+
+### Performance Improvements
+
+* [Use prototype based Recorder for performance boost](https://github.com/power-assert-js/babel-plugin-espower/pull/12) (by [@jamestalmage](https://github.com/jamestalmage))
+
+
 ## [2.1.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.0) (2016-01-10)
 
 
