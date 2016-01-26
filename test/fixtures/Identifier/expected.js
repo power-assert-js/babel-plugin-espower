@@ -1,18 +1,18 @@
 'use strict';
 
-var _powerAssertRecorder = function () { var captured = []; function _capt(value, espath) { captured.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
-    _rec = _powerAssertRecorder(),
-    _rec2 = _powerAssertRecorder(),
-    _rec3 = _powerAssertRecorder(),
-    _rec4 = _powerAssertRecorder(),
-    _rec5 = _powerAssertRecorder(),
-    _rec6 = _powerAssertRecorder(),
-    _rec7 = _powerAssertRecorder(),
-    _rec8 = _powerAssertRecorder(),
-    _rec9 = _powerAssertRecorder(),
-    _rec10 = _powerAssertRecorder(),
-    _rec11 = _powerAssertRecorder(),
-    _rec12 = _powerAssertRecorder();
+var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.captured = []; } PowerAssertRecorder.prototype._capt = function _capt(value, espath) { this.captured.push({ value: value, espath: espath }); return value; }; PowerAssertRecorder.prototype._expr = function _expr(value, args) { return { powerAssertContext: { value: value, events: this.captured }, source: { content: args.content, filepath: args.filepath, line: args.line, generator: !!args.generator, async: !!args.async } }; }; return PowerAssertRecorder; }(),
+    _rec = new _powerAssertRecorder(),
+    _rec2 = new _powerAssertRecorder(),
+    _rec3 = new _powerAssertRecorder(),
+    _rec4 = new _powerAssertRecorder(),
+    _rec5 = new _powerAssertRecorder(),
+    _rec6 = new _powerAssertRecorder(),
+    _rec7 = new _powerAssertRecorder(),
+    _rec8 = new _powerAssertRecorder(),
+    _rec9 = new _powerAssertRecorder(),
+    _rec10 = new _powerAssertRecorder(),
+    _rec11 = new _powerAssertRecorder(),
+    _rec12 = new _powerAssertRecorder();
 
 assert(_rec._expr(_rec._capt(falsyStr, 'arguments/0'), {
   content: 'assert(falsyStr)',
