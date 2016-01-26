@@ -2,14 +2,14 @@
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; function _capt(value, espath) { captured.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
-    _rec = _powerAssertRecorder(),
-    _rec2 = _powerAssertRecorder(),
-    _rec3 = _powerAssertRecorder(),
-    _rec4 = _powerAssertRecorder(),
-    _rec5 = _powerAssertRecorder(),
-    _rec6 = _powerAssertRecorder(),
-    _rec7 = _powerAssertRecorder(),
+var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.captured = []; } PowerAssertRecorder.prototype._capt = function _capt(value, espath) { this.captured.push({ value: value, espath: espath }); return value; }; PowerAssertRecorder.prototype._expr = function _expr(value, source) { return { powerAssertContext: { value: value, events: this.captured }, source: source }; }; return PowerAssertRecorder; }(),
+    _rec = new _powerAssertRecorder(),
+    _rec2 = new _powerAssertRecorder(),
+    _rec3 = new _powerAssertRecorder(),
+    _rec4 = new _powerAssertRecorder(),
+    _rec5 = new _powerAssertRecorder(),
+    _rec6 = new _powerAssertRecorder(),
+    _rec7 = new _powerAssertRecorder(),
     _rec6$_capt,
     _rec6$_capt2,
     _rec7$_capt,

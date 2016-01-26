@@ -1,10 +1,10 @@
 'use strict';
 
-var _powerAssertRecorder = function _powerAssertRecorder() { var captured = []; function _capt(value, espath) { captured.push({ value: value, espath: espath }); return value; } function _expr(value, args) { var source = { content: args.content, filepath: args.filepath, line: args.line }; if (args.generator) { source.generator = true; } if (args.async) { source.async = true; } return { powerAssertContext: { value: value, events: captured }, source: source }; } return { _capt: _capt, _expr: _expr }; },
-    _rec = _powerAssertRecorder(),
-    _rec2 = _powerAssertRecorder(),
-    _rec3 = _powerAssertRecorder(),
-    _rec4 = _powerAssertRecorder();
+var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.captured = []; } PowerAssertRecorder.prototype._capt = function _capt(value, espath) { this.captured.push({ value: value, espath: espath }); return value; }; PowerAssertRecorder.prototype._expr = function _expr(value, source) { return { powerAssertContext: { value: value, events: this.captured }, source: source }; }; return PowerAssertRecorder; }(),
+    _rec = new _powerAssertRecorder(),
+    _rec2 = new _powerAssertRecorder(),
+    _rec3 = new _powerAssertRecorder(),
+    _rec4 = new _powerAssertRecorder();
 
 assert(_rec._expr(_rec._capt(++foo, 'arguments/0'), {
   content: 'assert(++foo)',
