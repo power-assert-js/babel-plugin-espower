@@ -1,3 +1,11 @@
+### [2.1.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.2) (2016-02-14)
+
+
+#### Bug Fixes
+
+* do not include comments in one-line format assertion ([c5af6c55](https://github.com/power-assert-js/babel-plugin-espower/commit/c5af6c558f2caad8e30c1494c218d7ad3203eb16))
+
+
 ### [2.1.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.1) (2016-01-26)
 
 
