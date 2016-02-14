@@ -64,4 +64,5 @@ describe('babel-plugin-espower', function () {
             })
         ]
     });
+    testTransform('CommentsInAssertion');
 });
