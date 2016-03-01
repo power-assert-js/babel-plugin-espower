@@ -17,3 +17,5 @@ assert(fuga !== piyo);
 assert.ok(hoge === fuga, 'comment');
 
 assert(ary1.length === ary2.length);
+
+assert(foo instanceof Foo);

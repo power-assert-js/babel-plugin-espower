@@ -8,7 +8,8 @@ var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.c
     _rec5 = new _powerAssertRecorder(),
     _rec6 = new _powerAssertRecorder(),
     _rec7 = new _powerAssertRecorder(),
-    _rec8 = new _powerAssertRecorder();
+    _rec8 = new _powerAssertRecorder(),
+    _rec9 = new _powerAssertRecorder();
 
 assert(_rec._expr(_rec._capt(4 !== 4, 'arguments/0'), {
   content: 'assert(4 !== 4)',
@@ -56,4 +57,10 @@ assert(_rec8._expr(_rec8._capt(_rec8._capt(_rec8._capt(ary1, 'arguments/0/left/o
   content: 'assert(ary1.length === ary2.length)',
   filepath: 'test/fixtures/BinaryExpression/fixture.js',
   line: 19
+}));
+
+assert(_rec9._expr(_rec9._capt(_rec9._capt(foo, 'arguments/0/left') instanceof _rec9._capt(Foo, 'arguments/0/right'), 'arguments/0'), {
+  content: 'assert(foo instanceof Foo)',
+  filepath: 'test/fixtures/BinaryExpression/fixture.js',
+  line: 21
 }));
