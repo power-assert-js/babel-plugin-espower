@@ -14,7 +14,8 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var result = babel.transformFileSync(fixtureFilepath, extend({
             presets: [
                 'es2015',
-                'stage-3'
+                'stage-3',
+                'react'
             ],
             plugins: [
                 createEspowerPlugin(babel)
@@ -54,4 +55,9 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('Property', 'presets-es2015');
     testTransform('YieldExpression', 'presets-es2015');
     testTransform('AwaitExpression', 'presets-stage-3');
+    testTransform('React', 'presets-react');
+});
+
+describe.only('babel-plugin-espower with presets-react', function () {
+    testTransform('React', 'presets-react');
 });
