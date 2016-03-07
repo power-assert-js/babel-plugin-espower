@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var babel = require('babel-core');
 var extend = require('xtend');
+var createEspowerPlugin = require('../create');
 
 function testTransform (fixtureName, extraSuffix, extraOptions) {
     it(fixtureName, function () {
@@ -16,7 +17,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
                 'stage-3'
             ],
             plugins: [
-                '../index'
+                createEspowerPlugin(babel)
             ]
         }, extraOptions));
         var actual = result.code + '\n';

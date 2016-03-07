@@ -11,7 +11,7 @@ function testTransform (fixtureName, extraOptions) {
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual.js');
         var result = babel.transformFileSync(fixtureFilepath, extend({
-            plugins: ['../index']
+            plugins: [createEspowerPlugin(babel)]
         }, extraOptions));
         var actual = result.code + '\n';
         var expected = fs.readFileSync(expectedFilepath, 'utf8');
