@@ -19,7 +19,6 @@
     "babel-generator": "^6.1.0",
     "babylon": "^6.1.0",
     "call-matcher": "^0.1.0",
-    "clone": "^1.0.2",
     "define-properties": "^1.1.2",
     "espower-location-detector": "^0.1.1",
     "espurify": "^1.5.0",
