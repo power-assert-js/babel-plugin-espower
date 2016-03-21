@@ -58,6 +58,8 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('React', 'presets-react');
 });
 
-describe.only('babel-plugin-espower with presets-react', function () {
+describe.only('babel-plugin-espower with embedded-ast', function () {
     testTransform('React', 'presets-react');
+    testTransform('YieldExpression', 'presets-es2015');
+    testTransform('AwaitExpression', 'presets-stage-3');
 });
