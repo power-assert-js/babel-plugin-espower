@@ -18,7 +18,9 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
                 'react'
             ],
             plugins: [
-                createEspowerPlugin(babel)
+                createEspowerPlugin(babel, {
+                    embedAst: true
+                })
             ]
         }, extraOptions));
         var actual = result.code + '\n';
