@@ -308,6 +308,7 @@ var transformed = babel.transform(jsCode, {
     presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
+            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -327,6 +328,7 @@ require('babel-register')({
     presets: [...],
     plugins: [
         createEspowerPlugin(babel, {
+            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -343,7 +345,7 @@ require('babel-register')({
 |:---------|:--------------------|
 | `object` | objects shown below |
 
-Configuration options for `babel-plugin-espower`. If not passed, default options will be used (return value of `defaultOptions()` with default `visitorKeys`, `astWhiteList`, `path`, `sourceRoot` and `sourceMap`. `visitorKeys` is value of `babel.types.VISITOR_KEYS`. `astWhiteList` is value of `babel.types.BUILDER_KEYS`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
+Configuration options for `babel-plugin-espower`. If not passed, default options will be used (return value of `defaultOptions()` with default `embedAst`, `visitorKeys`, `astWhiteList`, `path`, `sourceRoot` and `sourceMap`. `visitorKeys` is value of `babel.types.VISITOR_KEYS`. `astWhiteList` is value of `babel.types.BUILDER_KEYS`. `path` is filename passed to babel. `sourceRoot` is be return value of `process.cwd()`, `sourceMap` is babel's internal SourceMap object).
 
 ```javascript
 {
@@ -359,6 +361,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
         'assert.deepStrictEqual(actual, expected, [message])',
         'assert.notDeepStrictEqual(actual, expected, [message])'
     ],
+    embedAst: false,
     visitorKeys: babel.types.VISITOR_KEYS,
     astWhiteList: babel.types.BUILDER_KEYS,
     sourceRoot: process.cwd(),
