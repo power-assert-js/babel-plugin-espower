@@ -2,7 +2,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var babel = require('babel-core');
-var extend = require('xtend');
+var assign = require('core-js/library/fn/object/assign');
 var createEspowerPlugin = require('../create');
 
 function testTransform (fixtureName, extraOptions) {
@@ -10,7 +10,7 @@ function testTransform (fixtureName, extraOptions) {
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual.js');
-        var result = babel.transformFileSync(fixtureFilepath, extend({
+        var result = babel.transformFileSync(fixtureFilepath, assign({
             plugins: [createEspowerPlugin(babel)]
         }, extraOptions));
         var actual = result.code + '\n';
