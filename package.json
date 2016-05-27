@@ -20,7 +20,7 @@
     "call-matcher": "^0.1.0",
     "core-js": "^2.0.0",
     "espower-location-detector": "^0.1.1",
-    "espurify": "^1.5.1",
+    "espurify": "^1.6.0",
     "estraverse": "^4.1.1"
   },
   "devDependencies": {
