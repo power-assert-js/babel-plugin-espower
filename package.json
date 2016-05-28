@@ -17,7 +17,7 @@
   "dependencies": {
     "babel-generator": "^6.1.0",
     "babylon": "^6.1.0",
-    "call-matcher": "^0.1.0",
+    "call-matcher": "^1.0.0",
     "core-js": "^2.0.0",
     "espower-location-detector": "^0.1.1",
     "espurify": "^1.6.0",
