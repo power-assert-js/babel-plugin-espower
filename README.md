@@ -296,9 +296,33 @@ $ $(npm bin)/mocha --require babel-register test/demo_test.js
 CUSTOMIZE
 ---------------------------------------
 
-### var plugin = createEspowerPlugin(babel, [options])
+### by plugin options
 
-You can customize assertion patterns via [Babel API](https://babeljs.io/docs/usage/api/),
+You can customize configs such as assertion patterns via [.babelrc](https://babeljs.io/docs/usage/babelrc/)
+
+```javascript
+{
+  "presets": [
+    ...
+  ],
+  "plugins": [
+    ["babel-plugin-espower", {
+      "embedAst": true,
+      "patterns": [
+        "assert.isNull(object, [message])",
+        "assert.same(actual, expected, [message])",
+        "assert.near(actual, expected, delta, [message])"
+      ]
+    }]
+  ]
+}
+```
+
+### by API
+
+#### var plugin = createEspowerPlugin(babel, [options])
+
+You can customize configs such as assertion patterns via [Babel API](https://babeljs.io/docs/usage/api/),
 
 ```javascript
 var babel = require('babel-core');
