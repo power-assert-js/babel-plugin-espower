@@ -1,3 +1,12 @@
+## [2.2.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.2.0) (2016-05-31)
+
+
+#### Features
+
+* [`embedAst` option to embed assertion's AST and tokens to make runtime side parser unnecessary](https://github.com/power-assert-js/babel-plugin-espower/pull/13)
+* [Make babel-plugin-espower customizable via plugin options](https://github.com/power-assert-js/babel-plugin-espower/pull/16)
+
+
 ### [2.1.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.1.2) (2016-02-14)
 
 
