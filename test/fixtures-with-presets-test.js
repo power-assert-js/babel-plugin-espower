@@ -47,6 +47,7 @@ describe('babel-plugin-espower with presets', function () {
     testTransform('UpdateExpression', 'presets-es2015');
     testTransform('ConditionalExpression', 'presets-es2015');
     testTransform('ObjectExpression', 'presets-es2015');
+    testTransform('SequenceExpression', 'presets-es2015');
     testTransform('NewExpression', 'presets-es2015');
     testTransform('FunctionExpression', 'presets-es2015');
     testTransform('TemplateLiteral', 'presets-es2015');

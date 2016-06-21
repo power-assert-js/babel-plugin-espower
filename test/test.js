@@ -37,6 +37,7 @@ describe('babel-plugin-espower', function () {
     testTransform('UpdateExpression');
     testTransform('ConditionalExpression');
     testTransform('ObjectExpression');
+    testTransform('SequenceExpression');
     testTransform('NewExpression');
     testTransform('FunctionExpression');
     testTransform('TemplateLiteral');
