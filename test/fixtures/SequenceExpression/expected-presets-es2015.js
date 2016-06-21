@@ -6,18 +6,12 @@ var _powerAssertVisitorKeys = '{"ArrayExpression":["elements"],"AssignmentExpres
     _rec2 = new _powerAssertRecorder(),
     _rec3 = new _powerAssertRecorder(),
     _rec4 = new _powerAssertRecorder(),
-    _rec5 = new _powerAssertRecorder();
+    _rec5 = new _powerAssertRecorder(),
+    _rec6 = new _powerAssertRecorder();
 
-assert(_rec._expr(_rec._capt((2, 1, 0), 'arguments/0'), {
-  content: 'assert((2, 1, 0))',
-  filepath: 'test/fixtures/SequenceExpression/fixture.js',
-  line: 3,
-  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"SequenceExpression","expressions":[{"type":"NumericLiteral","value":2,"range":[8,9]},{"type":"NumericLiteral","value":1,"range":[11,12]},{"type":"NumericLiteral","value":0,"range":[14,15]}],"range":[8,15]}],"range":[0,17]}',
-  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"("},"range":[7,8]},{"type":{"label":"num"},"value":2,"range":[8,9]},{"type":{"label":","},"range":[9,10]},{"type":{"label":"num"},"value":1,"range":[11,12]},{"type":{"label":","},"range":[12,13]},{"type":{"label":"num"},"value":0,"range":[14,15]},{"type":{"label":")"},"range":[15,16]},{"type":{"label":")"},"range":[16,17]}]',
-  visitorKeys: _powerAssertVisitorKeys
-}));
+assert((2, 1, 0));
 
-assert(_rec2._expr(_rec2._capt(_rec2._capt((_rec2._capt(foo, 'arguments/0/left/expressions/0'), _rec2._capt(bar, 'arguments/0/left/expressions/1')), 'arguments/0/left') === _rec2._capt(baz, 'arguments/0/right'), 'arguments/0'), {
+assert(_rec2._expr(_rec2._capt((_rec2._capt(foo, 'arguments/0/left/expressions/0'), _rec2._capt(bar, 'arguments/0/left/expressions/1')) === _rec2._capt(baz, 'arguments/0/right'), 'arguments/0'), {
   content: 'assert((foo, bar) === baz)',
   filepath: 'test/fixtures/SequenceExpression/fixture.js',
   line: 5,
@@ -26,7 +20,7 @@ assert(_rec2._expr(_rec2._capt(_rec2._capt((_rec2._capt(foo, 'arguments/0/left/e
   visitorKeys: _powerAssertVisitorKeys
 }));
 
-assert(_rec3._expr(_rec3._capt(toto(_rec3._capt((_rec3._capt(tata, 'arguments/0/arguments/0/expressions/0'), _rec3._capt(titi, 'arguments/0/arguments/0/expressions/1')), 'arguments/0/arguments/0')), 'arguments/0'), {
+assert(_rec3._expr(_rec3._capt(toto((_rec3._capt(tata, 'arguments/0/arguments/0/expressions/0'), _rec3._capt(titi, 'arguments/0/arguments/0/expressions/1'))), 'arguments/0'), {
   content: 'assert(toto((tata, titi)))',
   filepath: 'test/fixtures/SequenceExpression/fixture.js',
   line: 7,
@@ -35,7 +29,7 @@ assert(_rec3._expr(_rec3._capt(toto(_rec3._capt((_rec3._capt(tata, 'arguments/0/
   visitorKeys: _powerAssertVisitorKeys
 }));
 
-assert(_rec4._expr(_rec4._capt((_rec4._capt(foo, 'arguments/0/expressions/0'), _rec4._capt((_rec4._capt(bar, 'arguments/0/expressions/1/expressions/0'), _rec4._capt(baz, 'arguments/0/expressions/1/expressions/1')), 'arguments/0/expressions/1')), 'arguments/0'), {
+assert(_rec4._expr((_rec4._capt(foo, 'arguments/0/expressions/0'), (_rec4._capt(bar, 'arguments/0/expressions/1/expressions/0'), _rec4._capt(baz, 'arguments/0/expressions/1/expressions/1'))), {
   content: 'assert((foo, (bar, baz)))',
   filepath: 'test/fixtures/SequenceExpression/fixture.js',
   line: 9,
@@ -44,11 +38,20 @@ assert(_rec4._expr(_rec4._capt((_rec4._capt(foo, 'arguments/0/expressions/0'), _
   visitorKeys: _powerAssertVisitorKeys
 }));
 
-assert(_rec5._expr(_rec5._capt((_rec5._capt((_rec5._capt((_rec5._capt((_rec5._capt((_rec5._capt(foo, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/0/expressions/0'), _rec5._capt(bar, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/0/expressions/1')), 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/0'), _rec5._capt(baz, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/1')), 'arguments/0/expressions/0/expressions/0/expressions/0'), _rec5._capt(toto, 'arguments/0/expressions/0/expressions/0/expressions/1')), 'arguments/0/expressions/0/expressions/0'), _rec5._capt(tata, 'arguments/0/expressions/0/expressions/1')), 'arguments/0/expressions/0'), _rec5._capt(titi, 'arguments/0/expressions/1')), 'arguments/0'), {
+assert(_rec5._expr((((((_rec5._capt(foo, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/0/expressions/0'), _rec5._capt(bar, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/0/expressions/1')), _rec5._capt(baz, 'arguments/0/expressions/0/expressions/0/expressions/0/expressions/1')), _rec5._capt(toto, 'arguments/0/expressions/0/expressions/0/expressions/1')), _rec5._capt(tata, 'arguments/0/expressions/0/expressions/1')), _rec5._capt(titi, 'arguments/0/expressions/1')), {
   content: 'assert((((((foo, bar), baz), toto), tata), titi))',
   filepath: 'test/fixtures/SequenceExpression/fixture.js',
   line: 11,
   ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"SequenceExpression","expressions":[{"type":"SequenceExpression","expressions":[{"type":"SequenceExpression","expressions":[{"type":"SequenceExpression","expressions":[{"type":"SequenceExpression","expressions":[{"type":"Identifier","name":"foo","range":[12,15]},{"type":"Identifier","name":"bar","range":[17,20]}],"range":[12,20]},{"type":"Identifier","name":"baz","range":[23,26]}],"range":[11,26]},{"type":"Identifier","name":"toto","range":[29,33]}],"range":[10,33]},{"type":"Identifier","name":"tata","range":[36,40]}],"range":[9,40]},{"type":"Identifier","name":"titi","range":[43,47]}],"range":[8,47]}],"range":[0,49]}',
   tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"("},"range":[7,8]},{"type":{"label":"("},"range":[8,9]},{"type":{"label":"("},"range":[9,10]},{"type":{"label":"("},"range":[10,11]},{"type":{"label":"("},"range":[11,12]},{"type":{"label":"name"},"value":"foo","range":[12,15]},{"type":{"label":","},"range":[15,16]},{"type":{"label":"name"},"value":"bar","range":[17,20]},{"type":{"label":")"},"range":[20,21]},{"type":{"label":","},"range":[21,22]},{"type":{"label":"name"},"value":"baz","range":[23,26]},{"type":{"label":")"},"range":[26,27]},{"type":{"label":","},"range":[27,28]},{"type":{"label":"name"},"value":"toto","range":[29,33]},{"type":{"label":")"},"range":[33,34]},{"type":{"label":","},"range":[34,35]},{"type":{"label":"name"},"value":"tata","range":[36,40]},{"type":{"label":")"},"range":[40,41]},{"type":{"label":","},"range":[41,42]},{"type":{"label":"name"},"value":"titi","range":[43,47]},{"type":{"label":")"},"range":[47,48]},{"type":{"label":")"},"range":[48,49]}]',
+  visitorKeys: _powerAssertVisitorKeys
+}));
+
+assert(_rec6._expr((_rec6._capt(y = _rec6._capt(x, 'arguments/0/expressions/0/right'), 'arguments/0/expressions/0'), _rec6._capt(z, 'arguments/0/expressions/1')), {
+  content: 'assert((y = x, z))',
+  filepath: 'test/fixtures/SequenceExpression/fixture.js',
+  line: 13,
+  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"SequenceExpression","expressions":[{"type":"AssignmentExpression","operator":"=","left":{"type":"Identifier","name":"y","range":[8,9]},"right":{"type":"Identifier","name":"x","range":[12,13]},"range":[8,13]},{"type":"Identifier","name":"z","range":[15,16]}],"range":[8,16]}],"range":[0,18]}',
+  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"("},"range":[7,8]},{"type":{"label":"name"},"value":"y","range":[8,9]},{"type":{"label":"="},"value":"=","range":[10,11]},{"type":{"label":"name"},"value":"x","range":[12,13]},{"type":{"label":","},"range":[13,14]},{"type":{"label":"name"},"value":"z","range":[15,16]},{"type":{"label":")"},"range":[16,17]},{"type":{"label":")"},"range":[17,18]}]',
   visitorKeys: _powerAssertVisitorKeys
 }));

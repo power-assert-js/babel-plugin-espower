@@ -9,3 +9,5 @@ assert(toto((tata, titi)));
 assert((foo, (bar, baz)));
 
 assert((((((foo, bar), baz), toto), tata), titi));
+
+assert((y = x, z));
