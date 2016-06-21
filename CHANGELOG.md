@@ -1,3 +1,11 @@
+### [2.3.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.1) (2016-06-21)
+
+
+#### Bug Fixes
+
+* stop capturing SequenceExpression itself since SequenceExpressions are not enclosed in parentheses in some cases ([bf64b96a](https://github.com/power-assert-js/babel-plugin-espower/commit/bf64b96a139e0872590d39f2e5f4df02a2472eb3))
+
+
 ## [2.3.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.0) (2016-06-21)
 
 
