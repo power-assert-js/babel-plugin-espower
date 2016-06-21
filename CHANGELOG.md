@@ -1,3 +1,11 @@
+## [2.3.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.0) (2016-06-21)
+
+
+#### Features
+
+* [Support SequenceExpression (i.e., comma operator)](https://github.com/power-assert-js/babel-plugin-espower/pull/17)
+
+
 ## [2.2.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.2.0) (2016-05-31)
 
 
