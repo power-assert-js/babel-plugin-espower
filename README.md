@@ -394,6 +394,14 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
 }
 ```
 
+#### options.embedAst
+
+If you want to use non-ECMASCript-standard features such as JSX tags in your `assert()`, you should set `embedAst` option to `true`.
+
+```js
+assert(shallow(<Foo />).is('.foo'));
+```
+
 
 CHANGELOG
 ---------------------------------------
