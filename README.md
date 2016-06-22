@@ -53,7 +53,7 @@ CAUTION
 Babel6 is incompatible with Babel5. For Babel 5 or lower, you need to use the 1.x release of babel-plugin-espower.
 
 ```
-$ npm install --save-dev babel-plugin-espower@1.1.0
+$ npm install --save-dev babel-plugin-espower@1.1.1
 ```
 
 
