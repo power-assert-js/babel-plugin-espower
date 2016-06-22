@@ -64,6 +64,14 @@ $ npm install --save-dev babel-plugin-espower@1.1.0
 ```
 
 
+### [1.1.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.1.1) (2016-06-22)
+
+
+#### Bug Fixes
+
+* pin espower dependency to >=1.0.0 <1.3.0 since there was a little breaking change ([f9a7d781](https://github.com/power-assert-js/babel-plugin-espower/commit/f9a7d78167d92ca7f86c0923478f1a7ab6e71f5d))
+
+
 ## [1.1.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v1.1.0) (2015-11-06)
 
 
