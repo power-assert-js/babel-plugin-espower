@@ -51,22 +51,26 @@ var ToDoItem = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'item' },
+                { className: 'item', __self: this
+                },
                 _react2.default.createElement(
                     'span',
-                    { className: 'item-mark' },
+                    { className: 'item-mark', __self: this
+                    },
                     item.complete ? '✓' : '•'
                 ),
                 _react2.default.createElement(
                     'span',
-                    { className: 'item-title' },
+                    { className: 'item-title', __self: this
+                    },
                     item.title
                 ),
                 _react2.default.createElement(
                     'a',
                     { className: 'item-button', onClick: function onClick() {
                             return onCompleteChange(item, !item.complete);
-                        } },
+                        }, __self: this
+                    },
                     'Mark as ',
                     item.complete ? 'Pending' : 'Complete'
                 )
@@ -86,7 +90,8 @@ describe('<ToDoItem />', function () {
         var _rec = new _powerAssertRecorder();
 
         var item = mockItem();
-        (0, _powerAssert2.default)(_rec._expr(_rec._capt(_rec._capt(_rec._capt(_rec._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item })), 'arguments/0/left/callee/object/callee/object').text(), 'arguments/0/left/callee/object').indexOf(_rec._capt(_rec._capt(item, 'arguments/0/left/arguments/0/object').title, 'arguments/0/left/arguments/0')), 'arguments/0/left') !== _rec._capt(-1, 'arguments/0/right'), 'arguments/0'), {
+        (0, _powerAssert2.default)(_rec._expr(_rec._capt(_rec._capt(_rec._capt(_rec._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item, __self: undefined
+        })), 'arguments/0/left/callee/object/callee/object').text(), 'arguments/0/left/callee/object').indexOf(_rec._capt(_rec._capt(item, 'arguments/0/left/arguments/0/object').title, 'arguments/0/left/arguments/0')), 'arguments/0/left') !== _rec._capt(-1, 'arguments/0/right'), 'arguments/0'), {
             content: 'assert(shallow(<ToDoItem item={item} />).text().indexOf(item.title) !== -1)',
             filepath: 'test/fixtures/React/fixture.js',
             line: 29,
@@ -99,7 +104,8 @@ describe('<ToDoItem />', function () {
         var _rec2 = new _powerAssertRecorder();
 
         var item = mockItem({ complete: true });
-        (0, _powerAssert2.default)(_rec2._expr(_rec2._capt(_rec2._capt(_rec2._capt(_rec2._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item })), 'arguments/0/left/callee/object/callee/object').find('.item-mark'), 'arguments/0/left/callee/object').text(), 'arguments/0/left') === '✓', 'arguments/0'), {
+        (0, _powerAssert2.default)(_rec2._expr(_rec2._capt(_rec2._capt(_rec2._capt(_rec2._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item, __self: undefined
+        })), 'arguments/0/left/callee/object/callee/object').find('.item-mark'), 'arguments/0/left/callee/object').text(), 'arguments/0/left') === '✓', 'arguments/0'), {
             content: 'assert(shallow(<ToDoItem item={item} />).find(\'.item-mark\').text() === \'✓\')',
             filepath: 'test/fixtures/React/fixture.js',
             line: 33,
@@ -112,7 +118,8 @@ describe('<ToDoItem />', function () {
         var _rec3 = new _powerAssertRecorder();
 
         var item = mockItem({ complete: false });
-        (0, _powerAssert2.default)(_rec3._expr(_rec3._capt(_rec3._capt(_rec3._capt(_rec3._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item })), 'arguments/0/left/callee/object/callee/object').find('.item-mark'), 'arguments/0/left/callee/object').text(), 'arguments/0/left') === '•', 'arguments/0'), {
+        (0, _powerAssert2.default)(_rec3._expr(_rec3._capt(_rec3._capt(_rec3._capt(_rec3._capt((0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item, __self: undefined
+        })), 'arguments/0/left/callee/object/callee/object').find('.item-mark'), 'arguments/0/left/callee/object').text(), 'arguments/0/left') === '•', 'arguments/0'), {
             content: 'assert(shallow(<ToDoItem item={item} />).find(\'.item-mark\').text() === \'•\')',
             filepath: 'test/fixtures/React/fixture.js',
             line: 37,
@@ -127,7 +134,8 @@ describe('<ToDoItem />', function () {
 
         var spy = sinon.spy();
         var item = mockItem();
-        var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item, onCompleteChange: spy }));
+        var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(ToDoItem, { item: item, onCompleteChange: spy, __self: undefined
+        }));
         wrapper.find('.item-button').simulate('click');
         (0, _powerAssert2.default)(_rec4._expr(_rec4._capt(_rec4._capt(_rec4._capt(spy, 'arguments/0/left/object').calledOnce, 'arguments/0/left') === true, 'arguments/0'), {
             content: 'assert(spy.calledOnce === true)',
@@ -153,7 +161,10 @@ describe('<Foo />', function () {
         it('#contains', function () {
             var _rec6 = new _powerAssertRecorder();
 
-            (0, _powerAssert2.default)(_rec6._expr(_rec6._capt(_rec6._capt((0, _enzyme.shallow)(_react2.default.createElement(_Foo2.default, null)), 'arguments/0/callee/object').contains(_react2.default.createElement('div', { className: 'foo' })), 'arguments/0'), {
+            (0, _powerAssert2.default)(_rec6._expr(_rec6._capt(_rec6._capt((0, _enzyme.shallow)(_react2.default.createElement(_Foo2.default, {
+                __self: undefined
+            })), 'arguments/0/callee/object').contains(_react2.default.createElement('div', { className: 'foo', __self: undefined
+            })), 'arguments/0'), {
                 content: 'assert(shallow(<Foo />).contains(<div className="foo" />))',
                 filepath: 'test/fixtures/React/fixture.js',
                 line: 52,
@@ -165,7 +176,9 @@ describe('<Foo />', function () {
         it('#is', function () {
             var _rec7 = new _powerAssertRecorder();
 
-            (0, _powerAssert2.default)(_rec7._expr(_rec7._capt(_rec7._capt((0, _enzyme.shallow)(_react2.default.createElement(_Foo2.default, null)), 'arguments/0/callee/object').is('.foo'), 'arguments/0'), {
+            (0, _powerAssert2.default)(_rec7._expr(_rec7._capt(_rec7._capt((0, _enzyme.shallow)(_react2.default.createElement(_Foo2.default, {
+                __self: undefined
+            })), 'arguments/0/callee/object').is('.foo'), 'arguments/0'), {
                 content: 'assert(shallow(<Foo />).is(\'.foo\'))',
                 filepath: 'test/fixtures/React/fixture.js',
                 line: 55,
@@ -179,7 +192,9 @@ describe('<Foo />', function () {
         it('#find', function () {
             var _rec8 = new _powerAssertRecorder();
 
-            (0, _powerAssert2.default)(_rec8._expr(_rec8._capt(_rec8._capt(_rec8._capt(_rec8._capt((0, _enzyme.mount)(_react2.default.createElement(_Foo2.default, null)), 'arguments/0/left/object/callee/object').find('.foo'), 'arguments/0/left/object').length, 'arguments/0/left') === 1, 'arguments/0'), {
+            (0, _powerAssert2.default)(_rec8._expr(_rec8._capt(_rec8._capt(_rec8._capt(_rec8._capt((0, _enzyme.mount)(_react2.default.createElement(_Foo2.default, {
+                __self: undefined
+            })), 'arguments/0/left/object/callee/object').find('.foo'), 'arguments/0/left/object').length, 'arguments/0/left') === 1, 'arguments/0'), {
                 content: 'assert(mount(<Foo />).find(\'.foo\').length === 1)',
                 filepath: 'test/fixtures/React/fixture.js',
                 line: 60,
