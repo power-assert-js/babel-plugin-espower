@@ -4,7 +4,7 @@ var _powerAssertVisitorKeys = '{"ArrayExpression":["elements"],"AssignmentExpres
     _powerAssertRecorder = function () { function PowerAssertRecorder() { this.captured = []; } PowerAssertRecorder.prototype._capt = function _capt(value, espath) { this.captured.push({ value: value, espath: espath }); return value; }; PowerAssertRecorder.prototype._expr = function _expr(value, source) { return { powerAssertContext: { value: value, events: this.captured }, source: source }; }; return PowerAssertRecorder; }();
 
 var myAsync = function () {
-  var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(a) {
+  var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(a) {
     var _rec = new _powerAssertRecorder();
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -43,7 +43,7 @@ var myAsync = function () {
   }));
 
   return function myAsync(_x) {
-    return ref.apply(this, arguments);
+    return _ref.apply(this, arguments);
   };
 }();
 
