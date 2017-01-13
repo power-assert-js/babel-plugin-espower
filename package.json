@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-espower",
   "description": "Babel plugin for power-assert",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "author": {
     "name": "Takuto Wada",
     "email": "takuto.wada@gmail.com",
