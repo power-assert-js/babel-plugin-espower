@@ -39,6 +39,9 @@ DESCRIPTION
 Pull-requests, issue reports and patches are always welcomed. See [power-assert](https://github.com/power-assert-js/power-assert) project for more documentation.
 
 
+FYI: There's a [babel preset for all power-assert plugins](https://github.com/power-assert-js/babel-preset-power-assert)
+
+
 INSTALL
 ---------------------------------------
 
