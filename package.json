@@ -37,6 +37,7 @@
   "files": [
     "README.md",
     "CHANGELOG.md",
+    "LICENSE",
     "index.js",
     "create.js",
     "lib",
