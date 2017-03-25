@@ -16,19 +16,19 @@ assert(_rec._expr(_rec._capt('Hello', 'arguments/0'), {
 }));
 
 assert(_rec2._expr(_rec2._capt('Hello, ' + _rec2._capt(nickname, 'arguments/0/expressions/0'), 'arguments/0'), {
-  content: 'assert(`Hello, ${ nickname }`)',
+  content: 'assert(`Hello, ${nickname}`)',
   filepath: 'test/fixtures/TemplateLiteral/fixture.js',
   line: 5,
-  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"TemplateLiteral","quasis":[{"type":"TemplateElement","value":{"raw":"Hello, ","cooked":"Hello, "},"tail":false,"range":[8,15]},{"type":"TemplateElement","value":{"raw":"","cooked":""},"tail":true,"range":[28,28]}],"expressions":[{"type":"Identifier","name":"nickname","range":[18,26]}],"range":[7,29]}],"range":[0,30]}',
-  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"`"},"range":[7,8]},{"type":{"label":"template"},"value":"Hello, ","range":[8,15]},{"type":{"label":"${"},"range":[15,17]},{"type":{"label":"name"},"value":"nickname","range":[18,26]},{"type":{"label":"}"},"range":[27,28]},{"type":{"label":"template"},"value":"","range":[28,28]},{"type":{"label":"`"},"range":[28,29]},{"type":{"label":")"},"range":[29,30]}]',
+  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"TemplateLiteral","quasis":[{"type":"TemplateElement","value":{"raw":"Hello, ","cooked":"Hello, "},"tail":false,"range":[8,15]},{"type":"TemplateElement","value":{"raw":"","cooked":""},"tail":true,"range":[26,26]}],"expressions":[{"type":"Identifier","name":"nickname","range":[17,25]}],"range":[7,27]}],"range":[0,28]}',
+  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"`"},"range":[7,8]},{"type":{"label":"template"},"value":"Hello, ","range":[8,15]},{"type":{"label":"${"},"range":[15,17]},{"type":{"label":"name"},"value":"nickname","range":[17,25]},{"type":{"label":"}"},"range":[25,26]},{"type":{"label":"template"},"value":"","range":[26,26]},{"type":{"label":"`"},"range":[26,27]},{"type":{"label":")"},"range":[27,28]}]',
   visitorKeys: _powerAssertVisitorKeys
 }));
 
 assert(_rec3._expr(_rec3._capt('Hello, ' + _rec3._capt(_rec3._capt(user, 'arguments/0/expressions/0/object').nickname, 'arguments/0/expressions/0'), 'arguments/0'), {
-  content: 'assert(`Hello, ${ user.nickname }`)',
+  content: 'assert(`Hello, ${user.nickname}`)',
   filepath: 'test/fixtures/TemplateLiteral/fixture.js',
   line: 7,
-  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"TemplateLiteral","quasis":[{"type":"TemplateElement","value":{"raw":"Hello, ","cooked":"Hello, "},"tail":false,"range":[8,15]},{"type":"TemplateElement","value":{"raw":"","cooked":""},"tail":true,"range":[33,33]}],"expressions":[{"type":"MemberExpression","object":{"type":"Identifier","name":"user","range":[18,22]},"property":{"type":"Identifier","name":"nickname","range":[23,31]},"computed":false,"range":[18,31]}],"range":[7,34]}],"range":[0,35]}',
-  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"`"},"range":[7,8]},{"type":{"label":"template"},"value":"Hello, ","range":[8,15]},{"type":{"label":"${"},"range":[15,17]},{"type":{"label":"name"},"value":"user","range":[18,22]},{"type":{"label":"."},"range":[22,23]},{"type":{"label":"name"},"value":"nickname","range":[23,31]},{"type":{"label":"}"},"range":[32,33]},{"type":{"label":"template"},"value":"","range":[33,33]},{"type":{"label":"`"},"range":[33,34]},{"type":{"label":")"},"range":[34,35]}]',
+  ast: '{"type":"CallExpression","callee":{"type":"Identifier","name":"assert","range":[0,6]},"arguments":[{"type":"TemplateLiteral","quasis":[{"type":"TemplateElement","value":{"raw":"Hello, ","cooked":"Hello, "},"tail":false,"range":[8,15]},{"type":"TemplateElement","value":{"raw":"","cooked":""},"tail":true,"range":[31,31]}],"expressions":[{"type":"MemberExpression","object":{"type":"Identifier","name":"user","range":[17,21]},"property":{"type":"Identifier","name":"nickname","range":[22,30]},"computed":false,"range":[17,30]}],"range":[7,32]}],"range":[0,33]}',
+  tokens: '[{"type":{"label":"name"},"value":"assert","range":[0,6]},{"type":{"label":"("},"range":[6,7]},{"type":{"label":"`"},"range":[7,8]},{"type":{"label":"template"},"value":"Hello, ","range":[8,15]},{"type":{"label":"${"},"range":[15,17]},{"type":{"label":"name"},"value":"user","range":[17,21]},{"type":{"label":"."},"range":[21,22]},{"type":{"label":"name"},"value":"nickname","range":[22,30]},{"type":{"label":"}"},"range":[30,31]},{"type":{"label":"template"},"value":"","range":[31,31]},{"type":{"label":"`"},"range":[31,32]},{"type":{"label":")"},"range":[32,33]}]',
   visitorKeys: _powerAssertVisitorKeys
 }));
