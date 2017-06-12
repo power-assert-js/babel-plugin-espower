@@ -21,7 +21,7 @@
     "core-js": "^2.0.0",
     "espower-location-detector": "^1.0.0",
     "espurify": "^1.6.0",
-    "estraverse": "^4.1.1"
+    "estraverse": "^4.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.1.0",
