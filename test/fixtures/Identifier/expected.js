@@ -14,64 +14,58 @@ var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.c
     _rec11 = new _powerAssertRecorder(),
     _rec12 = new _powerAssertRecorder();
 
-assert(_rec._expr(_rec._capt(falsyStr, 'arguments/0'), {
-  content: 'assert(falsyStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert(_rec._expr(_rec._capt(falsyStr, "arguments/0"), {
+  content: "assert(falsyStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 3
 }));
-
-assert(_rec2._expr(_rec2._capt(falsyStr, 'arguments/0'), {
-  content: 'assert(falsyStr, messageStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert(_rec2._expr(_rec2._capt(falsyStr, "arguments/0"), {
+  content: "assert(falsyStr, messageStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 5
 }), messageStr);
-
-assert.equal(_rec3._expr(_rec3._capt(str, 'arguments/0'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert.equal(_rec3._expr(_rec3._capt(str, "arguments/0"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 7
-}), _rec4._expr(_rec4._capt(anotherStr, 'arguments/1'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+}), _rec4._expr(_rec4._capt(anotherStr, "arguments/1"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 7
 }));
-
-assert.equal(_rec5._expr(_rec5._capt(str, 'arguments/0'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert.equal(_rec5._expr(_rec5._capt(str, "arguments/0"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 9
-}), _rec6._expr(_rec6._capt(anotherStr, 'arguments/1'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+}), _rec6._expr(_rec6._capt(anotherStr, "arguments/1"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 9
 }));
-
-assert.equal(_rec7._expr(_rec7._capt(str, 'arguments/0'), {
-  content: 'assert.equal(str, anotherStr, messageStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert.equal(_rec7._expr(_rec7._capt(str, "arguments/0"), {
+  content: "assert.equal(str, anotherStr, messageStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 14
-}), _rec8._expr(_rec8._capt(anotherStr, 'arguments/1'), {
-  content: 'assert.equal(str, anotherStr, messageStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+}), _rec8._expr(_rec8._capt(anotherStr, "arguments/1"), {
+  content: "assert.equal(str, anotherStr, messageStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 14
 }), messageStr);
-
-assert.equal(_rec9._expr(_rec9._capt(str, 'arguments/0'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert.equal(_rec9._expr(_rec9._capt(str, "arguments/0"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 16
-}), _rec10._expr(_rec10._capt(anotherStr, 'arguments/1'), {
-  content: 'assert.equal(str, anotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+}), _rec10._expr(_rec10._capt(anotherStr, "arguments/1"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 16
 }));
-
-assert.equal(_rec11._expr(_rec11._capt(str, 'arguments/0'), {
-  content: 'assert.equal(str, yetAnotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+assert.equal(_rec11._expr(_rec11._capt(str, "arguments/0"), {
+  content: "assert.equal(str, yetAnotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 21
-}), _rec12._expr(_rec12._capt(yetAnotherStr, 'arguments/1'), {
-  content: 'assert.equal(str, yetAnotherStr)',
-  filepath: 'test/fixtures/Identifier/fixture.js',
+}), _rec12._expr(_rec12._capt(yetAnotherStr, "arguments/1"), {
+  content: "assert.equal(str, yetAnotherStr)",
+  filepath: "test/fixtures/Identifier/fixture.js",
   line: 21
 }));

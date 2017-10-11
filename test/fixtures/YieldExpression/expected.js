@@ -5,14 +5,12 @@ var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.c
 function* gen(a) {
   var _rec = new _powerAssertRecorder();
 
-  assert(_rec._expr(_rec._capt(_rec._capt((yield a), 'arguments/0/left') === 3, 'arguments/0'), {
-    content: 'assert((yield a) === 3)',
-    filepath: 'test/fixtures/YieldExpression/fixture.js',
+  assert(_rec._expr(_rec._capt(_rec._capt((yield a), "arguments/0/left") === 3, "arguments/0"), {
+    content: "assert((yield a) === 3)",
+    filepath: "test/fixtures/YieldExpression/fixture.js",
     line: 4,
     generator: true
   }));
-}
-
-// function notGen(a){
+} // function notGen(a){
 //   assert((yield (a)) === 3);
 // }

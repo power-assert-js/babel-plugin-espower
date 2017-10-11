@@ -5,20 +5,18 @@ var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.c
     _rec2 = new _powerAssertRecorder(),
     _rec3 = new _powerAssertRecorder();
 
-assert(_rec._expr(_rec._capt(`Hello`, 'arguments/0'), {
-  content: 'assert(`Hello`)',
-  filepath: 'test/fixtures/TemplateLiteral/fixture.js',
+assert(_rec._expr(_rec._capt(`Hello`, "arguments/0"), {
+  content: "assert(`Hello`)",
+  filepath: "test/fixtures/TemplateLiteral/fixture.js",
   line: 3
 }));
-
-assert(_rec2._expr(_rec2._capt(`Hello, ${_rec2._capt(nickname, 'arguments/0/expressions/0')}`, 'arguments/0'), {
-  content: 'assert(`Hello, ${nickname}`)',
-  filepath: 'test/fixtures/TemplateLiteral/fixture.js',
+assert(_rec2._expr(_rec2._capt(`Hello, ${_rec2._capt(nickname, "arguments/0/expressions/0")}`, "arguments/0"), {
+  content: "assert(`Hello, ${nickname}`)",
+  filepath: "test/fixtures/TemplateLiteral/fixture.js",
   line: 5
 }));
-
-assert(_rec3._expr(_rec3._capt(`Hello, ${_rec3._capt(_rec3._capt(user, 'arguments/0/expressions/0/object').nickname, 'arguments/0/expressions/0')}`, 'arguments/0'), {
-  content: 'assert(`Hello, ${user.nickname}`)',
-  filepath: 'test/fixtures/TemplateLiteral/fixture.js',
+assert(_rec3._expr(_rec3._capt(`Hello, ${_rec3._capt(_rec3._capt(user, "arguments/0/expressions/0/object").nickname, "arguments/0/expressions/0")}`, "arguments/0"), {
+  content: "assert(`Hello, ${user.nickname}`)",
+  filepath: "test/fixtures/TemplateLiteral/fixture.js",
   line: 7
 }));
