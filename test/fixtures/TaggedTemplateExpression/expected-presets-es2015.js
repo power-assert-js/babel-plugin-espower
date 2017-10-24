@@ -6,9 +6,9 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
     _rec2 = new _powerAssertRecorder(),
     _rec3 = new _powerAssertRecorder();
 
-var _templateObject = _taggedTemplateLiteral(["a", ""], ["a", ""]),
-    _templateObject2 = _taggedTemplateLiteral(["a", "b", "c", ""], ["a", "b", "c", ""]),
-    _templateObject3 = _taggedTemplateLiteral(["driver ", ", navigator ", ""], ["driver ", ", navigator ", ""]);
+var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["a", ""], ["a", ""]),
+    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["a", "b", "c", ""], ["a", "b", "c", ""]),
+    _templateObject3 = /*#__PURE__*/ _taggedTemplateLiteral(["driver ", ", navigator ", ""], ["driver ", ", navigator ", ""]);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
