@@ -393,7 +393,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
     astWhiteList: babel.types.BUILDER_KEYS,
     sourceRoot: process.cwd(),
     path: file.opts.filename,
-    sourceMap: file.opts.inputSourceMap
+    sourceMap: file.inputMap ? file.inputMap.toObject() : false
 }
 ```
 
