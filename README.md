@@ -81,17 +81,17 @@ HOW TO USE
 $ babel /path/to/test/some_test.js > /path/to/build/some_test.js
 ```
 
-For example, with `babel-register` module and `.babelrc` above, you can run mocha without code generation steps.
+For example, with `@babel/register` module and `.babelrc` above, you can run mocha without code generation steps.
 
 ```
-$ $(npm bin)/mocha --require babel-register test/some_test.js
+$ $(npm bin)/mocha --require @babel/register test/some_test.js
 ```
 
 
 ### via [Babel API](https://babeljs.io/docs/usage/api/)
 
 ```javascript
-var babel = require('babel-core');
+var babel = require('@babel/core');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
     presets: [...],
@@ -104,7 +104,7 @@ console.log(transformed.code);
 ### via [Babel Require Hook](https://babeljs.io/docs/usage/require/)
 
 ```javascript
-require('babel-register')({
+require('@babel/register')({
     presets: [...],
     plugins: ['babel-plugin-espower']
 });
@@ -231,10 +231,10 @@ prepare `babel_hook.js` to transform tests.
 }
 ```
 
-Run `mocha` with `--require babel-register` option. You will see the power-assert output appears.
+Run `mocha` with `--require @babel/register` option. You will see the power-assert output appears.
 
 ```
-$ $(npm bin)/mocha --require babel-register test/demo_test.js
+$ $(npm bin)/mocha --require @babel/register test/demo_test.js
 
   ES6 demo
     1) Destructuring and TemplateLiteral
@@ -328,7 +328,7 @@ You can customize configs such as assertion patterns via [.babelrc](https://babe
 You can customize configs such as assertion patterns via [Babel API](https://babeljs.io/docs/usage/api/),
 
 ```javascript
-var babel = require('babel-core');
+var babel = require('@babel/core');
 var createEspowerPlugin = require('babel-plugin-espower/create');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
@@ -351,7 +351,7 @@ or via [Require Hook](https://babeljs.io/docs/usage/require/).
 
 ```javascript
 var createEspowerPlugin = require('babel-plugin-espower/create');
-require('babel-register')({
+require('@babel/register')({
     presets: [...],
     plugins: [
         createEspowerPlugin(babel, {

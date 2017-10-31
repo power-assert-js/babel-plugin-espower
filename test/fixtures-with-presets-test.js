@@ -1,7 +1,7 @@
 var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
-var babel = require('babel-core');
+var babel = require('@babel/core');
 var assign = require('core-js/library/fn/object/assign');
 var createEspowerPlugin = require('../create');
 
@@ -13,9 +13,9 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, assign({
             presets: [
-                'es2015',
-                'stage-2',
-                'react'
+                '@babel/es2015',
+                '@babel/stage-2',
+                '@babel/react'
             ],
             plugins: [
                 createEspowerPlugin(babel, {
