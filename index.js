@@ -12,6 +12,6 @@
 
 var createEspowerPlugin = require('./create');
 
-module.exports = function (babel) {
-    return createEspowerPlugin(babel);
+module.exports = function (babel, options) {
+    return createEspowerPlugin(babel, options);
 };

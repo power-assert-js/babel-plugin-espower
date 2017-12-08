@@ -4,18 +4,15 @@ var _powerAssertRecorder = function () { function PowerAssertRecorder() { this.c
     _rec = new _powerAssertRecorder(),
     _rec2 = new _powerAssertRecorder();
 
-assert.equal(
-// first comment
-_rec._expr(_rec._capt(str, 'arguments/0'), {
-    content: 'assert.equal(str, anotherStr)',
-    filepath: 'test/fixtures/CommentsInAssertion/fixture.js',
-    line: 3
-}),
-// second comment
-_rec2._expr(_rec2._capt(anotherStr, 'arguments/1'), {
-    content: 'assert.equal(str, anotherStr)',
-    filepath: 'test/fixtures/CommentsInAssertion/fixture.js',
-    line: 3
-})
-// last comment
+assert.equal( // first comment
+_rec._expr(_rec._capt(str, "arguments/0"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/CommentsInAssertion/fixture.js",
+  line: 3
+}), // second comment
+_rec2._expr(_rec2._capt(anotherStr, "arguments/1"), {
+  content: "assert.equal(str, anotherStr)",
+  filepath: "test/fixtures/CommentsInAssertion/fixture.js",
+  line: 3
+}) // last comment
 );
