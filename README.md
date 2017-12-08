@@ -53,7 +53,15 @@ $ npm install --save-dev babel-plugin-espower
 CAUTION
 ---------------------------------------
 
-Babel6 is incompatible with Babel5. For Babel 5 or lower, you need to use the 1.x release of babel-plugin-espower.
+Babel7 is incompatible with Babel6. Babel6 is incompatible with Babel5.
+
+For Babel6, you need to use [the 2.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/v2.3.2).
+
+```
+$ npm install --save-dev babel-plugin-espower@2.3.2
+```
+
+For Babel5 or lower, you need to use [the 1.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/1.1.x).
 
 ```
 $ npm install --save-dev babel-plugin-espower@1.1.1
