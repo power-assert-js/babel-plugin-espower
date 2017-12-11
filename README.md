@@ -329,49 +329,43 @@ You can customize configs such as assertion patterns via [.babelrc](https://babe
 }
 ```
 
-### by API
+or via [Require Hook](https://babeljs.io/docs/usage/require/).
 
-#### var plugin = createEspowerPlugin(babel, [options])
+```javascript
+require('@babel/register')({
+    presets: [...],
+    plugins: [
+        ['babel-plugin-espower', {
+            embedAst: true,
+            patterns: [
+                'assert.isNull(object, [message])',
+                'assert.same(actual, expected, [message])',
+                'assert.near(actual, expected, delta, [message])'
+            ]
+        }]
+    ]
+});
+```
 
-You can customize configs such as assertion patterns via [Babel API](https://babeljs.io/docs/usage/api/),
+or via [Babel API](https://babeljs.io/docs/usage/api/),
 
 ```javascript
 var babel = require('@babel/core');
-var createEspowerPlugin = require('babel-plugin-espower/create');
 var jsCode = fs.readFileSync('/path/to/test/some_test.js');
 var transformed = babel.transform(jsCode, {
     presets: [...],
     plugins: [
-        createEspowerPlugin(babel, {
+        ['babel-plugin-espower', {
             embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
                 'assert.near(actual, expected, delta, [message])'
             ]
-        })
+        }]
     ]
 });
 console.log(transformed.code);
-```
-
-or via [Require Hook](https://babeljs.io/docs/usage/require/).
-
-```javascript
-var createEspowerPlugin = require('babel-plugin-espower/create');
-require('@babel/register')({
-    presets: [...],
-    plugins: [
-        createEspowerPlugin(babel, {
-            embedAst: true,
-            patterns: [
-                'assert.isNull(object, [message])',
-                'assert.same(actual, expected, [message])',
-                'assert.near(actual, expected, delta, [message])'
-            ]
-        })
-    ]
-});
 ```
 
 #### options

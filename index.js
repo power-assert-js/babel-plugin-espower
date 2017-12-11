@@ -10,8 +10,4 @@
  */
 'use strict';
 
-var createEspowerPlugin = require('./create');
-
-module.exports = function (babel, options) {
-    return createEspowerPlugin(babel, options);
-};
+module.exports = require('./lib/create-espower-visitor');
