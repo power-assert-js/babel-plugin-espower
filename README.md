@@ -396,7 +396,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
         'assert.deepStrictEqual(actual, expected, [message])',
         'assert.notDeepStrictEqual(actual, expected, [message])'
     ],
-    embedAst: false,
+    embedAst: true,
     visitorKeys: babel.types.VISITOR_KEYS,
     astWhiteList: babel.types.BUILDER_KEYS,
     sourceRoot: process.cwd(),

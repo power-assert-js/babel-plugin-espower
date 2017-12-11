@@ -11,7 +11,11 @@ function testTransform (fixtureName, extraOptions) {
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected.js');
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual.js');
         var result = babel.transformFileSync(fixtureFilepath, assign({
-            plugins: [createEspowerPlugin(babel)]
+            plugins: [
+                createEspowerPlugin(babel, {
+                    embedAst: false
+                })
+            ]
         }, extraOptions));
         var actual = result.code + '\n';
         var expected = fs.readFileSync(expectedFilepath, 'utf8');
@@ -50,6 +54,7 @@ describe('babel-plugin-espower', function () {
     testTransform('inputSourceMap', {
         plugins: [
             createEspowerPlugin(babel, {
+                embedAst: false,
                 sourceRoot: "/absolute/"
             })
         ]
@@ -57,6 +62,7 @@ describe('babel-plugin-espower', function () {
     testTransform('customPatterns', {
         plugins: [
             createEspowerPlugin(babel, {
+                embedAst: false,
                 patterns: [
                     'assert.isNull(object, [message])',
                     'assert.same(actual, expected, [message])',
