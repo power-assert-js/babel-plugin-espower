@@ -1,3 +1,37 @@
+## [3.0.0-beta.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0-beta.1) (2017-12-25)
+
+
+#### Features
+
+* [change `embedAst` option's default to `true`](https://github.com/power-assert-js/babel-plugin-espower/pull/24)
+* [Babel7](https://github.com/power-assert-js/babel-plugin-espower/pull/23)
+  * migrate to Babel7 scoped packages ([9dc56f93](https://github.com/power-assert-js/babel-plugin-espower/commit/9dc56f93711c081d0673e058ec0a531fbabae421))
+  * use `file.inputMap` to handle incoming sourcemaps since Babel7-beta.3 ([ff72e232](https://github.com/power-assert-js/babel-plugin-espower/commit/ff72e23275996d69e5ed72f3c6f9cdaa05e0159c))
+  * `file.parserOpts` is moved to `file.opts.parserOpts` since Babel7-beta.3 ([89a9d7e9](https://github.com/power-assert-js/babel-plugin-espower/commit/89a9d7e998f5c708429d56ee3a6a01cbbee5cb3c))
+  * plugin options are centralized since Babel7-beta.3 ([6df8f872](https://github.com/power-assert-js/babel-plugin-espower/commit/6df8f8726e610125c734cae20762a2821c91523d))
+
+
+#### Breaking Changes
+
+Babel7 is incompatible with Babel6. Babel6 is incompatible with Babel5.
+
+For Babel6, you need to use [the 2.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/v2.3.2).
+
+```
+$ npm install --save-dev babel-plugin-espower@2.3.2
+```
+
+For Babel5 or lower, you need to use [the 1.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/1.1.x).
+
+```
+$ npm install --save-dev babel-plugin-espower@1.1.1
+```
+
+#### Notice
+
+[Changing `embedAst` option's default to `true`](https://github.com/power-assert-js/babel-plugin-espower/pull/24) does not break builds but may slow your build time down. If you are aware that you are not using non-ES-standard syntax, changing `embedAst` option to `false` restores the former behavior.
+
+
 ### [2.3.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.2) (2017-01-13)
 
 
