@@ -3,8 +3,8 @@
 
 #### Features
 
-* [change `embedAst` option's default to `true`](https://github.com/power-assert-js/babel-plugin-espower/pull/24)
-* [Babel7](https://github.com/power-assert-js/babel-plugin-espower/pull/23)
+* [Change `embedAst` option's default to `true`](https://github.com/power-assert-js/babel-plugin-espower/pull/24)
+* [Babel7 support](https://github.com/power-assert-js/babel-plugin-espower/pull/23)
   * migrate to Babel7 scoped packages ([9dc56f93](https://github.com/power-assert-js/babel-plugin-espower/commit/9dc56f93711c081d0673e058ec0a531fbabae421))
   * use `file.inputMap` to handle incoming sourcemaps since Babel7-beta.3 ([ff72e232](https://github.com/power-assert-js/babel-plugin-espower/commit/ff72e23275996d69e5ed72f3c6f9cdaa05e0159c))
   * `file.parserOpts` is moved to `file.opts.parserOpts` since Babel7-beta.3 ([89a9d7e9](https://github.com/power-assert-js/babel-plugin-espower/commit/89a9d7e998f5c708429d56ee3a6a01cbbee5cb3c))
