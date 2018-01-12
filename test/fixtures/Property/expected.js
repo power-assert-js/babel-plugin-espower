@@ -19,8 +19,8 @@ assert(_rec2._expr(_rec2._capt({ [_rec2._capt('prop_' + _rec2._capt((() => bar()
   line: 5
 }));
 
-assert(_rec3._expr(_rec3._capt({ [_rec3._capt(`prop_${ _rec3._capt(generate(_rec3._capt(seed, 'arguments/0/properties/0/key/expressions/0/arguments/0')), 'arguments/0/properties/0/key/expressions/0') }`, 'arguments/0/properties/0/key')]: _rec3._capt(foo, 'arguments/0/properties/0/value') }, 'arguments/0'), {
-  content: 'assert({ [`prop_${ generate(seed) }`]: foo })',
+assert(_rec3._expr(_rec3._capt({ [_rec3._capt(`prop_${_rec3._capt(generate(_rec3._capt(seed, 'arguments/0/properties/0/key/expressions/0/arguments/0')), 'arguments/0/properties/0/key/expressions/0')}`, 'arguments/0/properties/0/key')]: _rec3._capt(foo, 'arguments/0/properties/0/value') }, 'arguments/0'), {
+  content: 'assert({ [`prop_${generate(seed)}`]: foo })',
   filepath: 'test/fixtures/Property/fixture.js',
   line: 7
 }));
