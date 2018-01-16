@@ -1,3 +1,15 @@
+## [2.4.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.4.0) (2018-01-16)
+
+
+#### Features
+
+* [Internal & interim module for preset to enable `embedAst` option by default](https://github.com/power-assert-js/babel-plugin-espower/pull/25)
+
+#### Notice
+
+`with-experimental-syntax.js` is an internal & interim module and will be removed from next major version, since `embedAst` will be true by default in next major.
+
+
 ### [2.3.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.2) (2017-01-13)
 
 
