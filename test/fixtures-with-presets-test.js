@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var babel = require('babel-core');
 var assign = require('core-js/library/fn/object/assign');
-var createEspowerPlugin = require('../create');
+var espowerPluginWithExperimentalSyntaxSupport = require('../with-experimental-syntax');
 
 function testTransform (fixtureName, extraSuffix, extraOptions) {
     it(fixtureName, function () {
@@ -18,9 +18,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
                 'react'
             ],
             plugins: [
-                createEspowerPlugin(babel, {
-                    embedAst: true
-                })
+                espowerPluginWithExperimentalSyntaxSupport
             ]
         }, extraOptions));
         var actual = result.code + '\n';
