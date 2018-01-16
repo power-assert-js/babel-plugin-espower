@@ -13,7 +13,7 @@
 
 #### Breaking Changes
 
-Babel7 is incompatible with Babel6. Babel6 is incompatible with Babel5.
+* Babel7 is incompatible with Babel6. Babel6 is incompatible with Babel5.
 
 For Babel6, you need to use [the 2.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/v2.3.2).
 
@@ -27,9 +27,23 @@ For Babel5 or lower, you need to use [the 1.x release of babel-plugin-espower](h
 $ npm install --save-dev babel-plugin-espower@1.1.1
 ```
 
+* An internal & interim module `with-experimental-syntax.js` is removed, since `embedAst` is true by default in `3.0.0`.
+
 #### Notice
 
 [Changing `embedAst` option's default to `true`](https://github.com/power-assert-js/babel-plugin-espower/pull/24) does not break builds but may slow your build time down. If you are aware that you are not using non-ES-standard syntax, changing `embedAst` option to `false` restores the former behavior.
+
+
+## [2.4.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.4.0) (2018-01-16)
+
+
+#### Features
+
+* [Internal & interim module for preset to enable `embedAst` option by default](https://github.com/power-assert-js/babel-plugin-espower/pull/25)
+
+#### Notice
+
+`with-experimental-syntax.js` is an internal & interim module and will be removed from next major version, since `embedAst` will be true by default in next major.
 
 
 ### [2.3.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v2.3.2) (2017-01-13)
