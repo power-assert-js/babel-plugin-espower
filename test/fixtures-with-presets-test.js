@@ -14,7 +14,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var result = babel.transformFileSync(fixtureFilepath, assign({
             presets: [
                 '@babel/es2015',
-                '@babel/stage-2',
+                ['@babel/stage-2', {decoratorsLegacy: true}],
                 '@babel/react'
             ],
             plugins: [
