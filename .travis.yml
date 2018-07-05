@@ -3,5 +3,4 @@ sudo: false
 node_js:
   - "6" # to be removed on "April 2019"
   - "8" # to be removed on "December 2019"
-  - "9" # to be removed on "June 2018"
   - "10" # to be removed on "April 2021"
