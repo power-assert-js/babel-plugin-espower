@@ -13,7 +13,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
         var result = babel.transformFileSync(fixtureFilepath, assign({
             presets: [
-                '@babel/es2015',
+                '@babel/env',
                 ['@babel/stage-2', {decoratorsLegacy: true}],
                 '@babel/react'
             ],
