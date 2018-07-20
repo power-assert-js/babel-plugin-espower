@@ -1,3 +1,11 @@
+### [3.0.0-beta.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0-beta.2) (2018-07-20)
+
+
+#### Chore
+
+* Rename `babylon` to `@babel/parser` to sync with upstream Babel7 changes ([0db432e](https://github.com/power-assert-js/babel-plugin-espower/commit/0db432ed628a17c6f594e228bc6fc8f939afbf22))
+
+
 ## [3.0.0-beta.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0-beta.1) (2017-12-25)
 
 
