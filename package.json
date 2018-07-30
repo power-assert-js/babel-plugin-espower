@@ -15,8 +15,8 @@
     }
   ],
   "dependencies": {
-    "@babel/generator": "^7.0.0-beta.54",
-    "@babel/parser": "^7.0.0-beta.54",
+    "@babel/generator": "^7.0.0-beta.55",
+    "@babel/parser": "^7.0.0-beta.55",
     "call-matcher": "^1.0.0",
     "core-js": "^2.0.0",
     "espower-location-detector": "^1.0.0",
@@ -24,10 +24,9 @@
     "estraverse": "^4.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.54",
-    "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/preset-react": "^7.0.0-beta.54",
-    "@babel/preset-stage-2": "^7.0.0-beta.54",
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
     "mocha": "^3.0.0"
   },
   "directories": {

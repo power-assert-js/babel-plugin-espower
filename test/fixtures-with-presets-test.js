@@ -14,7 +14,6 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var result = babel.transformFileSync(fixtureFilepath, assign({
             presets: [
                 '@babel/env',
-                ['@babel/stage-2', {decoratorsLegacy: true}],
                 '@babel/react'
             ],
             plugins: [
@@ -34,30 +33,30 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
 
 describe('babel-plugin-espower with presets', function () {
     testTransform('NonTarget');
-    testTransform('Mocha', 'presets-es2015');
-    testTransform('Literal', 'presets-es2015');
-    testTransform('Identifier', 'presets-es2015');
-    testTransform('BinaryExpression', 'presets-es2015');
-    testTransform('UnaryExpression', 'presets-es2015');
-    testTransform('LogicalExpression', 'presets-es2015');
-    testTransform('MemberExpression', 'presets-es2015');
-    testTransform('CallExpression', 'presets-es2015');
-    testTransform('AssignmentExpression', 'presets-es2015');
-    testTransform('ArrayExpression', 'presets-es2015');
-    testTransform('UpdateExpression', 'presets-es2015');
-    testTransform('ConditionalExpression', 'presets-es2015');
-    testTransform('ObjectExpression', 'presets-es2015');
-    testTransform('SequenceExpression', 'presets-es2015');
-    testTransform('NewExpression', 'presets-es2015');
-    testTransform('FunctionExpression', 'presets-es2015');
-    testTransform('TemplateLiteral', 'presets-es2015');
-    testTransform('TaggedTemplateExpression', 'presets-es2015');
-    testTransform('ArrowFunctionExpression', 'presets-es2015');
-    testTransform('ClassExpression', 'presets-es2015');
-    testTransform('SpreadElement', 'presets-es2015');
-    testTransform('Property', 'presets-es2015');
-    testTransform('YieldExpression', 'presets-es2015');
-    testTransform('AwaitExpression', 'presets-stage-3');
-    testTransform('ObjectRestSpread', 'presets-stage-2');
+    testTransform('Mocha', 'presets-env');
+    testTransform('Literal', 'presets-env');
+    testTransform('Identifier', 'presets-env');
+    testTransform('BinaryExpression', 'presets-env');
+    testTransform('UnaryExpression', 'presets-env');
+    testTransform('LogicalExpression', 'presets-env');
+    testTransform('MemberExpression', 'presets-env');
+    testTransform('CallExpression', 'presets-env');
+    testTransform('AssignmentExpression', 'presets-env');
+    testTransform('ArrayExpression', 'presets-env');
+    testTransform('UpdateExpression', 'presets-env');
+    testTransform('ConditionalExpression', 'presets-env');
+    testTransform('ObjectExpression', 'presets-env');
+    testTransform('SequenceExpression', 'presets-env');
+    testTransform('NewExpression', 'presets-env');
+    testTransform('FunctionExpression', 'presets-env');
+    testTransform('TemplateLiteral', 'presets-env');
+    testTransform('TaggedTemplateExpression', 'presets-env');
+    testTransform('ArrowFunctionExpression', 'presets-env');
+    testTransform('ClassExpression', 'presets-env');
+    testTransform('SpreadElement', 'presets-env');
+    testTransform('Property', 'presets-env');
+    testTransform('YieldExpression', 'presets-env');
+    testTransform('AwaitExpression', 'presets-env');
+    testTransform('ObjectRestSpread', 'presets-env');
     testTransform('React', 'presets-react');
 });
