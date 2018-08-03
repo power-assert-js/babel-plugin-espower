@@ -156,7 +156,7 @@ describe('to-be-embedded argument-recorder', function () {
             _ar._rec(_ar._tap(foo, 'arguments/0'));
             var recordedData = _ar.eject();
             var wrapped = recordedData.logs[0].value;
-            assert(wrapped.status === undefined);
+            assert(wrapped.status === 'pending');
             assert(wrapped.value === undefined);
             foo.then(function (_) {
                 assert.equal(wrapped.status, 'resolved');
