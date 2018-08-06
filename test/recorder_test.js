@@ -166,4 +166,33 @@ describe('to-be-embedded argument-recorder', function () {
         });
     });
 
+    describe('when value is a function', function () {
+        beforeEach(function () {
+            foo = function () { return 'FUNC'; };
+        });
+        it('return value of _tap(value, espath) is wrapped', function () {
+            var ret = _ar._tap(foo, 'arguments/0');
+            assert(ret !== foo);
+            assert(typeof ret === 'function');
+        });
+        it('return value of _rec(value) is since return value of #_tap is wrapped', function () {
+            var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            assert(ret !== foo);
+            assert(typeof ret === 'function');
+        });
+        it('return value of value() is still wrapped', function () {
+            _ar._rec(_ar._tap(foo, 'arguments/0'));
+            assert(_ar.value() !== foo);
+            assert(typeof _ar.value() === 'function');
+        });
+        it('store invocation result when invoked', function () {
+            var wrapped = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            var recordedData = _ar.eject();
+            assert.equal(recordedData.logs[0].value, foo);
+            var ret = wrapped();
+            assert(ret === 'FUNC');
+            assert.equal(recordedData.logs[0].value, 'FUNC');
+        });
+    });
+
 });
