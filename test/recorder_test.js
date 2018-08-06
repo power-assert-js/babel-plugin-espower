@@ -12,11 +12,15 @@ function willResolve (value) {
     });
 }
 
+var fakeCalee = function () {
+};
+fakeCalee._empowered = true;
+
 describe('to-be-embedded argument-recorder', function () {
     var foo, _ar;
     beforeEach(function () {
         foo = 'FOO';
-        _ar = new ArgumentRecorder({
+        _ar = new ArgumentRecorder(fakeCalee, {
             espath: 'arguments/0',
             code: 'foo'
         });
@@ -88,7 +92,7 @@ describe('to-be-embedded argument-recorder', function () {
                     return ++cnt;
                 };
             })();
-            var _ar = new ArgumentRecorder({
+            var _ar = new ArgumentRecorder(fakeCalee, {
                 espath: 'arguments/0',
                 code: 'incr()'
             });
