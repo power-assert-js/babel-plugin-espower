@@ -12,18 +12,21 @@ function willResolve (value) {
     });
 }
 
-var fakeCalee = function () {
-};
-fakeCalee._empowered = true;
+
+var am = {};
 
 describe('to-be-embedded argument-recorder', function () {
-    var foo, _ar;
+    var foo, _ar, fakeCallee = function () {};
     beforeEach(function () {
         foo = 'FOO';
-        _ar = new ArgumentRecorder(fakeCalee, {
+        fakeCallee._empowered = true;
+        _ar = new ArgumentRecorder(fakeCallee, am, {
             espath: 'arguments/0',
             code: 'foo'
         });
+    });
+    afterEach(function () {
+        fakeCallee._empowered = true;
     });
 
     describe('#_tap(value, espath)', function () {
@@ -54,9 +57,23 @@ describe('to-be-embedded argument-recorder', function () {
     });
 
     describe('#_rec(value)', function () {
-        it('returns value untouched', function () {
-            var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
-            assert.equal(ret, 'FOO');
+        describe('when runtime exists', function () {
+            beforeEach(function () {
+                fakeCallee._empowered = true;
+            });
+            it('returns self if runtime exists', function () {
+                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert.equal(ret, _ar);
+            });
+        });
+        describe('when runtime does not exist', function () {
+            beforeEach(function () {
+                fakeCallee._empowered = false;
+            });
+            it('returns value untouched', function () {
+                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert.equal(ret, 'FOO');
+            });
         });
         it('once called, argument value is stored', function () {
             _ar._rec(_ar._tap(foo, 'arguments/0'));
@@ -92,7 +109,10 @@ describe('to-be-embedded argument-recorder', function () {
                     return ++cnt;
                 };
             })();
-            var _ar = new ArgumentRecorder(fakeCalee, {
+            var fakeCallee = function () {
+            };
+            fakeCallee._empowered = true;
+            var _ar = new ArgumentRecorder(fakeCallee, am, {
                 espath: 'arguments/0',
                 code: 'incr()'
             });
@@ -141,9 +161,25 @@ describe('to-be-embedded argument-recorder', function () {
             var ret = _ar._tap(foo, 'arguments/0');
             assert(ret === foo);
         });
-        it('return value of _rec(value) is still untouched', function () {
-            var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
-            assert(ret === foo);
+        describe('#_rec(value)', function () {
+            describe('when runtime exists', function () {
+                beforeEach(function () {
+                    fakeCallee._empowered = true;
+                });
+                it('returns self if runtime exists', function () {
+                    var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                    assert.equal(ret, _ar);
+                });
+            });
+            describe('when runtime does not exist', function () {
+                beforeEach(function () {
+                    fakeCallee._empowered = false;
+                });
+                it('return value of _rec(value) is still untouched', function () {
+                    var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                    assert(ret === foo);
+                });
+            });
         });
         it('return value of value() is still untouched', function () {
             _ar._rec(_ar._tap(foo, 'arguments/0'));
@@ -174,28 +210,51 @@ describe('to-be-embedded argument-recorder', function () {
         beforeEach(function () {
             foo = function () { return 'FUNC'; };
         });
-        it('return value of _tap(value, espath) is wrapped', function () {
-            var ret = _ar._tap(foo, 'arguments/0');
-            assert(ret !== foo);
-            assert(typeof ret === 'function');
+        describe('when runtime exists', function () {
+            beforeEach(function () {
+                fakeCallee._empowered = true;
+            });
+            it('return value of _tap(value, espath) is wrapped', function () {
+                var ret = _ar._tap(foo, 'arguments/0');
+                assert(ret !== foo);
+                assert(typeof ret === 'function');
+            });
+            it('returns self if runtime exists', function () {
+                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert.equal(ret, _ar);
+            });
+            it('return value of value() is wrapped', function () {
+                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert(_ar.value() !== foo);
+                assert(typeof _ar.value() === 'function');
+            });
+            it('store invocation result when invoked', function () {
+                var wrapped = _ar._tap(foo, 'arguments/0');
+                var recordedData = _ar._rec(wrapped).eject();
+                assert.equal(recordedData.logs[0].value, foo);
+                var ret = wrapped();
+                assert(ret === 'FUNC');
+                assert.equal(recordedData.logs[0].value, 'FUNC');
+            });
         });
-        it('return value of _rec(value) is since return value of #_tap is wrapped', function () {
-            var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
-            assert(ret !== foo);
-            assert(typeof ret === 'function');
-        });
-        it('return value of value() is still wrapped', function () {
-            _ar._rec(_ar._tap(foo, 'arguments/0'));
-            assert(_ar.value() !== foo);
-            assert(typeof _ar.value() === 'function');
-        });
-        it('store invocation result when invoked', function () {
-            var wrapped = _ar._rec(_ar._tap(foo, 'arguments/0'));
-            var recordedData = _ar.eject();
-            assert.equal(recordedData.logs[0].value, foo);
-            var ret = wrapped();
-            assert(ret === 'FUNC');
-            assert.equal(recordedData.logs[0].value, 'FUNC');
+        describe('when runtime does not exist', function () {
+            beforeEach(function () {
+                fakeCallee._empowered = false;
+            });
+            it('return value of _tap(value, espath) is untouched', function () {
+                var ret = _ar._tap(foo, 'arguments/0');
+                assert(ret === foo);
+                assert(typeof ret === 'function');
+            });
+            it('return value of _rec(value) is untouched', function () {
+                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert(ret === foo);
+            });
+            it('return value of value() is untouched', function () {
+                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                assert(_ar.value() === foo);
+                assert(typeof _ar.value() === 'function');
+            });
         });
     });
 
