@@ -214,9 +214,9 @@ describe('to-be-embedded argument-recorder', function () {
             beforeEach(function () {
                 fakeCallee._empowered = true;
             });
-            it('return value of _tap(value, espath) is wrapped', function () {
-                var ret = _ar._tap(foo, 'arguments/0');
-                assert(ret !== foo);
+            it('return value of _blk(value, espath) is wrapped', function () {
+                var ret = _ar._blk(foo, 'arguments/0');
+                assert(ret != foo);
                 assert(typeof ret === 'function');
             });
             it('returns self if runtime exists', function () {
@@ -224,12 +224,12 @@ describe('to-be-embedded argument-recorder', function () {
                 assert.equal(ret, _ar);
             });
             it('return value of value() is wrapped', function () {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
-                assert(_ar.value() !== foo);
+                _ar._rec(_ar._blk(foo, 'arguments/0'));
+                assert(_ar.value() != foo);
                 assert(typeof _ar.value() === 'function');
             });
             it('store invocation result when invoked', function () {
-                var wrapped = _ar._tap(foo, 'arguments/0');
+                var wrapped = _ar._blk(foo, 'arguments/0');
                 var recordedData = _ar._rec(wrapped).eject();
                 assert.equal(recordedData.logs[0].value, foo);
                 var ret = wrapped();
