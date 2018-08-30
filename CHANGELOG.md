@@ -1,3 +1,22 @@
+## [3.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0) (2018-08-30)
+
+
+#### Features
+
+* Babel7 support
+
+
+#### Breaking Changes
+
+* Babel7 is incompatible with Babel6
+
+For Babel6, you need to use [the 2.x release of babel-plugin-espower](https://github.com/power-assert-js/babel-plugin-espower/tree/2.x).
+
+```
+$ npm install --save-dev babel-plugin-espower@2
+```
+
+
 ### [3.0.0-beta.2](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0-beta.2) (2018-07-20)
 
 
