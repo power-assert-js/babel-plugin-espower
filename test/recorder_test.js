@@ -83,7 +83,7 @@ describe('to-be-embedded argument-recorder', function () {
 
     describe('#eject()', function () {
         beforeEach(function () {
-            _ar._rec(_ar._tap(foo, 'arguments/0'));
+            _ar._rec(foo, 'arguments/0');
             assert.equal(_ar.value(), 'FOO');
         });
         it('returns recorded values and its metadata', function () {
@@ -118,7 +118,7 @@ describe('to-be-embedded argument-recorder', function () {
             });
             var actualRecordedData = [];
             for (var i = 0; i < 3; i += 1) {
-                _ar._rec(_ar._tap(incr(), 'arguments/0'));
+                _ar._rec(incr(), 'arguments/0');
                 actualRecordedData.push(_ar.eject());
             }
             assert.deepEqual(actualRecordedData, [
@@ -214,27 +214,9 @@ describe('to-be-embedded argument-recorder', function () {
             beforeEach(function () {
                 fakeCallee._empowered = true;
             });
-            it('return value of _blk(value, espath) is wrapped', function () {
-                var ret = _ar._blk(foo, 'arguments/0');
-                assert(ret != foo);
-                assert(typeof ret === 'function');
-            });
             it('returns self if runtime exists', function () {
                 var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
                 assert.equal(ret, _ar);
-            });
-            it('return value of value() is wrapped', function () {
-                _ar._rec(_ar._blk(foo, 'arguments/0'));
-                assert(_ar.value() != foo);
-                assert(typeof _ar.value() === 'function');
-            });
-            it('store invocation result when invoked', function () {
-                var wrapped = _ar._blk(foo, 'arguments/0');
-                var recordedData = _ar._rec(wrapped).eject();
-                assert.equal(recordedData.logs[0].value, foo);
-                var ret = wrapped();
-                assert(ret === 'FUNC');
-                assert.equal(recordedData.logs[0].value, 'FUNC');
             });
         });
         describe('when runtime does not exist', function () {
