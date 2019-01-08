@@ -20,3 +20,5 @@ assert(_rec3._expr(_rec3._capt(f(_rec3._capt(head, "arguments/0/arguments/0"), .
   filepath: "test/fixtures/SpreadElement/fixture.js",
   line: 7
 }));
+assert(...iter());
+assert(...[foo, bar]);
