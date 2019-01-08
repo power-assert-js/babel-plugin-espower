@@ -4,3 +4,4 @@ node_js:
   - "6" # to be removed on "April 2019"
   - "8" # to be removed on "December 2019"
   - "10" # to be removed on "April 2021"
+  - "11" # to be removed on "June 2019"
