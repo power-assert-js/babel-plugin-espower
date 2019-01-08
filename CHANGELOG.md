@@ -1,3 +1,11 @@
+### [3.0.1](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.1) (2019-01-08)
+
+
+#### Bug Fixes
+
+* [Skip modifying argument if SpreadElement appears immediately beneath assert](https://github.com/power-assert-js/babel-plugin-espower/pull/29)
+
+
 ## [3.0.0](https://github.com/power-assert-js/babel-plugin-espower/releases/tag/v3.0.0) (2018-08-30)
 
 
