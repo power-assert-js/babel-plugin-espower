@@ -63,3 +63,5 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 assert(_ag._rec(hello.apply(void 0, _toConsumableArray(_ag._tap(names, "arguments/0/arguments/0/argument"))), "arguments/0"), new _AssertionMessage([_ag], _am));
 assert(_ag2._rec(_ag2._tap([_ag2._tap(head, "arguments/0/object/elements/0")].concat(_toConsumableArray(_ag2._tap(tail, "arguments/0/object/elements/1/argument"))), "arguments/0/object").length, "arguments/0"), new _AssertionMessage([_ag2], _am2));
 assert(_ag3._rec(f.apply(void 0, [_ag3._tap(head, "arguments/0/arguments/0")].concat(_toConsumableArray(_ag3._tap(iter(), "arguments/0/arguments/1/argument")), _toConsumableArray(_ag3._tap([_ag3._tap(foo, "arguments/0/arguments/2/argument/elements/0"), _ag3._tap(bar, "arguments/0/arguments/2/argument/elements/1")], "arguments/0/arguments/2/argument")))), "arguments/0"), new _AssertionMessage([_ag3], _am3));
+assert.apply(void 0, _toConsumableArray(iter()));
+assert.apply(void 0, [foo, bar]);
