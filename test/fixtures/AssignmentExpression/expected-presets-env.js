@@ -8,9 +8,10 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
   line: 3,
   ast: "{\"type\":\"CallExpression\",\"callee\":{\"type\":\"Identifier\",\"name\":\"assert\",\"range\":[0,6]},\"arguments\":[{\"type\":\"AssignmentExpression\",\"operator\":\"+=\",\"left\":{\"type\":\"Identifier\",\"name\":\"counter\",\"range\":[7,14]},\"right\":{\"type\":\"NumericLiteral\",\"value\":1,\"range\":[18,19]},\"range\":[7,19]}],\"range\":[0,20]}",
   tokens: "[{\"type\":{\"label\":\"name\"},\"value\":\"assert\",\"range\":[0,6]},{\"type\":{\"label\":\"(\"},\"range\":[6,7]},{\"type\":{\"label\":\"name\"},\"value\":\"counter\",\"range\":[7,14]},{\"type\":{\"label\":\"_=\"},\"value\":\"+=\",\"range\":[15,17]},{\"type\":{\"label\":\"num\"},\"value\":1,\"range\":[18,19]},{\"type\":{\"label\":\")\"},\"range\":[19,20]}]",
-  visitorKeys: _powerAssertVisitorKeys
+  visitorKeys: _powerAssertVisitorKeys,
+  config: _powerAssertConfig[0]
 },
-    _ArgumentRecorder = function () { function ArgumentRecorder(callee, am, ag) { this._callee = callee; this._metadata = am; this._argDef = ag; this._logs = []; this._recorded = null; this._value = null; this._isBlock = false; if (am.config) { var argconf = am.config.args[ag.index]; this._isBlock = !!argconf.block; } } ArgumentRecorder.prototype.metadata = function metadata() { return this._metadata; }; ArgumentRecorder.prototype.code = function code() { return this._argDef.code; }; ArgumentRecorder.prototype.value = function value() { return this._value; }; ArgumentRecorder.prototype._tap = function _tap(value, espath) { this._logs.push({ value: wrap(value), espath: espath }); return value; }; ArgumentRecorder.prototype._rec = function _rec(value, espath) { var log = { value: wrap(value), espath: espath }; this._logs.push(log); if (this._isBlock && this._callee && this._callee._empowered && typeof value === 'function') { value = new Proxy(value, { apply: function apply(target, thisArg, argumentsList) { var ret; try { ret = target.apply(thisArg, argumentsList); log.value = wrap(ret); } catch (e) { log.value = e; throw e; } return ret; } }); } this._value = value; this._recorded = { value: value, logs: [].concat(this._logs) }; this._logs = []; if (this._callee && this._callee._empowered) { return this; } else { return value; } }; ArgumentRecorder.prototype.eject = function eject() { var result = this._recorded; this._recorded = null; this._value = null; return result; }; function isPromiseLike(o) { return o !== null && _typeof(o) === 'object' && typeof o.then === 'function' && typeof o.catch === 'function'; } function $Promise$(prms) { this.status = 'pending'; prms.then(mark(this, 'resolved'), mark(this, 'rejected')); } function mark(_this, s) { return function () { var args = Array.prototype.slice.apply(arguments); _this.status = s; _this.value = args.length === 1 ? args[0] : args; }; } function wrap(v) { return isPromiseLike(v) ? new $Promise$(v) : v; } return ArgumentRecorder; }(),
+    _ArgumentRecorder = function () { function ArgumentRecorder(callee, am, ag) { this._callee = callee; this._metadata = am; this._argDef = ag; this._logs = []; this._recorded = null; this._value = null; this._isBlock = false; if (am.config) { this.pattern = am.config.pattern; var argconf = am.config.args[ag.index]; this._isBlock = !!argconf.block; } } ArgumentRecorder.prototype.metadata = function metadata() { return this._metadata; }; ArgumentRecorder.prototype.code = function code() { return this._argDef.code; }; ArgumentRecorder.prototype.value = function value() { return this._value; }; ArgumentRecorder.prototype._tap = function _tap(value, espath) { this._logs.push({ value: wrap(value), espath: espath }); return value; }; ArgumentRecorder.prototype._rec = function _rec(value, espath) { var empowered = this._callee && this._callee._empowered; try { if (!empowered) return value; var log = { value: wrap(value), espath: espath }; this._logs.push(log); if (this._isBlock && empowered && typeof value === 'function') { value = new Proxy(value, { apply: function apply(target, thisArg, argumentsList) { var ret; try { ret = target.apply(thisArg, argumentsList); log.value = wrap(ret); } catch (e) { log.value = e; throw e; } return ret; } }); } this._recorded = { value: value, logs: [].concat(this._logs) }; return this; } finally { this._value = value; this._logs = []; } }; ArgumentRecorder.prototype.eject = function eject() { var result = this._recorded; this._recorded = null; this._value = null; return result; }; function isPromiseLike(o) { return o !== null && _typeof(o) === 'object' && typeof o.then === 'function' && typeof o.catch === 'function'; } function $Promise$(prms) { this.status = 'pending'; prms.then(mark(this, 'resolved'), mark(this, 'rejected')); } function mark(_this, s) { return function () { var args = Array.prototype.slice.apply(arguments); _this.status = s; _this.value = args.length === 1 ? args[0] : args; }; } function wrap(v) { return isPromiseLike(v) ? new $Promise$(v) : v; } return ArgumentRecorder; }(),
     _ag = new _ArgumentRecorder(assert, _am, {
   espath: "arguments/0",
   code: "counter += 1",
@@ -25,7 +26,8 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
   line: 5,
   ast: "{\"type\":\"CallExpression\",\"callee\":{\"type\":\"Identifier\",\"name\":\"assert\",\"range\":[0,6]},\"arguments\":[{\"type\":\"AssignmentExpression\",\"operator\":\"+=\",\"left\":{\"type\":\"MemberExpression\",\"object\":{\"type\":\"Identifier\",\"name\":\"dog\",\"range\":[7,10]},\"property\":{\"type\":\"Identifier\",\"name\":\"age\",\"range\":[11,14]},\"computed\":false,\"range\":[7,14]},\"right\":{\"type\":\"NumericLiteral\",\"value\":1,\"range\":[18,19]},\"range\":[7,19]}],\"range\":[0,20]}",
   tokens: "[{\"type\":{\"label\":\"name\"},\"value\":\"assert\",\"range\":[0,6]},{\"type\":{\"label\":\"(\"},\"range\":[6,7]},{\"type\":{\"label\":\"name\"},\"value\":\"dog\",\"range\":[7,10]},{\"type\":{\"label\":\".\"},\"range\":[10,11]},{\"type\":{\"label\":\"name\"},\"value\":\"age\",\"range\":[11,14]},{\"type\":{\"label\":\"_=\"},\"value\":\"+=\",\"range\":[15,17]},{\"type\":{\"label\":\"num\"},\"value\":1,\"range\":[18,19]},{\"type\":{\"label\":\")\"},\"range\":[19,20]}]",
-  visitorKeys: _powerAssertVisitorKeys
+  visitorKeys: _powerAssertVisitorKeys,
+  config: _powerAssertConfig[0]
 },
     _ag2 = new _ArgumentRecorder(assert, _am2, {
   espath: "arguments/0",
@@ -40,7 +42,8 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
   line: 7,
   ast: "{\"type\":\"CallExpression\",\"callee\":{\"type\":\"Identifier\",\"name\":\"assert\",\"range\":[0,6]},\"arguments\":[{\"type\":\"AssignmentExpression\",\"operator\":\"+=\",\"left\":{\"type\":\"MemberExpression\",\"object\":{\"type\":\"Identifier\",\"name\":\"dog\",\"range\":[7,10]},\"property\":{\"type\":\"Identifier\",\"name\":\"age\",\"range\":[11,14]},\"computed\":false,\"range\":[7,14]},\"right\":{\"type\":\"NumericLiteral\",\"value\":1,\"range\":[18,19]},\"range\":[7,19]}],\"range\":[0,20]}",
   tokens: "[{\"type\":{\"label\":\"name\"},\"value\":\"assert\",\"range\":[0,6]},{\"type\":{\"label\":\"(\"},\"range\":[6,7]},{\"type\":{\"label\":\"name\"},\"value\":\"dog\",\"range\":[7,10]},{\"type\":{\"label\":\".\"},\"range\":[10,11]},{\"type\":{\"label\":\"name\"},\"value\":\"age\",\"range\":[11,14]},{\"type\":{\"label\":\"_=\"},\"value\":\"+=\",\"range\":[15,17]},{\"type\":{\"label\":\"num\"},\"value\":1,\"range\":[18,19]},{\"type\":{\"label\":\")\"},\"range\":[19,20]}]",
-  visitorKeys: _powerAssertVisitorKeys
+  visitorKeys: _powerAssertVisitorKeys,
+  config: _powerAssertConfig[0]
 },
     _ag3 = new _ArgumentRecorder(assert, _am3, {
   espath: "arguments/0",
@@ -78,7 +81,8 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
   line: 11,
   ast: "{\"type\":\"CallExpression\",\"callee\":{\"type\":\"Identifier\",\"name\":\"assert\",\"range\":[0,6]},\"arguments\":[{\"type\":\"AssignmentExpression\",\"operator\":\"=\",\"left\":{\"type\":\"ArrayPattern\",\"elements\":[{\"type\":\"Identifier\",\"name\":\"x\",\"range\":[8,9]}],\"range\":[7,10]},\"right\":{\"type\":\"ArrayExpression\",\"elements\":[{\"type\":\"NumericLiteral\",\"value\":3,\"range\":[14,15]}],\"range\":[13,16]},\"range\":[7,16]}],\"range\":[0,17]}",
   tokens: "[{\"type\":{\"label\":\"name\"},\"value\":\"assert\",\"range\":[0,6]},{\"type\":{\"label\":\"(\"},\"range\":[6,7]},{\"type\":{\"label\":\"[\"},\"range\":[7,8]},{\"type\":{\"label\":\"name\"},\"value\":\"x\",\"range\":[8,9]},{\"type\":{\"label\":\"]\"},\"range\":[9,10]},{\"type\":{\"label\":\"=\"},\"value\":\"=\",\"range\":[11,12]},{\"type\":{\"label\":\"[\"},\"range\":[13,14]},{\"type\":{\"label\":\"num\"},\"value\":3,\"range\":[14,15]},{\"type\":{\"label\":\"]\"},\"range\":[15,16]},{\"type\":{\"label\":\")\"},\"range\":[16,17]}]",
-  visitorKeys: _powerAssertVisitorKeys
+  visitorKeys: _powerAssertVisitorKeys,
+  config: _powerAssertConfig[0]
 },
     _ag6 = new _ArgumentRecorder(assert, _am5, {
   espath: "arguments/0",
@@ -93,7 +97,8 @@ var _powerAssertVisitorKeys = "{\"ArrayExpression\":[\"elements\"],\"AssignmentE
   line: 13,
   ast: "{\"type\":\"CallExpression\",\"callee\":{\"type\":\"Identifier\",\"name\":\"assert\",\"range\":[0,6]},\"arguments\":[{\"type\":\"AssignmentExpression\",\"operator\":\"=\",\"left\":{\"type\":\"ArrayPattern\",\"elements\":[{\"type\":\"Identifier\",\"name\":\"x\",\"range\":[8,9]}],\"range\":[7,10]},\"right\":{\"type\":\"ArrayExpression\",\"elements\":[{\"type\":\"Identifier\",\"name\":\"foo\",\"range\":[14,17]}],\"range\":[13,18]},\"range\":[7,18]}],\"range\":[0,19]}",
   tokens: "[{\"type\":{\"label\":\"name\"},\"value\":\"assert\",\"range\":[0,6]},{\"type\":{\"label\":\"(\"},\"range\":[6,7]},{\"type\":{\"label\":\"[\"},\"range\":[7,8]},{\"type\":{\"label\":\"name\"},\"value\":\"x\",\"range\":[8,9]},{\"type\":{\"label\":\"]\"},\"range\":[9,10]},{\"type\":{\"label\":\"=\"},\"value\":\"=\",\"range\":[11,12]},{\"type\":{\"label\":\"[\"},\"range\":[13,14]},{\"type\":{\"label\":\"name\"},\"value\":\"foo\",\"range\":[14,17]},{\"type\":{\"label\":\"]\"},\"range\":[17,18]},{\"type\":{\"label\":\")\"},\"range\":[18,19]}]",
-  visitorKeys: _powerAssertVisitorKeys
+  visitorKeys: _powerAssertVisitorKeys,
+  config: _powerAssertConfig[0]
 },
     _ag7 = new _ArgumentRecorder(assert, _am6, {
   espath: "arguments/0",

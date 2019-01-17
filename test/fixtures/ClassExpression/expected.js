@@ -4,7 +4,8 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am = {
   content: "assert(class Me { getClassName() { return foo + Me.name; } })",
   filepath: "test/fixtures/ClassExpression/fixture.js",
-  line: 3
+  line: 3,
+  config: _powerAssertConfig[0]
 };
 assert(class Me {
   getClassName() {

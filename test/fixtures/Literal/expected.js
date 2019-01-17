@@ -4,12 +4,14 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am = {
   content: "assert(false)",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 3
+  line: 3,
+  config: _powerAssertConfig[0]
 },
     _am2 = {
   content: "assert(0)",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 5
+  line: 5,
+  config: _powerAssertConfig[0]
 },
     _am3 = {
   content: "assert.equal(1, 0)",
@@ -20,14 +22,16 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am4 = {
   content: "assert(false, 'message')",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 9
+  line: 9,
+  config: _powerAssertConfig[0]
 },
     _am5 = {
   content: "assert(false, messageStr)",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 11
+  line: 11,
+  config: _powerAssertConfig[0]
 },
-    _ArgumentRecorder = function () { function ArgumentRecorder(callee, am, ag) { this._callee = callee; this._metadata = am; this._argDef = ag; this._logs = []; this._recorded = null; this._value = null; this._isBlock = false; if (am.config) { var argconf = am.config.args[ag.index]; this._isBlock = !!argconf.block; } } ArgumentRecorder.prototype.metadata = function metadata() { return this._metadata; }; ArgumentRecorder.prototype.code = function code() { return this._argDef.code; }; ArgumentRecorder.prototype.value = function value() { return this._value; }; ArgumentRecorder.prototype._tap = function _tap(value, espath) { this._logs.push({ value: wrap(value), espath: espath }); return value; }; ArgumentRecorder.prototype._rec = function _rec(value, espath) { var log = { value: wrap(value), espath: espath }; this._logs.push(log); if (this._isBlock && this._callee && this._callee._empowered && typeof value === 'function') { value = new Proxy(value, { apply: function (target, thisArg, argumentsList) { var ret; try { ret = target.apply(thisArg, argumentsList); log.value = wrap(ret); } catch (e) { log.value = e; throw e; } return ret; } }); } this._value = value; this._recorded = { value: value, logs: [].concat(this._logs) }; this._logs = []; if (this._callee && this._callee._empowered) { return this; } else { return value; } }; ArgumentRecorder.prototype.eject = function eject() { var result = this._recorded; this._recorded = null; this._value = null; return result; }; function isPromiseLike(o) { return o !== null && typeof o === 'object' && typeof o.then === 'function' && typeof o.catch === 'function'; } function $Promise$(prms) { this.status = 'pending'; prms.then(mark(this, 'resolved'), mark(this, 'rejected')); } function mark(_this, s) { return function () { var args = Array.prototype.slice.apply(arguments); _this.status = s; _this.value = args.length === 1 ? args[0] : args; }; } function wrap(v) { return isPromiseLike(v) ? new $Promise$(v) : v; } return ArgumentRecorder; }(),
+    _ArgumentRecorder = function () { function ArgumentRecorder(callee, am, ag) { this._callee = callee; this._metadata = am; this._argDef = ag; this._logs = []; this._recorded = null; this._value = null; this._isBlock = false; if (am.config) { this.pattern = am.config.pattern; var argconf = am.config.args[ag.index]; this._isBlock = !!argconf.block; } } ArgumentRecorder.prototype.metadata = function metadata() { return this._metadata; }; ArgumentRecorder.prototype.code = function code() { return this._argDef.code; }; ArgumentRecorder.prototype.value = function value() { return this._value; }; ArgumentRecorder.prototype._tap = function _tap(value, espath) { this._logs.push({ value: wrap(value), espath: espath }); return value; }; ArgumentRecorder.prototype._rec = function _rec(value, espath) { var empowered = this._callee && this._callee._empowered; try { if (!empowered) return value; var log = { value: wrap(value), espath: espath }; this._logs.push(log); if (this._isBlock && empowered && typeof value === 'function') { value = new Proxy(value, { apply: function (target, thisArg, argumentsList) { var ret; try { ret = target.apply(thisArg, argumentsList); log.value = wrap(ret); } catch (e) { log.value = e; throw e; } return ret; } }); } this._recorded = { value: value, logs: [].concat(this._logs) }; return this; } finally { this._value = value; this._logs = []; } }; ArgumentRecorder.prototype.eject = function eject() { var result = this._recorded; this._recorded = null; this._value = null; return result; }; function isPromiseLike(o) { return o !== null && typeof o === 'object' && typeof o.then === 'function' && typeof o.catch === 'function'; } function $Promise$(prms) { this.status = 'pending'; prms.then(mark(this, 'resolved'), mark(this, 'rejected')); } function mark(_this, s) { return function () { var args = Array.prototype.slice.apply(arguments); _this.status = s; _this.value = args.length === 1 ? args[0] : args; }; } function wrap(v) { return isPromiseLike(v) ? new $Promise$(v) : v; } return ArgumentRecorder; }(),
     _ag = new _ArgumentRecorder(assert, _am5, {
   espath: "arguments/1",
   code: "messageStr",
@@ -52,7 +56,8 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am7 = {
   content: "assert(/^not/.exec(str))",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 15
+  line: 15,
+  config: _powerAssertConfig[0]
 },
     _ag3 = new _ArgumentRecorder(assert, _am7, {
   espath: "arguments/0",
@@ -64,7 +69,8 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am8 = {
   content: "assert(fuga !== '\u3075\u304C')",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 17
+  line: 17,
+  config: _powerAssertConfig[0]
 },
     _ag4 = new _ArgumentRecorder(assert, _am8, {
   espath: "arguments/0",
@@ -76,7 +82,8 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am9 = {
   content: "assert('\u307B\u3052' !== '\u3075\u304C')",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 19
+  line: 19,
+  config: _powerAssertConfig[0]
 },
     _ag5 = new _ArgumentRecorder(assert, _am9, {
   espath: "arguments/0",
@@ -88,12 +95,14 @@ var _powerAssertConfig = ["assert(value, [message])", "assert.ok(value, [message
     _am10 = {
   content: "assert(0b111110111)",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 21
+  line: 21,
+  config: _powerAssertConfig[0]
 },
     _am11 = {
   content: "assert(0o767)",
   filepath: "test/fixtures/Literal/fixture.js",
-  line: 23
+  line: 23,
+  config: _powerAssertConfig[0]
 };
 
 assert(false);
