@@ -17,10 +17,10 @@
   "dependencies": {
     "@babel/generator": "^7.0.0",
     "@babel/parser": "^7.0.0",
-    "call-matcher": "^1.1.0",
+    "call-matcher": "^2.0.0",
     "core-js": "^2.0.0",
     "espower-location-detector": "^1.0.0",
-    "espurify": "^1.6.0",
+    "espurify": "^2.0.0",
     "estraverse": "^4.1.1"
   },
   "devDependencies": {
