@@ -2,7 +2,7 @@ const assert = require('assert');
 const babel = require('@babel/core');
 const espowerPlugin = require('../index');
 const transpile = (code) => {
-    return babel.transform(code, {
+    const result = babel.transform(code, {
         filename: '/absolute/path/to/project/test/some_test.js',
         plugins: [
             [espowerPlugin, {
@@ -10,6 +10,12 @@ const transpile = (code) => {
             }]
         ]
     }).code;
+    const lines = result.split('\n');
+    const lastLine = lines[lines.length - 1];
+    return {
+        result,
+        lastLine
+    };
 };
 
 describe('simple Identifier: assert(falsy)', () => {
@@ -17,10 +23,6 @@ describe('simple Identifier: assert(falsy)', () => {
 const falsy = false;
 assert(falsy);
 `;
-    let result;
-    beforeEach(() => {
-        result = transpile(input);
-    });
     it('AssertionMetadata', () => {
         const expected = `
     _am = {
@@ -29,13 +31,16 @@ assert(falsy);
   line: 3,
   config: _powerAssertConfig[0]
 `;
+        const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });
     it ('ArgumentRecorder', () => {
+        const {result} = transpile(input);
         assert(result.indexOf('_ag = new _ArgumentRecorder(assert, _am, 0)') !== -1);
     });
     it ('AssertionMessage', () => {
-        assert(result.indexOf('assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, -1));') !== -1);
+        const {lastLine} = transpile(input);
+        assert.strictEqual(lastLine, 'assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, -1));');
     });
 });
 
@@ -44,10 +49,6 @@ describe('assertion message of string literal: assert(falsy, "assertion message"
 const falsy = false;
 assert(falsy, "assertion message");
 `;
-    let result;
-    beforeEach(() => {
-        result = transpile(input);
-    });
     it('AssertionMetadata', () => {
         const expected = `
     _am = {
@@ -56,13 +57,16 @@ assert(falsy, "assertion message");
   line: 3,
   config: _powerAssertConfig[0]
 `;
+        const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });
     it ('ArgumentRecorder', () => {
+        const {result} = transpile(input);
         assert(result.indexOf('_ag = new _ArgumentRecorder(assert, _am, 0)') !== -1);
     });
     it ('AssertionMessage', () => {
-        assert(result.indexOf('assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, 1, "assertion message"));') !== -1);
+        const {lastLine} = transpile(input);
+        assert.strictEqual(lastLine, 'assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, 1, "assertion message"));');
     });
 });
 
@@ -72,10 +76,6 @@ const falsy = false;
 const msg = 'assertion message';
 assert(falsy, msg);
 `;
-    let result;
-    beforeEach(() => {
-        result = transpile(input);
-    });
     it('AssertionMetadata', () => {
         const expected = `
     _am = {
@@ -84,12 +84,15 @@ assert(falsy, msg);
   line: 4,
   config: _powerAssertConfig[0]
 `;
+        const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });
     it ('ArgumentRecorder', () => {
+        const {result} = transpile(input);
         assert(result.indexOf('_ag = new _ArgumentRecorder(assert, _am, 0)') !== -1);
     });
     it ('AssertionMessage', () => {
-        assert(result.indexOf('assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, 1, _ag2._rec(msg, "arguments/1")));') !== -1);
+        const {lastLine} = transpile(input);
+        assert.strictEqual(lastLine, 'assert(_ag._rec(falsy, "arguments/0"), new _AssertionMessage(_am, 1, _ag2._rec(msg, "arguments/1")));');
     });
 });
