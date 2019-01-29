@@ -5,7 +5,7 @@ Babel plugin for power-assert.
 
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
-[![Dependency Status][depstat-image]][depstat-url]
+[![Code Style][style-image]][style-url]
 [![License][license-image]][license-url]
 
 
@@ -444,8 +444,8 @@ Licensed under the [MIT](https://github.com/power-assert-js/babel-plugin-espower
 [travis-url]: https://travis-ci.org/power-assert-js/babel-plugin-espower
 [travis-image]: https://secure.travis-ci.org/power-assert-js/babel-plugin-espower.svg?branch=master
 
-[depstat-url]: https://gemnasium.com/power-assert-js/babel-plugin-espower
-[depstat-image]: https://gemnasium.com/power-assert-js/babel-plugin-espower.svg
+[style-url]: https://github.com/Flet/semistandard
+[style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
 
 [license-url]: https://github.com/power-assert-js/babel-plugin-espower/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
