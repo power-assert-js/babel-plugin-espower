@@ -27,7 +27,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         if (actual != expected) {
             fs.writeFileSync(actualFilepath, actual);
         }
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 }
 
