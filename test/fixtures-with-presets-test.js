@@ -2,7 +2,6 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var babel = require('@babel/core');
-var assign = require('core-js/library/fn/object/assign');
 var createEspowerPlugin = require('../create');
 
 function testTransform (fixtureName, extraSuffix, extraOptions) {
@@ -11,7 +10,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         var fixtureFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'fixture.js');
         var expectedFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'expected' + suffix + '.js');
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual' + suffix + '.js');
-        var result = babel.transformFileSync(fixtureFilepath, assign({
+        var result = babel.transformFileSync(fixtureFilepath, Object.assign({
             presets: [
                 '@babel/env',
                 '@babel/react'
@@ -27,7 +26,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
         if (actual != expected) {
             fs.writeFileSync(actualFilepath, actual);
         }
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 }
 
