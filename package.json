@@ -64,7 +64,7 @@
   "scripts": {
     "lint": "semistandard --verbose index.js create.js lib/*.js | snazzy",
     "fmt": "semistandard --fix index.js create.js lib/*.js",
-    "test": "mocha --timeout 0"
+    "test": "npm run lint && mocha --timeout 0"
   },
   "semistandard": {
     "ignore": [
