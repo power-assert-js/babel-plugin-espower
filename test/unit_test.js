@@ -5,9 +5,7 @@ const transpile = (code) => {
     const result = babel.transform(code, {
         filename: '/absolute/path/to/project/test/some_test.js',
         plugins: [
-            [espowerPlugin, {
-                embedAst: false
-            }]
+            espowerPlugin
         ]
     }).code;
     const lines = result.split('\n');

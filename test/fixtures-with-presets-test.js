@@ -2,7 +2,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var babel = require('@babel/core');
-var createEspowerPlugin = require('../create');
+var espowerPlugin = require('../index');
 
 function testTransform (fixtureName, extraSuffix, extraOptions) {
     it(fixtureName, function () {
@@ -16,9 +16,7 @@ function testTransform (fixtureName, extraSuffix, extraOptions) {
                 '@babel/react'
             ],
             plugins: [
-                createEspowerPlugin(babel, {
-                    embedAst: true
-                })
+                espowerPlugin
             ]
         }, extraOptions));
         var actual = result.code + '\n';
