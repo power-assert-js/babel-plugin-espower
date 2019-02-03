@@ -318,7 +318,6 @@ You can customize configs such as assertion patterns via [.babelrc](https://babe
   ],
   "plugins": [
     ["babel-plugin-espower", {
-      "embedAst": true,
       "patterns": [
         "assert.isNull(object, [message])",
         "assert.same(actual, expected, [message])",
@@ -336,7 +335,6 @@ require('@babel/register')({
     presets: [...],
     plugins: [
         ['babel-plugin-espower', {
-            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -356,7 +354,6 @@ var transformed = babel.transform(jsCode, {
     presets: [...],
     plugins: [
         ['babel-plugin-espower', {
-            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -390,7 +387,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
         'assert.deepStrictEqual(actual, expected, [message])',
         'assert.notDeepStrictEqual(actual, expected, [message])'
     ],
-    embedAst: true,
+    embedAst: false, // false by default, true if there are some syntax plugins configured
     visitorKeys: babel.types.VISITOR_KEYS,
     astWhiteList: babel.types.BUILDER_KEYS,
     sourceRoot: process.cwd(),
@@ -402,6 +399,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
 #### options.embedAst
 
 If you want to use non-ECMASCript-standard features such as JSX tags in your `assert()`, you should set `embedAst` option to `true`.
+Since 4.0.0, `embedAst` option is configured automatically.
 
 ```js
 assert(shallow(<Foo />).is('.foo'));

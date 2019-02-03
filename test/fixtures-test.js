@@ -2,7 +2,7 @@ var assert = require('assert');
 var fs = require('fs');
 var path = require('path');
 var babel = require('@babel/core');
-var createEspowerPlugin = require('../create');
+var espowerPlugin = require('../index');
 
 function testTransform (fixtureName, extraOptions) {
     it(fixtureName, function () {
@@ -11,9 +11,7 @@ function testTransform (fixtureName, extraOptions) {
         var actualFilepath = path.resolve(__dirname, 'fixtures', fixtureName, 'actual.js');
         var result = babel.transformFileSync(fixtureFilepath, Object.assign({
             plugins: [
-                createEspowerPlugin(babel, {
-                    embedAst: false
-                })
+                espowerPlugin
             ]
         }, extraOptions));
         var actual = result.code + '\n';
@@ -52,22 +50,20 @@ describe('babel-plugin-espower', function () {
     testTransform('YieldExpression');
     testTransform('inputSourceMap', {
         plugins: [
-            createEspowerPlugin(babel, {
-                embedAst: false,
+            [espowerPlugin, {
                 sourceRoot: "/absolute/"
-            })
+            }]
         ]
     });
     testTransform('customPatterns', {
         plugins: [
-            createEspowerPlugin(babel, {
-                embedAst: false,
+            [espowerPlugin, {
                 patterns: [
                     'assert.isNull(object, [message])',
                     'assert.same(actual, expected, [message])',
                     'assert.near(actual, expected, delta, [message])'
                 ]
-            })
+            }]
         ]
     });
     testTransform('CommentsInAssertion');
