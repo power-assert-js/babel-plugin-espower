@@ -22,13 +22,7 @@ const falsy = false;
 assert(falsy);
 `;
     it('AssertionMetadata', () => {
-        const expected = `
-    _am = {
-  content: "assert(falsy)",
-  filepath: "some_test.js",
-  line: 3,
-  config: _powerAssertConfig[0]
-`;
+        const expected = `_am = _pwmeta(0, "assert(falsy)", "some_test.js", 3)`;
         const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });
@@ -48,13 +42,7 @@ const falsy = false;
 assert(falsy, "assertion message");
 `;
     it('AssertionMetadata', () => {
-        const expected = `
-    _am = {
-  content: "assert(falsy, \\"assertion message\\")",
-  filepath: "some_test.js",
-  line: 3,
-  config: _powerAssertConfig[0]
-`;
+        const expected = `_am = _pwmeta(0, "assert(falsy, \\"assertion message\\")", "some_test.js", 3)`;
         const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });
@@ -75,13 +63,7 @@ const msg = 'assertion message';
 assert(falsy, msg);
 `;
     it('AssertionMetadata', () => {
-        const expected = `
-    _am = {
-  content: "assert(falsy, msg)",
-  filepath: "some_test.js",
-  line: 4,
-  config: _powerAssertConfig[0]
-`;
+        const expected = `_am = _pwmeta(0, "assert(falsy, msg)", "some_test.js", 4)`;
         const {result} = transpile(input);
         assert(result.indexOf(expected) !== -1);
     });

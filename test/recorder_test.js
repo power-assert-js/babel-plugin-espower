@@ -13,22 +13,20 @@ function willResolve (value) {
 }
 
 var am = {
-    config: {
-        pattern: 'assert(value, [message])',
-        args: [
-            {
-                name: 'value',
-                index: 0,
-                kind: 'mandatory'
-            },
-            {
-                name: 'message',
-                index: 1,
-                kind: 'optional',
-                message: true
-            }
-        ]
-    }
+    pattern: 'assert(value, [message])',
+    args: [
+        {
+            name: 'value',
+            index: 0,
+            kind: 'mandatory'
+        },
+        {
+            name: 'message',
+            index: 1,
+            kind: 'optional',
+            message: true
+        }
+    ]
 };
 
 describe('to-be-embedded argument-recorder', function () {
