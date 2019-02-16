@@ -19,7 +19,7 @@
     "@babel/parser": "^7.0.0",
     "call-matcher": "^2.0.0",
     "call-signature": "^0.0.2",
-    "espower-location-detector": "^1.0.0",
+    "espower-location-detector": "^2.0.0",
     "espurify": "^2.0.0",
     "estraverse": "^4.1.1"
   },
