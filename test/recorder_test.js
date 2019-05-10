@@ -14,7 +14,7 @@ function willResolve (value) {
 
 var am = {
     pattern: 'assert(value, [message])',
-    args: [
+    params: [
         {
             name: 'value',
             index: 0,

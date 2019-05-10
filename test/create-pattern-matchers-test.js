@@ -20,7 +20,7 @@ describe('createPatternMatchers patterns', function () {
             {
                 pattern: 'assert(value, [message])',
                 index: 0,
-                args: [
+                params: [
                     {
                         name: 'value',
                         index: 0,
@@ -42,7 +42,7 @@ describe('createPatternMatchers patterns', function () {
             patterns: [
                 {
                     pattern: 'assert.deepEqual(actual, expected, [message])',
-                    args: [
+                    params: [
                         { name: 'actual', options: {depth: 2 }},
                         { name: 'expected', options: {depth: 2 }},
                         { name: 'message', message: true },
@@ -54,7 +54,7 @@ describe('createPatternMatchers patterns', function () {
             {
                 pattern: 'assert.deepEqual(actual, expected, [message])',
                 index: 0,
-                args: [
+                params: [
                     {
                         name: 'actual',
                         index: 0,
@@ -84,7 +84,7 @@ describe('createPatternMatchers patterns', function () {
                 'assert(value, [message])',
                 {
                     pattern: 'assert.deepEqual(actual, expected, [message])',
-                    args: [
+                    params: [
                         { name: 'actual', options: {depth: 2 }},
                         { name: 'expected', options: {depth: 2 }},
                         { name: 'message', message: true },
@@ -96,7 +96,7 @@ describe('createPatternMatchers patterns', function () {
             {
                 pattern: 'assert(value, [message])',
                 index: 0,
-                args: [
+                params: [
                     {
                         name: 'value',
                         index: 0,
@@ -113,7 +113,7 @@ describe('createPatternMatchers patterns', function () {
             {
                 pattern: 'assert.deepEqual(actual, expected, [message])',
                 index: 1,
-                args: [
+                params: [
                     {
                         name: 'actual',
                         index: 0,
