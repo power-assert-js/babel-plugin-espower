@@ -61,14 +61,41 @@ describe('to-be-embedded argument-recorder', function () {
         });
     });
 
-    describe('#_rec(value)', function () {
+    describe('#_rec(value, [espath])', function () {
         describe('when runtime exists', function () {
             beforeEach(function () {
                 fakeCallee._empowered = true;
             });
             it('returns self if runtime exists', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert(ret === _ar);
+            });
+            it('once called, argument value is stored', function () {
+                _ar._rec(foo, 'arguments/0');
+                assert.equal(_ar.val(), 'FOO');
+            });
+            describe('when espath argument exists', function () {
+                it('record value', function () {
+                    _ar._rec(foo, 'arguments/0');
+                    assert.deepEqual(_ar.eject(), {
+                        logs: [
+                            {
+                                espath: "arguments/0",
+                                value: "FOO"
+                            }
+                        ],
+                        value: "FOO"
+                    });
+                });
+            });
+            describe('when espath argument does not exist', function () {
+                it('skip recording value', function () {
+                    _ar._rec(foo);
+                    assert.deepEqual(_ar.eject(), {
+                        logs: [],
+                        value: "FOO"
+                    });
+                });
             });
         });
         describe('when runtime does not exist', function () {
@@ -76,13 +103,17 @@ describe('to-be-embedded argument-recorder', function () {
                 fakeCallee._empowered = false;
             });
             it('returns value untouched', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert.equal(ret, 'FOO');
             });
-        });
-        it('once called, argument value is stored', function () {
-            _ar._rec(_ar._tap(foo, 'arguments/0'));
-            assert.equal(_ar.val(), 'FOO');
+            it('once called, argument value is stored', function () {
+                _ar._rec(foo, 'arguments/0');
+                assert.equal(_ar.val(), 'FOO');
+            });
+            it('does not record value', function () {
+                _ar._rec(foo, 'arguments/0');
+                assert.strictEqual(_ar.eject(), null);
+            });
         });
     });
 
@@ -163,8 +194,8 @@ describe('to-be-embedded argument-recorder', function () {
             beforeEach(function () {
                 fakeCallee._empowered = true;
             });
-            it('_rec(value) returns self', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            it('_rec(value, [espath]) returns self', function () {
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert(ret === _ar);
             });
             it('return value of _tap(value, espath) is still untouched', function () {
@@ -172,18 +203,18 @@ describe('to-be-embedded argument-recorder', function () {
                 assert(ret === foo);
             });
             it('return value of val() is still untouched', function () {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                _ar._rec(foo, 'arguments/0');
                 assert(_ar.val() === foo);
             });
             it('Promises in recorded logs are wrapped', function () {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                _ar._rec(foo, 'arguments/0');
                 var recordedData = _ar.eject();
                 assert.strictEqual(recordedData.value, foo, 'return value is untouched');
                 var wrapped = recordedData.logs[0].value;
                 assert.notStrictEqual(wrapped, foo, 'Promises in logs are wrapped');
             });
             it('store Promise status and callback value when settled', function (done) {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                _ar._rec(foo, 'arguments/0');
                 var recordedData = _ar.eject();
                 var wrapped = recordedData.logs[0].value;
                 assert(wrapped.status === 'pending');
@@ -199,8 +230,8 @@ describe('to-be-embedded argument-recorder', function () {
             beforeEach(function () {
                 fakeCallee._empowered = false;
             });
-            it('return value of _rec(value) is still untouched', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            it('return value of _rec(value, [espath]) is still untouched', function () {
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert(ret === foo);
             });
             it('return value of _tap(value, espath) is still untouched', function () {
@@ -208,7 +239,7 @@ describe('to-be-embedded argument-recorder', function () {
                 assert(ret === foo);
             });
             it('return value of val() is still untouched', function () {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                _ar._rec(foo, 'arguments/0');
                 assert(_ar.val() === foo);
             });
         });
@@ -223,8 +254,8 @@ describe('to-be-embedded argument-recorder', function () {
             beforeEach(function () {
                 fakeCallee._empowered = true;
             });
-            it('_rec(value) returns self', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            it('_rec(value, [espath]) returns self', function () {
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert.equal(ret, _ar);
             });
         });
@@ -237,12 +268,12 @@ describe('to-be-embedded argument-recorder', function () {
                 assert(ret === foo);
                 assert(typeof ret === 'function');
             });
-            it('return value of _rec(value) is untouched', function () {
-                var ret = _ar._rec(_ar._tap(foo, 'arguments/0'));
+            it('return value of _rec(value, [espath]) is untouched', function () {
+                var ret = _ar._rec(foo, 'arguments/0');
                 assert(ret === foo);
             });
             it('return value of val() is untouched', function () {
-                _ar._rec(_ar._tap(foo, 'arguments/0'));
+                _ar._rec(foo, 'arguments/0');
                 assert(_ar.val() === foo);
                 assert(typeof _ar.val() === 'function');
             });

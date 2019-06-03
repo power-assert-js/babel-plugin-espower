@@ -84,3 +84,11 @@ describe(`AssignmentExpression`, () => {
         expected: `assert(_ag._rec(counter += _ag._tap(n, "arguments/0/right"), "arguments/0"), new _AssertionMessage(_am, -1));`
     });
 });
+
+describe(`ConditionalExpression`, () => {
+    test({
+        memo: 'ConditionalExpression that appears immediately beneath assert',
+        input: 'assert(foo ? bar : baz);',
+        expected: 'assert(_ag._rec(_ag._tap(foo, "arguments/0/test") ? _ag._tap(bar, "arguments/0/consequent") : _ag._tap(baz, "arguments/0/alternate")), new _AssertionMessage(_am, -1));'
+    });
+});
