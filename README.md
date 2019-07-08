@@ -5,7 +5,7 @@ Babel plugin for power-assert.
 
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
-[![Dependency Status][depstat-image]][depstat-url]
+[![Code Style][style-image]][style-url]
 [![License][license-image]][license-url]
 
 
@@ -318,7 +318,6 @@ You can customize configs such as assertion patterns via [.babelrc](https://babe
   ],
   "plugins": [
     ["babel-plugin-espower", {
-      "embedAst": true,
       "patterns": [
         "assert.isNull(object, [message])",
         "assert.same(actual, expected, [message])",
@@ -336,7 +335,6 @@ require('@babel/register')({
     presets: [...],
     plugins: [
         ['babel-plugin-espower', {
-            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -356,7 +354,6 @@ var transformed = babel.transform(jsCode, {
     presets: [...],
     plugins: [
         ['babel-plugin-espower', {
-            embedAst: true,
             patterns: [
                 'assert.isNull(object, [message])',
                 'assert.same(actual, expected, [message])',
@@ -390,7 +387,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
         'assert.deepStrictEqual(actual, expected, [message])',
         'assert.notDeepStrictEqual(actual, expected, [message])'
     ],
-    embedAst: true,
+    embedAst: false, // false by default, true if there are some syntax plugins configured
     visitorKeys: babel.types.VISITOR_KEYS,
     astWhiteList: babel.types.BUILDER_KEYS,
     sourceRoot: process.cwd(),
@@ -402,6 +399,7 @@ Configuration options for `babel-plugin-espower`. If not passed, default options
 #### options.embedAst
 
 If you want to use non-ECMASCript-standard features such as JSX tags in your `assert()`, you should set `embedAst` option to `true`.
+Since 4.0.0, `embedAst` option is configured automatically.
 
 ```js
 assert(shallow(<Foo />).is('.foo'));
@@ -444,8 +442,8 @@ Licensed under the [MIT](https://github.com/power-assert-js/babel-plugin-espower
 [travis-url]: https://travis-ci.org/power-assert-js/babel-plugin-espower
 [travis-image]: https://secure.travis-ci.org/power-assert-js/babel-plugin-espower.svg?branch=master
 
-[depstat-url]: https://gemnasium.com/power-assert-js/babel-plugin-espower
-[depstat-image]: https://gemnasium.com/power-assert-js/babel-plugin-espower.svg
+[style-url]: https://github.com/Flet/semistandard
+[style-image]: https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg
 
 [license-url]: https://github.com/power-assert-js/babel-plugin-espower/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-brightgreen.svg
